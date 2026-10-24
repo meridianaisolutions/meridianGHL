@@ -1,0 +1,8 @@
+Stock photo credits. All photos are under the Unsplash Licence (https://unsplash.com/license): free to use, attribution not required.
+Each was cropped to 4:3, resized to 1200x900 and saved as WebP (quality 78).
+
+photo-reviews-1.webp  | https://unsplash.com/photos/K-f_gTvdwTM | Ali Mkumbwa | Unsplash Licence
+photo-reviews-2.webp  | https://unsplash.com/photos/eL4xIEuHzzk | Brooke Cagle | Unsplash Licence
+photo-reviews-3.webp  | https://unsplash.com/photos/cHbyGVOQspk | Vitaly Gariev | Unsplash Licence
+photo-websites-1.webp | https://unsplash.com/photos/pn6tf73O2As | TheStandingDesk | Unsplash Licence
+photo-websites-2.webp | https://unsplash.com/photos/KeLUeVSplNY | Anton Savinov | Unsplash Licence
