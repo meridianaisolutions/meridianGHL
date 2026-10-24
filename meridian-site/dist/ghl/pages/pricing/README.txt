@@ -1,8 +1,8 @@
 Page name:        Pricing
 URL slug:         /pricing
-SEO title:        Pricing | Google Review Automation | Meridian AI Solutions  (58 chars)
-Meta description: Simple monthly plans for automated Google reviews, priced by review requests. Start with a 10-day free trial. No lock-in contract, cancel any time.  (147 chars)
-Keywords:         google review service pricing, review management pricing australia, local seo pricing
+SEO title:        Pricing: Reviews, Websites & Google Profile | Meridian  (54 chars)
+Meta description: Clear monthly pricing for Google review automation, websites, Google Business Profile management and the all-in-one Local Growth System. No lock-in.  (148 chars)
+Keywords:         google review service pricing, tradie website cost, google business profile management cost, local seo pricing australia
 Indexing:         index
 
 Section order on the page (top to bottom):

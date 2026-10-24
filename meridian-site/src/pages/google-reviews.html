@@ -1,22 +1,22 @@
 <!--meta {
-  "name": "Google Reviews",
-  "order": 2,
+  "name": "Review Management",
+  "order": 3,
   "slug": "/google-reviews",
-  "crumb": "Google Reviews",
+  "crumb": "Review Management",
   "service": "Google review generation",
-  "title": "Get More Google Reviews on Autopilot | Meridian AI Solutions",
+  "title": "Google Review Management, 30 Days Free | Meridian AI Solutions",
   "description": "Done-for-you Google review generation for Australian businesses. Personalised SMS and email requests, smart follow-ups and replies to every review.",
   "keywords": "get more google reviews, google review generation, review request sms, review management australia"
 } -->
 <div class="mr">
 <section class="mr-hero" aria-labelledby="hero-h">
   <div class="mr-wrap">
-    <nav class="mr-crumbs" aria-label="Breadcrumb"><ol><li><a href="{{link:home}}">Home</a></li><li aria-current="page">Google Reviews</li></ol></nav>
+    <nav class="mr-crumbs" aria-label="Breadcrumb"><ol><li><a href="{{link:home}}">Home</a></li><li aria-current="page">Review Management</li></ol></nav>
     <div style="max-width:780px">
-      <p class="mr-eyebrow" style="color:#ffd84a">Google review generation</p>
+      <p class="mr-eyebrow" style="color:#ffd84a">Review Management · {{offer:trialDays}} days free</p>
       <h1 id="hero-h">Turn every happy customer into a <em>Google review</em></h1>
       <p class="mr-lede">Your best customers would happily leave a review. They just need to be asked at the right time, in the right way. Our system asks every one of them for you, automatically.</p>
-      <div class="mr-ctas"><a class="mr-btn" href="{{link:book}}">Start my free trial</a><a class="mr-btn mr-btn--ghost" href="{{link:pricing}}">See pricing</a></div>
+      <div class="mr-ctas"><a class="mr-btn" href="{{link:book}}">Start my free trial</a><a class="mr-btn mr-btn--ghost" href="#rev-price">See pricing</a></div>
     </div>
   </div>
 </section>
@@ -75,7 +75,19 @@
   </div>
 </section>
 
-<section class="mr-sec mr-sec--soft" aria-labelledby="faq-h">
+<section class="mr-sec mr-sec--soft" id="rev-price" aria-labelledby="price-h">
+  <div class="mr-wrap">
+    <div class="mr-head mr-head--c">
+      <p class="mr-eyebrow">Pricing</p>
+      <h2 id="price-h">Simple pricing. Free for {{offer:trialDays}} days.</h2>
+      <p class="mr-lede">Every plan has the same features. Just choose how many new customers we ask each month.</p>
+    </div>
+    <div class="mr-plans">{{plans:reviews}}</div>
+    <p class="mr-micro" style="text-align:center;margin-top:22px;max-width:720px;margin-left:auto;margin-right:auto">{{offer:reviews.plansNote}} Prices in AUD, GST included. {{offer:contract}}</p>
+  </div>
+</section>
+
+<section class="mr-sec" aria-labelledby="faq-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c"><h2 id="faq-h">Google review FAQs</h2></div>
     <div class="mr-faq">

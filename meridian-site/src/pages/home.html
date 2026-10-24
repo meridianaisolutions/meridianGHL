@@ -2,17 +2,17 @@
   "name": "Home",
   "order": 1,
   "slug": "/",
-  "title": "More Google Reviews & Higher Local Rankings | Meridian AI Solutions",
-  "description": "Meridian gets Australian service businesses more Google reviews and higher map rankings on autopilot. Start a 10-day free trial today.",
+  "title": "Get More Google Reviews on Autopilot | Meridian AI Solutions",
+  "description": "Meridian gets Australian service businesses more Google reviews, higher map rankings and websites that book jobs. Try review automation free for 30 days.",
   "keywords": "google reviews, get more google reviews, local seo australia, google business profile optimisation, review management"
 } -->
 <div class="mr">
 <section class="mr-hero" aria-labelledby="hero-h">
   <div class="mr-wrap mr-split">
     <div>
-      <p class="mr-eyebrow" style="color:#ffd84a">Google reviews + local SEO, on autopilot</p>
+      <p class="mr-eyebrow" style="color:#ffd84a">Google reviews on autopilot · 30 days free</p>
       <h1 id="hero-h">Get more Google reviews and <em>outrank your local competitors</em></h1>
-      <p class="mr-lede">We turn your past and future customers into Google reviews with personalised text and email requests, then keep your Google Business Profile optimised every week. More reviews, higher rankings, more calls. You don't lift a finger.</p>
+      <p class="mr-lede">We turn your past and future customers into Google reviews with personalised text and email requests. More reviews means higher map rankings and more calls, and you don't lift a finger.</p>
       <div class="mr-ctas">
         <a class="mr-btn" href="{{link:book}}">Start my free trial {{icon:arrow}}</a>
         <a class="mr-btn mr-btn--ghost" href="#how">See how it works</a>
@@ -62,7 +62,7 @@
     <ol class="mr-steps">
       <li><h3>Connect your profile</h3><p>On a quick onboarding call we connect your Google Business Profile with a secure link and upload your list of past customers.</p></li>
       <li><h3>Reactivate past customers</h3><p>We send friendly, personalised review requests to customers you've already served. They're paced daily so your new reviews look natural to Google.</p></li>
-      <li><h3>Put it on autopilot</h3><p>Every new customer gets a request automatically, with polite follow-ups. Each review is answered, and your profile keeps getting optimised every week.</p></li>
+      <li><h3>Put it on autopilot</h3><p>Every new customer gets a request automatically, with polite follow-ups. Every review gets a reply drafted for you.</p></li>
     </ol>
     <div class="mr-ctas" style="justify-content:center"><a class="mr-btn" href="{{link:book}}">Start my free trial</a></div>
   </div>
@@ -72,21 +72,41 @@
   <div class="mr-wrap">
     <div class="mr-head">
       <p class="mr-eyebrow">What we do</p>
-      <h2 id="svc-h">Two services that feed each other</h2>
-      <p class="mr-lede">Reviews build trust and help you rank. An optimised profile turns that ranking into calls. We run both from one system.</p>
+      <h2 id="svc-h">Everything that gets you found, trusted and booked on Google</h2>
+      <p class="mr-lede">Start with reviews, add what you need, or let us run the whole system for you.</p>
     </div>
-    <div class="mr-grid mr-grid--2">
+    <article class="mr-card" style="border:2px solid var(--mr-ink);margin-bottom:20px;padding:30px">
+      <div class="mr-split" style="gap:24px">
+        <div>
+          <span class="mr-tag" style="position:static;display:inline-block;margin-bottom:14px">Best value</span>
+          <h3 style="font-size:1.5rem">{{brand:systemName}}</h3>
+          <p style="margin-top:8px">Your website, Google reviews and Google Business Profile, run by one team for one flat rate. It costs less than profile management alone.</p>
+          <p class="mr-from">{{offer:system.price}}<small>/month, everything included</small></p>
+        </div>
+        <div class="mr-ctas" style="margin-top:0;justify-content:flex-start"><a class="mr-btn" href="{{link:system}}">See the full system</a></div>
+      </div>
+    </article>
+    <div class="mr-grid mr-grid--3">
       <article class="mr-card">
         <span class="mr-ico">{{icon:star}}</span>
-        <h3>Google review generation</h3>
-        <p>Personalised text and email requests to past and new customers, smart follow-ups, review alerts and replies drafted for you.</p>
-        <p style="margin-top:14px"><a href="{{link:reviews}}">How our review system works {{icon:arrow}}</a></p>
+        <h3>Review Management</h3>
+        <p>Personalised text and email requests to past and new customers, smart follow-ups, review alerts and AI replies.</p>
+        <p class="mr-from">From {{offer:reviews.plans.0.price}}<small>/month · {{offer:trialDays}} days free</small></p>
+        <p style="margin-top:10px"><a href="{{link:reviews}}">Review Management {{icon:arrow}}</a></p>
+      </article>
+      <article class="mr-card">
+        <span class="mr-ico">{{icon:zap}}</span>
+        <h3>Websites</h3>
+        <p>Fast, SEO-ready websites built to turn visitors into booked jobs, with leads sent straight to your CRM.</p>
+        <p class="mr-from">From {{offer:websites.plans.0.price}}<small>/month · no setup fee</small></p>
+        <p style="margin-top:10px"><a href="{{link:websites}}">Websites {{icon:arrow}}</a></p>
       </article>
       <article class="mr-card">
         <span class="mr-ico">{{icon:map}}</span>
-        <h3>Automated local SEO</h3>
-        <p>Our AI optimises your Google Business Profile every week: keyword-rich posts, photos, Q&amp;A, review replies and map-rank tracking across your service area.</p>
-        <p style="margin-top:14px"><a href="{{link:seo}}">How our local SEO works {{icon:arrow}}</a></p>
+        <h3>Google Business Profile</h3>
+        <p>Weekly posts, photos, review replies and ranking reports, so you show up first on the map.</p>
+        <p class="mr-from">{{offer:gbp.price}}<small>/month · no lock-in</small></p>
+        <p style="margin-top:10px"><a href="{{link:gbp}}">Profile management {{icon:arrow}}</a></p>
       </article>
     </div>
   </div>
@@ -186,7 +206,7 @@
       <details data-faq><summary>Will my customers find the messages annoying?</summary><div><p>Requests are short, friendly and personalised, and follow-ups stop as soon as a review is left. Every message includes an easy way to opt out, as required by the Spam Act.</p></div></details>
       <details data-faq><summary>What if I get a bad review?</summary><div><p>You'll be alerted straight away and we'll draft a calm, professional reply for you to approve. A few honest, well-handled reviews actually make your profile more believable.</p></div></details>
       <details data-faq><summary>Do I need to sign a long contract?</summary><div><p>No. {{offer:contract}} We'd rather keep you because it works.</p></div></details>
-      <details data-faq><summary>What does the local SEO part do?</summary><div><p>Our AI optimises your Google Business Profile every week. It publishes keyword-targeted posts, adds photos and Q&amp;A, keeps your services and details complete, answers reviews and tracks where you rank on the map across your service area.</p></div></details>
+      <details data-faq><summary>What else do you do besides reviews?</summary><div><p>We also build websites and manage Google Business Profiles, or run all three as the <a href="{{link:system}}">{{brand:systemName}}</a>. Our profile management optimises your Google Business Profile every week. It publishes keyword-targeted posts, adds photos and Q&amp;A, keeps your services and details complete, answers reviews and tracks where you rank on the map across your service area.</p></div></details>
       <details data-faq><summary>Can you stop bad reviews from going on Google?</summary><div><p>No, and you should be wary of anyone who says they can. Filtering out unhappy customers before they reach Google (called review gating) breaks Google's policies and can get a profile suspended. We ask every customer the same way, and we help you reply well to the occasional bad review.</p></div></details>
       <details data-faq><summary>What software do you connect to?</summary><div><p>We can connect most job, booking and invoicing tools directly or through Zapier, so new customers are asked automatically. If your software isn't supported, you can add customers from your phone in seconds.</p></div></details>
       <details data-faq><summary>How often will my customers be asked?</summary><div><p>One request after the job and up to two reminders, which you can adjust. Customers who use you regularly are only asked once every 30 days at most.</p></div></details>

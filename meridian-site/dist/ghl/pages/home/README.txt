@@ -1,7 +1,7 @@
 Page name:        Home
 URL slug:         /
-SEO title:        More Google Reviews & Higher Local Rankings | Meridian AI Solutions  (67 chars)
-Meta description: Meridian gets Australian service businesses more Google reviews and higher map rankings on autopilot. Start a 10-day free trial today.  (134 chars)
+SEO title:        Get More Google Reviews on Autopilot | Meridian AI Solutions  (60 chars)
+Meta description: Meridian gets Australian service businesses more Google reviews, higher map rankings and websites that book jobs. Try review automation free for 30 days.  (153 chars)
 Keywords:         google reviews, get more google reviews, local seo australia, google business profile optimisation, review management
 Indexing:         index
 

@@ -27,27 +27,38 @@ function minifyHtml(html) {
     .trim();
 }
 
-function renderPlans() {
-  const feats = cfg.offer.planFeatures.map((f) => `<li>${esc(f)}</li>`).join('');
-  return cfg.offer.plans.map((p) => `
-    <article class="mr-plan${p.popular ? ' mr-plan--pop' : ''}">
-      ${p.popular ? '<span class="mr-tag">Most popular</span>' : ''}
-      <h3>${esc(p.name)}</h3>
-      <p class="mr-price">${esc(p.price)}<small>${esc(p.period)}</small></p>
-      <p><strong>${esc(p.requests)}</strong></p>
-      <p class="mr-micro" style="margin-top:6px">${esc(p.blurb)}</p>
-      <ul class="mr-list">${feats}</ul>
-      <a class="mr-btn${p.popular ? '' : ' mr-btn--ghost'}" href="${cfg.links.book}">Start my ${esc(cfg.offer.trialDays)}-day free trial</a>
-    </article>`).join('');
+function planCard({ name, price, period, popular, lines, features, cta, ctaHref, extra = '' }) {
+  return `
+    <article class="mr-plan${popular ? ' mr-plan--pop' : ''}">
+      ${popular ? '<span class="mr-tag">Most popular</span>' : ''}
+      <h3>${esc(name)}</h3>
+      <p class="mr-price">${esc(price)}<small>${esc(period)}</small></p>
+      ${lines.map((l, i) => i === 0 ? `<p><strong>${esc(l)}</strong></p>` : `<p class="mr-micro" style="margin-top:6px">${esc(l)}</p>`).join('')}
+      <ul class="mr-list">${features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+      ${extra}
+      <a class="mr-btn${popular ? '' : ' mr-btn--ghost'}" href="${ctaHref}">${esc(cta)}</a>
+    </article>`;
+}
+function renderPlans(key) {
+  const o = cfg.offer;
+  if (key === 'reviews') return o.reviews.plans.map((p) => planCard({
+    ...p, lines: [p.requests, p.blurb], features: o.reviews.features,
+    cta: `Start my ${o.trialDays}-day free trial`, ctaHref: cfg.links.book,
+  })).join('');
+  if (key === 'websites') return o.websites.plans.map((p) => planCard({
+    ...p, lines: [p.value, `Or buy it outright for ${p.outright}`], features: p.features,
+    cta: `Choose ${p.name}`, ctaHref: cfg.links.book,
+  })).join('');
+  throw new Error(`Unknown plan set ${key}`);
 }
 
 // mode: 'ghl' for paste-ready blocks, 'preview' for the local preview (only differs where a value has a 'preview' override)
 function render(tpl, mode, page = {}) {
   // no client login URL yet: drop the link rather than point it at nothing
   if (!cfg.customValues.login.value && mode === 'ghl') tpl = tpl.replace(/<li><a href="\{\{cv:login\}\}"[^>]*>Client login<\/a><\/li>/g, '');
-  return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_.-]+)\s*\}\}|\{\{\s*plans\s*\}\}/g, (m, ns, key) => {
-    if (m.replace(/\s/g, '') === '{{plans}}') return renderPlans();
+  return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_.-]+)\s*\}\}/g, (m, ns, key) => {
     switch (ns) {
+      case 'plans': return renderPlans(key);
       case 'cv': {
         const v = cfg.customValues[key];
         if (!v) throw new Error(`Unknown custom value ${key} in ${page.id}`);
@@ -58,7 +69,11 @@ function render(tpl, mode, page = {}) {
       }
       case 'brand': return esc(get(cfg.brand, key));
       case 'link': return get(cfg.links, key);
-      case 'offer': return esc(get(cfg.offer, key));
+      case 'offer': {
+        const v = get(cfg.offer, key);
+        if (v === undefined) throw new Error(`Unknown offer value ${key} in ${page.id}`);
+        return esc(v);
+      }
       case 'icon': {
         if (!icons[key]) throw new Error(`Unknown icon ${key}`);
         return icons[key];
@@ -114,7 +129,7 @@ const strip = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&
 
 // ---------- build ----------
 rmSync(out(), { recursive: true, force: true });
-const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&family=Newsreader:ital,opsz@1,6..72&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&family=Newsreader:ital,opsz@1,6..72&display=swap"></noscript>';
+const fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap"></noscript>';
 const css = minifyCss(readFileSync(src('styles.css'), 'utf8'));
 const header = readFileSync(src('partials', 'header.html'), 'utf8');
 const footer = readFileSync(src('partials', 'footer.html'), 'utf8');

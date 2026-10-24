@@ -7,25 +7,41 @@
     </a>
     <nav class="mr-nav" aria-label="Main">
       <ul>
-        <li><a href="{{link:reviews}}">Google Reviews</a></li>
-        <li><a href="{{link:seo}}">Local SEO</a></li>
+        <li class="mr-dd">
+          <button type="button" aria-haspopup="true">Services</button>
+          <div class="mr-dd-panel">
+            <ul>
+              <li><a href="{{link:system}}"><strong>{{brand:systemName}}</strong><span>Website, reviews and Google profile, one flat rate</span></a></li>
+              <li><a href="{{link:reviews}}"><strong>Review Management</strong><span>Automated Google reviews, 30 days free</span></a></li>
+              <li><a href="{{link:websites}}"><strong>Websites</strong><span>Sites built to book jobs</span></a></li>
+              <li><a href="{{link:gbp}}"><strong>Google Business Profile</strong><span>Get found first on the map</span></a></li>
+            </ul>
+          </div>
+        </li>
         <li><a href="{{link:pricing}}">Pricing</a></li>
+        <li><a href="{{link:blog}}">Blog</a></li>
         <li><a href="{{link:contact}}">Contact</a></li>
+        <li><a href="{{cv:login}}" rel="nofollow">Login</a></li>
       </ul>
     </nav>
     <div class="mr-hdr-cta">
       <a class="mr-tel" href="tel:{{cv:phone}}">{{cv:phone}}</a>
-      <a class="mr-btn" href="{{link:book}}">Start free trial</a>
+      <a class="mr-btn" href="{{link:book}}">Book a free call</a>
       <details class="mr-menu">
         <summary aria-label="Open menu">{{icon:menu}}</summary>
         <div class="mr-menu-panel">
           <ul>
-            <li><a href="{{link:reviews}}">Google Reviews</a></li>
-            <li><a href="{{link:seo}}">Local SEO</a></li>
+            <li class="mr-menu-h">Services</li>
+            <li><a href="{{link:system}}">{{brand:systemName}}</a></li>
+            <li><a href="{{link:reviews}}">Review Management</a></li>
+            <li><a href="{{link:websites}}">Websites</a></li>
+            <li><a href="{{link:gbp}}">Google Business Profile</a></li>
+            <li class="mr-menu-h">Company</li>
             <li><a href="{{link:pricing}}">Pricing</a></li>
+            <li><a href="{{link:blog}}">Blog</a></li>
             <li><a href="{{link:contact}}">Contact</a></li>
-            <li><a href="tel:{{cv:phone}}">Call {{cv:phone}}</a></li>
             <li><a href="{{cv:login}}" rel="nofollow">Client login</a></li>
+            <li><a href="tel:{{cv:phone}}">Call {{cv:phone}}</a></li>
           </ul>
         </div>
       </details>

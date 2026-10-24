@@ -4,17 +4,27 @@ Pages, in nav order:
 
 ## Home (/)
 
-- SEO title: More Google Reviews & Higher Local Rankings | Meridian AI Solutions
-- Meta description: Meridian gets Australian service businesses more Google reviews and higher map rankings on autopilot. Start a 10-day free trial today.
+- SEO title: Get More Google Reviews on Autopilot | Meridian AI Solutions
+- Meta description: Meridian gets Australian service businesses more Google reviews, higher map rankings and websites that book jobs. Try review automation free for 30 days.
 - Page head tracking code: `pages/home/page-head-tracking-code.html`
 - Sections, top to bottom:
   - Header global section
   - Custom Code element: paste `pages/home/block-1.html`
   - Footer global section
 
-## Google Reviews (/google-reviews)
+## Local Growth System (/local-growth-system)
 
-- SEO title: Get More Google Reviews on Autopilot | Meridian AI Solutions
+- SEO title: Local Growth System: Website, Reviews & Google Profile | Meridian
+- Meta description: One team runs your website, Google reviews and Google Business Profile for one flat monthly rate. Built for Australian service businesses. No lock-in.
+- Page head tracking code: `pages/local-growth-system/page-head-tracking-code.html`
+- Sections, top to bottom:
+  - Header global section
+  - Custom Code element: paste `pages/local-growth-system/block-1.html`
+  - Footer global section
+
+## Review Management (/google-reviews)
+
+- SEO title: Google Review Management, 30 Days Free | Meridian AI Solutions
 - Meta description: Done-for-you Google review generation for Australian businesses. Personalised SMS and email requests, smart follow-ups and replies to every review.
 - Page head tracking code: `pages/google-reviews/page-head-tracking-code.html`
 - Sections, top to bottom:
@@ -22,30 +32,52 @@ Pages, in nav order:
   - Custom Code element: paste `pages/google-reviews/block-1.html`
   - Footer global section
 
-## Local SEO (/local-seo)
+## Google Business Profile (/google-business-profile)
 
-- SEO title: Automated Local SEO & Google Business Profile | Meridian
-- Meta description: AI-powered local SEO that optimises your Google Business Profile every week. Posts, photos, Q&A, review replies and map-rank tracking across your area.
-- Page head tracking code: `pages/local-seo/page-head-tracking-code.html`
+- SEO title: Google Business Profile Management | Meridian AI Solutions
+- Meta description: Done-for-you Google Business Profile management for Australian service businesses. Weekly posts, photos, review replies and ranking reports. No lock-in.
+- Page head tracking code: `pages/google-business-profile/page-head-tracking-code.html`
 - Sections, top to bottom:
   - Header global section
-  - Custom Code element: paste `pages/local-seo/block-1.html`
+  - Custom Code element: paste `pages/google-business-profile/block-1.html`
+  - Footer global section
+
+## Websites (/websites)
+
+- SEO title: Websites for Service Businesses, Paid Monthly | Meridian
+- Meta description: Fast, SEO-ready websites built to book jobs for Australian trades and service businesses. Pay monthly with no setup fee, or buy outright. No lock-in.
+- Page head tracking code: `pages/websites/page-head-tracking-code.html`
+- Sections, top to bottom:
+  - Header global section
+  - Custom Code element: paste `pages/websites/block-1.html`
   - Footer global section
 
 ## Pricing (/pricing)
 
-- SEO title: Pricing | Google Review Automation | Meridian AI Solutions
-- Meta description: Simple monthly plans for automated Google reviews, priced by review requests. Start with a 10-day free trial. No lock-in contract, cancel any time.
+- SEO title: Pricing: Reviews, Websites & Google Profile | Meridian
+- Meta description: Clear monthly pricing for Google review automation, websites, Google Business Profile management and the all-in-one Local Growth System. No lock-in.
 - Page head tracking code: `pages/pricing/page-head-tracking-code.html`
 - Sections, top to bottom:
   - Header global section
   - Custom Code element: paste `pages/pricing/block-1.html`
   - Footer global section
 
-## Start Free Trial (/book-a-call)
+## Blog (/blog)
 
-- SEO title: Start Your 10-Day Free Trial | Meridian AI Solutions
-- Meta description: Book a quick setup call and start your 10-day free trial of automated Google reviews. No lock-in contract, cancel any time.
+- SEO title: Blog: Google Reviews & Local SEO Tips | Meridian AI Solutions
+- Meta description: Practical guides for Australian service businesses on getting more Google reviews, ranking on Google Maps and turning website visitors into jobs.
+- Page head tracking code: `pages/blog/page-head-tracking-code.html`
+- Sections, top to bottom:
+  - Header global section
+  - Custom Code element: paste `pages/blog/block-1.html`
+  - Native GHL blog element: "Blog Post List" element showing the Meridian blog (newest first, 9 per page, show image, date and excerpt)
+  - Custom Code element: paste `pages/blog/block-2.html`
+  - Footer global section
+
+## Book a Call (/book-a-call)
+
+- SEO title: Book a Free Call | Meridian AI Solutions
+- Meta description: Book a free call about Google reviews, your website or your Google Business Profile, or start your 30-day free trial of review automation.
 - Page head tracking code: `pages/book-a-call/page-head-tracking-code.html`
 - Sections, top to bottom:
   - Header global section
@@ -78,7 +110,7 @@ Pages, in nav order:
 ## Terms and Conditions (/terms-and-conditions)
 
 - SEO title: Terms and Conditions | Meridian AI Solutions
-- Meta description: The terms that apply to Meridian AI Solutions' Google review and local SEO services, including free trials, billing and cancellation.
+- Meta description: The terms that apply to Meridian AI Solutions' review management, website and Google Business Profile services, including trials, billing and cancellation.
 - Page head tracking code: `pages/terms-and-conditions/page-head-tracking-code.html`
 - Sections, top to bottom:
   - Header global section

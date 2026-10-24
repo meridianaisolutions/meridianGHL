@@ -13,7 +13,8 @@
     "legalName": "Meridian AI Solutions Pty Ltd",
     "abn": "87 693 331 887",
     "locality": "Sydney",
-    "region": "NSW"
+    "region": "NSW",
+    "systemName": "Local Growth System"
   },
   "customValues": {
     "_note": "GHL does NOT render {{ custom_values.* }} inside Custom Code elements (tested 24 Oct 2026), so the build bakes 'value' into the blocks. 'ghl' records which sub-account custom value each one mirrors: when you change a custom value in GHL, change it here too and rebuild. 'preview' overrides the value for the local preview only.",
@@ -40,15 +41,17 @@
     },
     "login": {
       "ghl": "{{ custom_values.b7_your_whitelabel_login_url }}",
-      "value": "",
-      "preview": "#client-login"
+      "value": "https://client.meridianaisolutions.com.au"
     }
   },
   "links": {
     "home": "/",
+    "system": "/local-growth-system",
     "reviews": "/google-reviews",
-    "seo": "/local-seo",
+    "gbp": "/google-business-profile",
+    "websites": "/websites",
     "pricing": "/pricing",
+    "blog": "/blog",
     "book": "/book-a-call",
     "contact": "/contact",
     "privacy": "/privacy-policy",
@@ -56,46 +59,123 @@
     "thanks": "/thank-you"
   },
   "offer": {
-    "_note": "Modelled on ReviewHarvest's offer for now (Marcus, 24 Oct 2026). Prices are RH's USD numbers shown as AUD: confirm before go-live.",
-    "trialDays": "10",
+    "_note": "Modelled on ReviewHarvest's offer and prices (Marcus, 24 Oct 2026: 'copy reviewharvest for now'). Every price here is RH's USD number shown as AUD and is a placeholder until Marcus sets Meridian's prices.",
     "contract": "No lock-in contract. Cancel any time.",
     "setupDays": "3",
-    "trialTitle": "Try it free for 10 days",
-    "trialBody": "Start with a 10-day free trial. We set everything up and launch your first review campaign, and you're only billed on day 10 if you decide to stay. No contract, cancel any time.",
-    "plansNote": "Every plan includes one past-customer reactivation campaign, even if it goes over your monthly limit. Follow-ups never count towards your limit.",
-    "plans": [
-      {
-        "name": "Starter",
-        "requests": "Up to 50 new review requests a month",
-        "price": "$99",
+    "trialDays": "30",
+    "trialTitle": "Try review automation free for 30 days",
+    "trialBody": "Start with a 30-day free trial of review automation. We set everything up with you and launch your first review campaign, and you're only billed on day 30 if you decide to stay. No contract, cancel any time.",
+    "moneyBack": "30-day money-back guarantee",
+    "reviews": {
+      "plansNote": "Every plan includes one past-customer reactivation campaign, even if it goes over your monthly limit. Follow-ups never count towards your limit.",
+      "plans": [
+        {
+          "name": "Starter",
+          "requests": "Up to 50 new review requests a month",
+          "price": "$99",
+          "period": "/month",
+          "blurb": "For smaller businesses getting started with reviews."
+        },
+        {
+          "name": "Growth",
+          "requests": "50 to 100 new review requests a month",
+          "price": "$179",
+          "period": "/month",
+          "popular": true,
+          "blurb": "For busy businesses serving customers every day."
+        },
+        {
+          "name": "Pro",
+          "requests": "100 to 300 new review requests a month",
+          "price": "$279",
+          "period": "/month",
+          "blurb": "For high-volume and multi-crew businesses."
+        }
+      ],
+      "features": [
+        "Past-customer review reactivation",
+        "Automated text and email requests",
+        "Personalised image review requests",
+        "Smart follow-ups that stop once reviewed",
+        "AI-written replies to every review",
+        "5-star reviews shared to your socials",
+        "Connects to the job software you use",
+        "Unlimited users and a 1-on-1 setup call"
+      ]
+    },
+    "gbp": {
+      "price": "$400",
+      "period": "/month"
+    },
+    "websites": {
+      "note": "Monthly plans run for 24 months with hosting and security included. After month 24 the site is paid off and yours, and your payment drops to optional hosting at $99 a month.",
+      "plans": [
+        {
+          "name": "Starter",
+          "value": "A $2,995 website, paid monthly",
+          "price": "$149",
+          "period": "/month",
+          "outright": "$2,995",
+          "features": [
+            "15-page website built to convert",
+            "Quote button, click-to-call or form above the fold on every page",
+            "SEO foundations from day one",
+            "Unlimited changes, done within 2 business days"
+          ]
+        },
+        {
+          "name": "Standard",
+          "value": "A $3,500 website, paid monthly",
+          "price": "$179",
+          "period": "/month",
+          "outright": "$3,500",
+          "popular": true,
+          "features": [
+            "Everything in Starter",
+            "20-page website: more service and suburb pages",
+            "Leads sent straight into your CRM",
+            "Instant SMS alerts for new leads"
+          ]
+        },
+        {
+          "name": "Scale",
+          "value": "A $4,995 website, paid monthly",
+          "price": "$299",
+          "period": "/month",
+          "outright": "$4,995",
+          "features": [
+            "Everything in Standard",
+            "40-page website: every service, every suburb",
+            "Keyword-targeted content written for your area",
+            "Priority support"
+          ]
+        }
+      ],
+      "booster": {
+        "price": "$199",
         "period": "/month",
-        "blurb": "For smaller businesses getting started with reviews."
+        "body": "Two new SEO pages every month, such as suburb pages, service pages or articles, to keep growing your reach. Add it to any plan."
       },
-      {
-        "name": "Growth",
-        "requests": "50 to 100 new review requests a month",
-        "price": "$179",
-        "period": "/month",
-        "popular": true,
-        "blurb": "For busy businesses serving customers every day."
-      },
-      {
-        "name": "Pro",
-        "requests": "100 to 300 new review requests a month",
-        "price": "$279",
-        "period": "/month",
-        "blurb": "For high-volume and multi-crew businesses."
-      }
-    ],
-    "planFeatures": [
-      "Past-customer review reactivation",
-      "Automated text and email requests",
-      "Personalised image review requests",
-      "Smart follow-ups that stop once reviewed",
-      "AI-written replies to every review",
-      "5-star reviews shared to your socials",
-      "Connects to the job software you use",
-      "Unlimited users and a 1-on-1 setup call"
-    ]
+      "includes": [
+        "Custom design in your brand",
+        "A dedicated project manager",
+        "Custom lead forms",
+        "Hosting and security included",
+        "Submitted to Google Search Console",
+        "Traffic and leads dashboard",
+        "Your rate never goes up",
+        "30-day money-back guarantee"
+      ]
+    },
+    "system": {
+      "price": "$389",
+      "period": "/month",
+      "setup": "$1,000",
+      "separately": "$758",
+      "quarterly": "$1,167",
+      "sixMonthly": "$342",
+      "annual": "$324",
+      "annualTotal": "$3,890"
+    }
   }
 }

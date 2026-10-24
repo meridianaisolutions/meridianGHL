@@ -1,6 +1,6 @@
-Page name:        Google Reviews
+Page name:        Review Management
 URL slug:         /google-reviews
-SEO title:        Get More Google Reviews on Autopilot | Meridian AI Solutions  (60 chars)
+SEO title:        Google Review Management, 30 Days Free | Meridian AI Solutions  (62 chars)
 Meta description: Done-for-you Google review generation for Australian businesses. Personalised SMS and email requests, smart follow-ups and replies to every review.  (147 chars)
 Keywords:         get more google reviews, google review generation, review request sms, review management australia
 Indexing:         index

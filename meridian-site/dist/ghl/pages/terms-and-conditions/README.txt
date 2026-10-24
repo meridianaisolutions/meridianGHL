@@ -1,7 +1,7 @@
 Page name:        Terms and Conditions
 URL slug:         /terms-and-conditions
 SEO title:        Terms and Conditions | Meridian AI Solutions  (44 chars)
-Meta description: The terms that apply to Meridian AI Solutions' Google review and local SEO services, including free trials, billing and cancellation.  (133 chars)
+Meta description: The terms that apply to Meridian AI Solutions' review management, website and Google Business Profile services, including trials, billing and cancellation.  (155 chars)
 Keywords:         
 Indexing:         index
 

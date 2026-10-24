@@ -1,8 +1,8 @@
-Page name:        Start Free Trial
+Page name:        Book a Call
 URL slug:         /book-a-call
-SEO title:        Start Your 10-Day Free Trial | Meridian AI Solutions  (52 chars)
-Meta description: Book a quick setup call and start your 10-day free trial of automated Google reviews. No lock-in contract, cancel any time.  (123 chars)
-Keywords:         google review free trial, get more google reviews
+SEO title:        Book a Free Call | Meridian AI Solutions  (40 chars)
+Meta description: Book a free call about Google reviews, your website or your Google Business Profile, or start your 30-day free trial of review automation.  (138 chars)
+Keywords:         google review free trial, free local seo consultation
 Indexing:         index
 
 Section order on the page (top to bottom):
