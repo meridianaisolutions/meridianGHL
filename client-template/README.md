@@ -37,7 +37,7 @@ This regenerates `dist/`. It fails if a section uses a custom value that isn't i
 Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom values are already there with example roofing content.
 
 1. Test the fill script. On any page, add a Text element and paste `dist/ghl/TEST/1-text-element.txt` into it. Below it, add a Custom Code element and paste `dist/ghl/TEST/2-custom-code.html`. Preview: you should see only "Fill test: Roofing in Brisbane", with the Text element hidden.
-2. Create the quote form in Sites > Forms with Name, Phone, Suburb, Service needed and Message. Turn on the captcha, set "On submit" to redirect to `/thank-you`, and copy the form ID from Integrate into the Site Quote Form ID custom value.
+2. Reuse the snapshot's "Website Form" in Sites > Forms as the quote form (there are two with that name, so use the one your workflows trigger on). Turn on its captcha, set "On submit" to redirect to `/thank-you`, and copy its form ID from Integrate into the Site Quote Form ID custom value.
 3. Create the website in Sites > Websites, starting blank, and create the pages with the paths in `SEO-SETTINGS.md`. A service page's path must match that service's Slug custom value (`roof-repairs` and so on).
 4. Build the header global section. On the home page, add a full-width section with no padding. Put a Text element in it and paste `DATA-TEXT-ELEMENT.txt` into it (as plain text). Below that, add a Custom Code element and paste `dist/ghl/home/01-header.html`. Save the section as a Global section called "Header". It must be the first section on every page, because it carries the styles, the fill script and the data.
 5. Add the other blocks. For each page, add one full-width section with no padding per remaining file in `dist/ghl/<page>/`, in order, each holding one Custom Code element with that file's contents. Save the trust strip, how it works, reviews, FAQ, final CTA and footer as Global sections the first time and reuse them, so one change updates every page. The last file on most pages is the structured data block.
@@ -50,7 +50,7 @@ Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom value
 1. Load the snapshot into the client's sub-account.
 2. Fill in every value in `dist/ghl/CUSTOM-VALUES.md`. Copy the Google rating and review count straight from their Google Business Profile, and use three real reviews.
 3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB) and owner photo (640 x 640 WebP) to Media and paste the links into the image custom values.
-4. Recreate the quote form ID: the snapshot copies the form, but it gets a new ID in the new sub-account.
+4. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.
 5. Connect their domain, then test the form, the phone links and the thank-you redirect on a phone.
 
 Rules for values: avoid `<` and `>`, never use `{mx:` or `{/mx}`, and use hex codes for the brand and accent colours. The accent colour is the button colour and needs at least 4.5:1 contrast with white text. Check it at webaim.org/resources/contrastchecker.
