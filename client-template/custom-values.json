@@ -219,6 +219,14 @@
       "example": "Dave came out the same day after the storm, showed us photos of the damage and had it fixed by the weekend. Fair price and no mess left behind."
     },
     {
+      "key": "site_review_1_date",
+      "name": "Site Review 1 Date",
+      "status": "new",
+      "group": "Reviews",
+      "example": "September 2026",
+      "help": "Month and year the review was left, as shown on Google, e.g. September 2026"
+    },
+    {
       "key": "site_review_2_name",
       "name": "Site Review 2 Name",
       "status": "new",
@@ -240,6 +248,14 @@
       "example": "Three quotes and these guys were the only ones who turned up on time and explained everything. The roof looks brand new."
     },
     {
+      "key": "site_review_2_date",
+      "name": "Site Review 2 Date",
+      "status": "new",
+      "group": "Reviews",
+      "example": "August 2026",
+      "help": "Month and year the review was left, as shown on Google, e.g. September 2026"
+    },
+    {
       "key": "site_review_3_name",
       "name": "Site Review 3 Name",
       "status": "new",
@@ -259,6 +275,14 @@
       "status": "new",
       "group": "Reviews",
       "example": "Booked online on Monday, quote by Tuesday, job done Friday. Communication was excellent the whole way through."
+    },
+    {
+      "key": "site_review_3_date",
+      "name": "Site Review 3 Date",
+      "status": "new",
+      "group": "Reviews",
+      "example": "August 2026",
+      "help": "Month and year the review was left, as shown on Google, e.g. September 2026"
     },
     {
       "key": "site_hero_headline",

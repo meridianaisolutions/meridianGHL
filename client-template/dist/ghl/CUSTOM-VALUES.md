@@ -27,12 +27,15 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Review 1 Name | `{{ custom_values.site_review_1_name }}` | e.g. Sarah M. |
 | Site Review 1 Suburb | `{{ custom_values.site_review_1_suburb }}` | e.g. Paddington |
 | Site Review 1 Text | `{{ custom_values.site_review_1_text }}` | e.g. Dave came out the same day after the storm, showed us photos of the damage and had it fixed by the weekend. Fair price and no mess left behind. |
+| Site Review 1 Date | `{{ custom_values.site_review_1_date }}` | Month and year the review was left, as shown on Google, e.g. September 2026 |
 | Site Review 2 Name | `{{ custom_values.site_review_2_name }}` | e.g. James T. |
 | Site Review 2 Suburb | `{{ custom_values.site_review_2_suburb }}` | e.g. Logan |
 | Site Review 2 Text | `{{ custom_values.site_review_2_text }}` | e.g. Three quotes and these guys were the only ones who turned up on time and explained everything. The roof looks brand new. |
+| Site Review 2 Date | `{{ custom_values.site_review_2_date }}` | Month and year the review was left, as shown on Google, e.g. September 2026 |
 | Site Review 3 Name | `{{ custom_values.site_review_3_name }}` | e.g. Priya K. |
 | Site Review 3 Suburb | `{{ custom_values.site_review_3_suburb }}` | e.g. Ipswich |
 | Site Review 3 Text | `{{ custom_values.site_review_3_text }}` | e.g. Booked online on Monday, quote by Tuesday, job done Friday. Communication was excellent the whole way through. |
+| Site Review 3 Date | `{{ custom_values.site_review_3_date }}` | Month and year the review was left, as shown on Google, e.g. September 2026 |
 
 ## Market
 
