@@ -32,6 +32,15 @@
 .mx .btn-ghost{border-color:currentColor;background:transparent}
 .mx .btn-white{background:#fff;color:var(--brand)}
 .mx .btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.mx .hero>.wrap>div:first-child{min-width:0}
+.mx .hero-revs{margin-top:28px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mx .hr-track{display:flex;width:max-content;animation:mx-mq 45s linear infinite}
+.mx .hero-revs:hover .hr-track,.mx .hero-revs:focus-within .hr-track{animation-play-state:paused}
+.mx .hr-set{display:flex;gap:12px;padding-right:12px}
+.mx .hr-card{margin:0;width:260px;background:#fff;color:var(--ink);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+.mx .hr-card blockquote{margin:0;font-size:.85rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.mx .hr-card figcaption{display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--brand)}
+.mx .hr-card figcaption svg{width:16px;height:16px}
 
 /* Top bar and header */
 .mx .hdr{position:fixed;top:8px;left:0;right:0;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:0 auto}
@@ -208,7 +217,7 @@
   .mx .nav{display:flex;gap:20px}
   .mx .menu{display:none}
   .mx .hdr-phone{display:inline-flex;align-items:center;gap:6px}
-  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;padding-top:160px;padding-bottom:80px}
+  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:start;padding-top:160px;padding-bottom:80px}
   .mx .owner{grid-template-columns:.8fr 1.2fr}
   .mx .areas{grid-template-columns:1fr 1fr}
   .mx .faq-wrap{grid-template-columns:.8fr 1.2fr}
@@ -220,4 +229,4 @@
   .mx .split{grid-template-columns:1.3fr .7fr}
   .mx .split .quote{position:sticky;top:96px}
 }
-@media (prefers-reduced-motion:reduce){.mx *{transition:none!important}.mx .mq-track{animation:none}}
+@media (prefers-reduced-motion:reduce){.mx *{transition:none!important}.mx .mq-track,.mx .hr-track{animation:none}.mx .hero-revs{overflow-x:auto}}
