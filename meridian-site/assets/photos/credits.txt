@@ -6,3 +6,4 @@ photo-reviews-2.webp  | https://unsplash.com/photos/eL4xIEuHzzk | Brooke Cagle |
 photo-reviews-3.webp  | https://unsplash.com/photos/cHbyGVOQspk | Vitaly Gariev | Unsplash Licence
 photo-websites-1.webp | https://unsplash.com/photos/pn6tf73O2As | TheStandingDesk | Unsplash Licence
 photo-websites-2.webp | https://unsplash.com/photos/KeLUeVSplNY | Anton Savinov | Unsplash Licence
+photo-websites-laptop.webp | https://unsplash.com/@christianvelitchkov | Christian Velitchkov | Unsplash Licence (supplied by Marcus)

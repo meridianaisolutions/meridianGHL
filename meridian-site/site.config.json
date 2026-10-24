@@ -70,14 +70,14 @@
       "plans": [
         {
           "name": "Starter",
-          "requests": "Up to 50 new review requests a month",
+          "requests": "Up to 20 new review requests a month",
           "price": "$199",
           "period": "/month",
           "blurb": "For smaller businesses getting started with reviews."
         },
         {
           "name": "Growth",
-          "requests": "50 to 100 new review requests a month",
+          "requests": "20 to 100 new review requests a month",
           "price": "$299",
           "period": "/month",
           "popular": true,
@@ -85,7 +85,7 @@
         },
         {
           "name": "Pro",
-          "requests": "100 to 300 new review requests a month",
+          "requests": "100+ new review requests a month",
           "price": "$499",
           "period": "/month",
           "blurb": "For high-volume and multi-crew businesses."

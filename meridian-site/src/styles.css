@@ -203,12 +203,14 @@
 /* contact */
 
 /* footer */
-.mr .mr-ftr{background:#0c231e;color:#b9cbbf;padding:56px 0 28px;font-size:.95rem}
+.mr .mr-ftr{border-top:4px solid var(--mr-cta);background:#0c231e;color:#b9cbbf;padding:56px 0 28px;font-size:.95rem}
 .mr .mr-ftr a{color:#e9efe9!important;text-decoration:none}
-.mr .mr-ftr a:hover{text-decoration:underline}
+.mr .mr-ftr a:hover{color:var(--mr-cta)!important}
+.mr .mr-ftr a.mr-ftr-cta{color:var(--mr-ink)!important;margin-top:8px;padding:10px 20px;min-height:0;font-size:.92rem}
+.mr .mr-ftr a.mr-ftr-cta:hover{color:var(--mr-ink)!important}
 .mr .mr-ftr-grid{display:grid;gap:32px}
 @media(min-width:760px){.mr .mr-ftr-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
-.mr .mr-ftr h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:12px}
+.mr .mr-ftr h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mr-cta);margin-bottom:12px}
 .mr .mr-ftr ul{list-style:none;display:grid;gap:8px}
 .mr .mr-ftr-base{border-top:1px solid #23443b;margin-top:40px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:.85rem}
 
@@ -318,3 +320,18 @@
 .mr .mr-hero .mr-photo{margin-top:0;box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .mr .mr-hero .mr-lede a:not(.mr-btn){color:#ffd84a;font-weight:700}
 .mr .mr-phone-body>*{margin:0}
+/* home hero map animation */
+@keyframes mrPop{0%{opacity:0;transform:translateY(-14px) scale(.6)}70%{opacity:1;transform:translateY(2px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes mrSlide{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+@keyframes mrDraw{from{stroke-dashoffset:120;opacity:0}to{stroke-dashoffset:0;opacity:1}}
+@keyframes mrRing{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.2)}}
+@keyframes mrGlow{0%,100%{box-shadow:0 6px 16px rgba(18,49,42,.10)}50%{box-shadow:0 0 0 4px rgba(46,155,99,.25),0 6px 16px rgba(18,49,42,.10)}}
+@media(prefers-reduced-motion:no-preference){
+.mr .mr-anim .mr-anim-pin{transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:mrPop .55s ease-out forwards}
+.mr .mr-anim .mr-anim-p2{animation-delay:.3s}.mr .mr-anim .mr-anim-p3{animation-delay:.5s}.mr .mr-anim .mr-anim-p1{animation-delay:1.5s}
+.mr .mr-anim .mr-anim-path{opacity:0;animation:mrDraw .9s ease-out .8s forwards}
+.mr .mr-anim .mr-anim-ring{transform-box:fill-box;transform-origin:center;opacity:0;animation:mrRing 1.8s ease-out 2.1s infinite}
+.mr .mr-anim .mr-rank-list li{opacity:0;animation:mrSlide .5s ease-out forwards}
+.mr .mr-anim .mr-rank-list li:nth-child(2){animation-delay:.4s}.mr .mr-anim .mr-rank-list li:nth-child(3){animation-delay:.6s}
+.mr .mr-anim .mr-rank-list li.mr-r-you{animation:mrSlide .5s ease-out 1.6s forwards,mrGlow 2.4s ease-in-out 2.4s infinite}
+}
