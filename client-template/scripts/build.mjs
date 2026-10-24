@@ -42,8 +42,7 @@ const quoteCard = (form) => `<div class="quote" id="quote">
     ${form}
     <p class="fine">${icons.lock} Your details stay private and are never shared.</p>
   </div>`;
-const ghlForm = `<iframe src="https://api.leadconnectorhq.com/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560"></iframe>
-    <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>`;
+const ghlForm = `<iframe data-mx-src="https://api.leadconnectorhq.com/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560"></iframe>`;
 const previewForm = `<form class="f" action="#" onsubmit="return false">
       <label>Name<input name="name" autocomplete="name" required></label>
       <label>Mobile<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
@@ -99,11 +98,14 @@ function schemaFor(page, n) {
 }
 
 const css = read('site.css').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
+// fill.js swaps the merge tags in Custom Code blocks; strip its comments and indentation.
+const fillJs = read('fill.js').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('//')).join('\n');
+const refill = '<script>window.mxFill&&mxFill(document.currentScript.parentNode)</script>';
 
 function renderSection(name, page, n, mode) {
   let html = read(`sections/${name}.html`).replace(/^<!--[\s\S]*?-->\n?/, '');
   // The header carries the brand colours so every page that uses it is themed.
-  if (name === '01-header') html = read('sections/00-theme.html').replace(/^<!--[\s\S]*?-->\n?/, '') + html;
+  if (name === '01-header') html = `<style>${css}</style>\n` + read('sections/00-theme.html').replace(/^<!--[\s\S]*?-->\n?/, '') + html;
   html = html
     .replaceAll('{{quote_card}}', quoteCard(mode === 'ghl' ? ghlForm : previewForm))
     .replaceAll('{{services_cards}}', serviceCards(n))
@@ -111,7 +113,10 @@ function renderSection(name, page, n, mode) {
     .replaceAll('{{stars}}', stars)
     .replace(/\{\{icon:(\w+)\}\}/g, (_, k) => { if (!icons[k]) throw new Error(`Unknown icon ${k} in ${name}`); return icons[k]; });
   if (n) html = html.replaceAll('site_service_N_', `site_service_${n}_`);
-  return html.trim();
+  // Browsers would request an image or form URL before the tags are filled, so those wait in data-mx-src.
+  html = html.replace(/<(img|iframe)([^>]*?) src="([^"]*\{\{cv\.[^"]*)"/g, '<$1$2 data-mx-src="$3"');
+  html = html.trim();
+  return name === '01-header' ? `${html}\n<script>${fillJs}\nmxFill(document.currentScript.parentNode)</script>` : `${html}\n${refill}`;
 }
 
 // Fill {{cv.key}} tokens. Inside JSON-LD the example text is JSON-escaped.
@@ -132,6 +137,8 @@ mkdirSync(join(out, 'ghl'), { recursive: true });
 mkdirSync(join(out, 'preview'), { recursive: true });
 cpSync(join(root, 'preview-assets'), join(out, 'preview', 'assets'), { recursive: true });
 
+// Paste into one native Text element at the top of every page (inside the header global section).
+const dataLines = values.map((v) => `{mx:${v.key}}{{ custom_values.${v.key} }}{/mx}`);
 const seoRows = [];
 for (const page of pages) {
   const ns = page.repeat ? Array.from({ length: page.repeat }, (_, i) => i + 1) : [null];
@@ -146,10 +153,15 @@ for (const page of pages) {
     const dir = join(out, 'ghl', id);
     mkdirSync(dir, { recursive: true });
     const ghlBlocks = blocks('ghl');
-    if (schema) ghlBlocks.push({ name: '99-schema', html: schema });
+    if (schema) ghlBlocks.push({ name: '99-schema', html: `${schema}\n${refill}` });
+    const wrap = (html) => `<div class="mx">\n${fill(html, 'ghl')}\n</div>`;
     ghlBlocks.forEach(({ name, html }, i) =>
-      writeFileSync(join(dir, `${String(i + 1).padStart(2, '0')}-${name.replace(/^\d+-/, '')}.html`), `<div class="mx">\n${fill(html, 'ghl')}\n</div>\n`));
-    const previewBody = `<div class="mx">\n${blocks('preview').map((b) => b.html).join('\n')}\n</div>\n${schema}`;
+      writeFileSync(join(dir, `${String(i + 1).padStart(2, '0')}-${name.replace(/^\d+-/, '')}.html`), `${wrap(html)}\n`));
+    // The preview is what GHL serves: the data Text element rendered with example values,
+    // then the same blocks with raw merge tags, filled in the browser by fill.js.
+    const previewBlocks = blocks('preview');
+    if (schema) previewBlocks.push({ name: 'schema', html: `${schema}\n${refill}` });
+    const previewBody = `<div class="c-text"><p>${dataLines.map((l) => fill(l.replace(/\{\{ custom_values\.(\w+) \}\}/, '{{cv.$1}}'), 'preview')).join('</p><p>')}</p></div>\n${previewBlocks.map((b) => wrap(b.html)).join('\n')}`;
 
     const title = fill(sub(page.title), 'preview');
     const desc = fill(sub(page.description), 'preview');
@@ -168,10 +180,10 @@ ${page.noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta property=
 <meta property="og:image" content="${fill('{{cv.site_hero_image_url}}', 'preview')}">
 <link rel="icon" href="data:,">
 <meta name="theme-color" content="${fill('{{cv.site_brand_color}}', 'preview')}">
-<style>html,body{margin:0}${css}</style>
+<style>html,body{margin:0}</style>
 </head>
 <body>
-${fill(previewBody, 'preview')}
+${previewBody}
 </body>
 </html>
 `);
@@ -179,10 +191,15 @@ ${fill(previewBody, 'preview')}
   }
 }
 
-writeFileSync(join(out, 'ghl', 'site.css'), css + '\n');
+writeFileSync(join(out, 'ghl', 'DATA-TEXT-ELEMENT.txt'), dataLines.join('\n') + '\n');
 writeFileSync(join(out, 'ghl', 'SEO-SETTINGS.md'), `# Page SEO settings\n\nSet these in each page's Settings > SEO meta data in GHL.\n\n| Page | Path | Title | Description | Robots |\n| --- | --- | --- | --- | --- |\n${seoRows.join('\n')}\n`);
 console.log(`Built ${seoRows.length} pages into ${out}`);
 
 // Onboarding checklist of every custom value, grouped as in GHL.
 const groups = [...new Set(values.map((v) => v.group))];
 writeFileSync(join(out, 'ghl', 'CUSTOM-VALUES.md'), `# Custom values to fill for each client\n\nAll of these live in the sub-account under Settings > Custom Values. "Existing" values come from the review-automation snapshot.\n\n${groups.map((g) => `## ${g}\n\n| Name in GHL | Merge tag | What to enter |\n| --- | --- | --- |\n${values.filter((v) => v.group === g).map((v) => `| ${v.name}${v.status === 'existing' ? ' (existing)' : ''} | \`{{ custom_values.${v.key} }}\` | ${(v.help || `e.g. ${v.example}`).replace(/\|/g, '/')} |`).join('\n')}`).join('\n\n')}\n`);
+
+// Two-part install test: proves the fill script runs in a GHL Custom Code element.
+mkdirSync(join(out, 'ghl', 'TEST'), { recursive: true });
+writeFileSync(join(out, 'ghl', 'TEST', '1-text-element.txt'), '{mx:site_trade}{{ custom_values.site_trade }}{/mx}\n{mx:site_city}{{ custom_values.site_city }}{/mx}\n');
+writeFileSync(join(out, 'ghl', 'TEST', '2-custom-code.html'), `<div class="mx"><p style="font:20px system-ui;padding:20px">Fill test: {{ custom_values.site_trade }} in {{ custom_values.site_city }}</p>\n<script>${fillJs}\nmxFill(document.currentScript.parentNode)</script></div>\n`);
