@@ -34,10 +34,6 @@
 .mx .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
 /* Top bar and header */
-.mx .topbar{background:var(--brand);color:#fff;font-size:.875rem}
-.mx .topbar .wrap{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:8px 16px}
-.mx .topbar span{display:inline-flex;align-items:center;gap:6px}
-.mx .topbar .hide-sm{display:none}
 .mx .hdr{position:sticky;top:8px;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:8px auto}
 .mx .hdr .wrap{padding-left:16px;padding-right:16px}
 .mx .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
@@ -203,7 +199,6 @@
   .mx .trust ul{grid-template-columns:repeat(4,1fr)}
   .mx .g2{grid-template-columns:repeat(2,1fr)}
   .mx .contact-cards{grid-template-columns:repeat(3,1fr)}
-  .mx .topbar .hide-sm{display:inline-flex}
 }
 @media (min-width:960px){
   .mx .sec{padding:88px 0}
