@@ -52,16 +52,6 @@ Pages, in nav order:
   - Custom Code element: paste `pages/websites/block-1.html`
   - Footer global section
 
-## Pricing (/pricing)
-
-- SEO title: Pricing: Reviews, Websites & Google Profile | Meridian
-- Meta description: Clear monthly pricing for Google review automation, websites, Google Business Profile management and the all-in-one Local Growth System. No lock-in.
-- Page head tracking code: `pages/pricing/page-head-tracking-code.html`
-- Sections, top to bottom:
-  - Header global section
-  - Custom Code element: paste `pages/pricing/block-1.html`
-  - Footer global section
-
 ## Blog (/blog)
 
 - SEO title: Blog: Google Reviews & Local SEO Tips | Meridian AI Solutions

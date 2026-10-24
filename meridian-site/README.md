@@ -23,7 +23,6 @@ Change copy in `src/`, prices in `site.config.json`, then run `node build.mjs` (
 | Review Management | `/google-reviews` | none |
 | Google Business Profile | `/google-business-profile` | none |
 | Websites | `/websites` | none |
-| Pricing | `/pricing` | none |
 | Blog | `/blog` | Blog Post List between block 1 and block 2 |
 | Book a free call | `/book-a-call` | Calendar ("Demo Call") between block 1 and block 2 |
 | Contact | `/contact` | Form ("Website Form") after block 1 |
@@ -66,7 +65,7 @@ When one of these changes in GHL, change it in `site.config.json`, run `node bui
 
 **Compliance.** The copy avoids review gating (filtering unhappy customers away from Google), incentives and fake reviews, all of which break Google's policies and risk ACCC action. The "Review Faces" funnel isn't part of this website: it's the page clients' customers land on from a review request. It sends red and yellow ratings to an internal feedback page with a smaller "leave a public review" button, which is a soft form of review gating. Google says businesses must not "selectively solicit positive reviews", so the safest version shows every customer the same Google link with equal prominence (see `blog/review-gating-google-policy.html`). Messages mention Spam Act opt-outs. There are no testimonials or invented statistics. The "why reviews matter" facts come from Google's own help article, which is linked on the page.
 
-**Conversion.** One primary action everywhere ("Book a free call"), a sticky call and booking bar on mobile, risk reversal in place of social proof (30-day free trial on reviews, 30-day money-back on websites and the system, no lock-in), prices shown up front for every service, a founder note, a comparison table and FAQs that answer the main objections.
+**Conversion.** One primary action everywhere ("Book a free call"), a sticky call and booking bar on mobile, risk reversal in place of social proof (30-day free trial on reviews, 30-day money-back on websites and the system, no lock-in), review pricing on the home page (as ReviewHarvest does) and each other service priced on its own page, a founder note, a comparison table and FAQs that answer the main objections.
 
 ## To confirm before go-live
 

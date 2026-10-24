@@ -4,8 +4,6 @@
   "brand": {
     "name": "Meridian AI Solutions",
     "short": "Meridian",
-    "seoProduct": "Meridian",
-    "reviewProduct": "Meridian",
     "founder": "Marcus",
     "founderRole": "Founder, Meridian AI Solutions",
     "phoneE164": "+61403806286",
@@ -50,13 +48,12 @@
     "reviews": "/google-reviews",
     "gbp": "/google-business-profile",
     "websites": "/websites",
-    "pricing": "/pricing",
+    "pricing": "/#pricing",
     "blog": "/blog",
     "book": "/book-a-call",
     "contact": "/contact",
     "privacy": "/privacy-policy",
-    "terms": "/terms-and-conditions",
-    "thanks": "/thank-you"
+    "terms": "/terms-and-conditions"
   },
   "offer": {
     "_note": "Modelled on ReviewHarvest's offer and prices (Marcus, 24 Oct 2026: 'copy reviewharvest for now'). Every price here is RH's USD number shown as AUD and is a placeholder until Marcus sets Meridian's prices.",
@@ -155,17 +152,7 @@
         "price": "$199",
         "period": "/month",
         "body": "Two new SEO pages every month, such as suburb pages, service pages or articles, to keep growing your reach. Add it to any plan."
-      },
-      "includes": [
-        "Custom design in your brand",
-        "A dedicated project manager",
-        "Custom lead forms",
-        "Hosting and security included",
-        "Submitted to Google Search Console",
-        "Traffic and leads dashboard",
-        "Your rate never goes up",
-        "30-day money-back guarantee"
-      ]
+      }
     },
     "system": {
       "price": "$389",

@@ -24,23 +24,23 @@ The aim is one post a week for the first three months, then two a month. Each po
 
 | # | Title | Target search | Supports |
 |---|---|---|---|
-| 4 | How to Reply to a Negative Google Review (with Examples) | how to respond to negative reviews | Reviews |
-| 5 | How to Find Your Google Review Link in 2 Minutes | google review link | Reviews |
-| 6 | Google Reviews for Plumbers: How to Get 100 in 90 Days | google reviews for plumbers | Reviews |
-| 7 | Google Reviews for Cleaning Businesses | cleaning business google reviews | Reviews |
-| 8 | What to Text Customers to Ask for a Review (15 Templates) | review request text message template | Reviews |
-| 9 | Can You Remove a Fake or Unfair Google Review? | remove google review australia | Reviews, GBP |
-| 10 | Google Business Profile Checklist for Tradies | google business profile checklist | GBP |
-| 11 | Which Google Business Profile Category Should You Choose? | google business categories | GBP |
-| 12 | Service Area Businesses: How to Rank Outside Your Suburb | rank in multiple suburbs google maps | GBP, System |
-| 13 | Google Business Profile Posts: What to Post Each Week | google business profile posts ideas | GBP |
-| 14 | Why Your Business Isn't Showing on Google Maps | business not showing on google maps | GBP |
-| 15 | How Much Does a Tradie Website Cost in Australia? | tradie website cost | Websites |
-| 16 | 9 Things Every Service Business Website Needs to Get Calls | small business website must haves | Websites |
-| 17 | Suburb Pages: How to Rank in Every Area You Service | service area pages seo | Websites |
-| 18 | Google Ads vs Local SEO for Service Businesses | google ads vs seo | System |
-| 19 | How to Get Your First 50 Google Reviews as a New Business | new business google reviews | Reviews |
-| 20 | Spam Act Rules for Review Request Texts and Emails | spam act sms rules | Reviews |
+| 4 | How to reply to a negative Google review (with examples) | how to respond to negative reviews | Reviews |
+| 5 | How to find your Google review link in 2 minutes | google review link | Reviews |
+| 6 | Google reviews for plumbers: how to get 100 in 90 days | google reviews for plumbers | Reviews |
+| 7 | Google reviews for cleaning businesses | cleaning business google reviews | Reviews |
+| 8 | What to text customers to ask for a review (15 templates) | review request text message template | Reviews |
+| 9 | Can you remove a fake or unfair Google review? | remove google review australia | Reviews, GBP |
+| 10 | Google Business Profile checklist for tradies | google business profile checklist | GBP |
+| 11 | Which Google Business Profile category should you choose? | google business categories | GBP |
+| 12 | Service area businesses: how to rank outside your suburb | rank in multiple suburbs google maps | GBP, System |
+| 13 | Google Business Profile posts: what to post each week | google business profile posts ideas | GBP |
+| 14 | Why your business isn't showing on Google Maps | business not showing on google maps | GBP |
+| 15 | How much does a tradie website cost in Australia? | tradie website cost | Websites |
+| 16 | 9 things every service business website needs to get calls | small business website must haves | Websites |
+| 17 | Suburb pages: how to rank in every area you service | service area pages seo | Websites |
+| 18 | Google Ads vs local SEO for service businesses | google ads vs seo | System |
+| 19 | How to get your first 50 Google reviews as a new business | new business google reviews | Reviews |
+| 20 | Spam Act rules for review request texts and emails | spam act sms rules | Reviews |
 
 ## Writing rules
 

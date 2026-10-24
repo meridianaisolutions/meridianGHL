@@ -78,7 +78,6 @@ function render(tpl, mode, page = {}) {
         if (!icons[key]) throw new Error(`Unknown icon ${key}`);
         return icons[key];
       }
-      case 'page': return esc(get(page, key));
       default: throw new Error(`Unknown token ${m}`);
     }
   });
