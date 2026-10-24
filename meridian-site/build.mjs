@@ -34,7 +34,7 @@ function planCard({ name, price, period, popular, lines, features, cta, ctaHref,
       <h3>${esc(name)}</h3>
       <p class="mr-price">${esc(price)}<small>${esc(period)}</small></p>
       ${lines.map((l, i) => i === 0 ? `<p><strong>${esc(l)}</strong></p>` : `<p class="mr-micro" style="margin-top:6px">${esc(l)}</p>`).join('')}
-      <ul class="mr-list">${features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+      ${features ? `<ul class="mr-list">${features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>` : '<div class="mr-plan-gap"></div>'}
       ${extra}
       <a class="mr-btn${popular ? '' : ' mr-btn--ghost'}" href="${ctaHref}">${esc(cta)}</a>
     </article>`;
@@ -42,8 +42,8 @@ function planCard({ name, price, period, popular, lines, features, cta, ctaHref,
 function renderPlans(key) {
   const o = cfg.offer;
   if (key === 'reviews') return o.reviews.plans.map((p) => planCard({
-    ...p, lines: [p.requests, p.blurb], features: o.reviews.features,
-    cta: `Start my ${o.trialDays}-day free trial`, ctaHref: cfg.links.book,
+    ...p, lines: [p.requests, p.blurb],
+    cta: 'Start my free trial', ctaHref: cfg.links.book,
     extra: `<p class="mr-plan-free">First ${o.trialDays} days free</p>`,
   })).join('');
   if (key === 'websites') return o.websites.plans.map((p) => planCard({
@@ -58,6 +58,7 @@ function render(tpl, mode, page = {}) {
   return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_./-]+)\s*\}\}/g, (m, ns, key) => {
     switch (ns) {
       case 'plans': return renderPlans(key);
+      case 'features': return cfg.offer[key].features.map((f) => `<li>${esc(f)}</li>`).join('');
       case 'cv': {
         const v = cfg.customValues[key];
         if (!v) throw new Error(`Unknown custom value ${key} in ${page.id}`);
