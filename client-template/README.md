@@ -81,7 +81,7 @@ Skip link, visible focus rings, 48 px tap targets, WCAG AA colour contrast, a me
 
 ## Known limits
 
-- The header is set to stick to the top, but GHL wraps each Custom Code element in its own section, which usually stops sticky positioning. The mobile call bar is fixed, so the main call to action stays visible either way. If you want a sticky header, turn on GHL's sticky setting for the header section.
+- The header floats over the first section using fixed positioning, so it stays on screen as visitors scroll. If a GHL section ever stops it floating, check that the header section has no animation or transform set, since those break fixed positioning.
 - Service pages share one layout and pull their unique text from the service name and description. For stronger rankings in competitive trades, add 300 to 600 words of genuinely unique copy per service page.
 - Not copied from ReviewHarvest on purpose: the interactive floor-plan checklist, before/after slider, hero video, published prices, client portal button and ZIP-code quoting. Each suits only some trades, and the video and slider cost speed. They can be added per client.
 - The template has six service and six area pages. For a client with fewer, leave the spare service's or area's Name and Slug blank and unpublish its page. It then drops out of the menus, footer and card grids.
