@@ -203,7 +203,7 @@
 /* contact */
 
 /* footer */
-.mr .mr-ftr{border-top:4px solid var(--mr-cta);background:#0c231e;color:#b9cbbf;padding:56px 0 28px;font-size:.95rem}
+.mr .mr-ftr{background:#0c231e;color:#b9cbbf;padding:56px 0 28px;font-size:.95rem}
 .mr .mr-ftr a{color:#e9efe9!important;text-decoration:none}
 .mr .mr-ftr a:hover{color:var(--mr-cta)!important}
 .mr .mr-ftr a.mr-ftr-cta{color:var(--mr-ink)!important;margin-top:8px;padding:10px 20px;min-height:0;font-size:.92rem}
