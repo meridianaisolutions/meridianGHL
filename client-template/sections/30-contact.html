@@ -1,17 +1,18 @@
 <section class="phead" id="main"><div class="wrap">
   <p class="crumbs"><a href="/">Home</a> / Contact</p>
-  <h1>Contact {{cv.business_name}}</h1>
-  <p class="lead">Free, no-obligation quotes for {{cv.site_trade}} across {{cv.site_city}}. Most quotes are back within 24 hours.</p>
+  <h1>Contact {{cv.business_name}} in {{cv.site_city}}</h1>
+  <p class="lead">Free, no-obligation {{cv.site_trade_person}} quotes across {{cv.site_city}}. Most quotes are back within 24 hours.</p>
 </div></section>
 <section class="sec"><div class="wrap split">
   <div>
     <h2>Talk to {{cv.business_owner_name}} and the team</h2>
-    <p class="pin">{{icon:phone}} <a href="tel:{{cv.site_phone_link}}"><strong>{{cv.site_phone_display}}</strong></a></p>
-    <p class="pin">{{icon:mail}} <a href="mailto:{{cv.site_email}}">{{cv.site_email}}</a></p>
-    <p class="pin">{{icon:pin}} <span>{{cv.site_street_address}} {{cv.site_suburb}} {{cv.site_state}} {{cv.site_postcode}}</span></p>
-    <p class="pin">{{icon:clock}} <span>{{cv.site_hours_text}}</span></p>
+    <p class="lead">Fill in the form for a free quote, or get in touch whichever way suits you.</p>
+    <div class="grid contact-cards">
+      <a class="card" href="tel:{{cv.site_phone_link}}"><span class="ico">{{icon:phone}}</span><h3>Call us</h3><p>{{cv.site_phone_display}}</p><p class="fine">{{cv.site_hours_text}}</p></a>
+      <a class="card" href="mailto:{{cv.site_email}}"><span class="ico">{{icon:mail}}</span><h3>Email us</h3><p>{{cv.site_email}}</p><p class="fine">We reply within one business day</p></a>
+      <a class="card" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer"><span class="ico">{{icon:pin}}</span><h3>Find us</h3><p>{{cv.site_street_address}} {{cv.site_suburb}} {{cv.site_state}} {{cv.site_postcode}}</p><p class="fine">Get directions</p></a>
+    </div>
     <p>We service {{cv.site_service_areas}}.</p>
-    <p><a class="btn btn-ghost" style="color:var(--brand)" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
   </div>
   {{quote_card}}
 </div></section>

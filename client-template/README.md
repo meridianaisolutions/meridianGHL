@@ -1,6 +1,6 @@
 # Meridian client website template
 
-A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites: reviews up front, a quote form above the fold, tap-to-call everywhere, services, a three-step process, the owner's story, service areas, FAQ and a sticky mobile call bar.
+A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites, which we captured and compared page by page on 24 Oct 2026: a floating header with Services, Service areas and About dropdowns, reviews up front, a quote form above the fold, a service ticker, tap-to-call everywhere, an eight-point why-trust list with the owner's story, a guarantee banner, three differentiators, a three-step process, Google reviews, a job gallery, a coverage map, a two-column FAQ, a dark final call to action and a sticky mobile call bar.
 
 Every piece of client-specific text, colour, image and link comes from a GHL custom value, so a new client is set up by loading the snapshot and filling in the custom values. No page editing is needed.
 
@@ -22,7 +22,7 @@ The script inserts values as plain text, only allows http, https, tel, mailto an
 | `dist/ghl/TEST/` | Two-part test that the fill script works in your GHL account |
 | `sections/`, `site.css`, `fill.js`, `pages.json`, `custom-values.json` | The source. Edit these, then rebuild |
 
-Pages: Home, six service pages, Contact, Thank you (noindex) and Privacy policy.
+Pages: Home, Services hub, six service pages, Service areas hub, six area pages, About, Contact, Thank you (noindex), Privacy policy and Terms and conditions.
 
 ## Building
 
@@ -37,22 +37,23 @@ This regenerates `dist/`. It fails if a section uses a custom value that isn't i
 Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom values are already there with example roofing content.
 
 1. Test the fill script. On any page, add a Text element and paste `dist/ghl/TEST/1-text-element.txt` into it. Below it, add a Custom Code element and paste `dist/ghl/TEST/2-custom-code.html`. Preview: you should see only "Fill test: Roofing in Brisbane", with the Text element hidden.
-2. Reuse the snapshot's "Website Form" in Sites > Forms as the quote form (there are two with that name, so use the one your workflows trigger on). Turn on its captcha, set "On submit" to redirect to `/thank-you`, and copy its form ID from Integrate into the Site Quote Form ID custom value.
-3. Create the website in Sites > Websites, starting blank, and create the pages with the paths in `SEO-SETTINGS.md`. A service page's path must match that service's Slug custom value (`roof-repairs` and so on).
+2. Reuse the snapshot's "Website Form" in Sites > Forms as the quote form (there are two with that name, so use the one your workflows trigger on). Make sure it has name, mobile, email, service, job details and GHL's SMS consent field, with the consent text linking to `/privacy-policy` and `/terms-and-conditions`. Turn on its captcha, set "On submit" to redirect to `/thank-you`, and copy its form ID from Integrate into the Site Quote Form ID custom value.
+3. Create the website in Sites > Websites, starting blank, and create the pages with the paths in `SEO-SETTINGS.md`. A service or area page's path must match its Slug custom value (`roof-repairs`, `roofing-logan` and so on). GHL page paths are a single segment, so pages sit at `/roof-repairs` rather than `/services/roof-repairs`. That ranks the same; the breadcrumbs and hub pages give Google the hierarchy.
 4. Build the header global section. On the home page, add a full-width section with no padding. Put a Text element in it and paste `DATA-TEXT-ELEMENT.txt` into it (as plain text). Below that, add a Custom Code element and paste `dist/ghl/home/01-header.html`. Save the section as a Global section called "Header". It must be the first section on every page, because it carries the styles, the fill script and the data.
-5. Add the other blocks. For each page, add one full-width section with no padding per remaining file in `dist/ghl/<page>/`, in order, each holding one Custom Code element with that file's contents. Save the trust strip, how it works, reviews, FAQ, final CTA and footer as Global sections the first time and reuse them, so one change updates every page. The last file on most pages is the structured data block.
+5. Add the other blocks. For each page, add one full-width section with no padding per remaining file in `dist/ghl/<page>/`, in order, each holding one Custom Code element with that file's contents. Save the trust strip, why trust us, guarantee, differentiators, how it works, reviews, gallery, service areas, FAQ, final CTA and footer as Global sections the first time and reuse them, so one change updates every page. The last file on most pages is the structured data block.
 6. Turn on the website's sitemap in its settings. Once a client's domain is live, verify it in Google Search Console and submit the sitemap, and link the site from their Google Business Profile.
 7. Set each page's SEO title and description from `SEO-SETTINGS.md`. Check on one page that the custom values in them render in the preview's browser tab title. Tick noindex on the Thank you page.
-8. Upload a favicon and set the site's social share image.
+8. Upload a favicon and set the site's social share image. Leave the GHL chat widget off unless a client asks for it: only one of the nine ReviewHarvest sites runs one, and it costs about 5 to 10 Lighthouse points on mobile.
 9. Take the snapshot.
 
 ## Onboarding a client
 
 1. Load the snapshot into the client's sub-account.
 2. Fill in every value in `dist/ghl/CUSTOM-VALUES.md`. Copy the Google rating and review count straight from their Google Business Profile, and use three real reviews.
-3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB) and owner photo (640 x 640 WebP) to Media and paste the links into the image custom values.
-4. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.
-5. Connect their domain, then test the form, the phone links and the thank-you redirect on a phone.
+3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB), owner photo (640 x 640 WebP) and six job photos (800 x 600 WebP) to Media and paste the links into the image custom values. A blank job photo is hidden, as are blank social links and a blank map.
+4. Write the six Site Area Body values fresh for each client: 100 to 200 words each about local housing, weather and typical jobs. Area pages share their layout, so this text is what stops Google treating them as duplicates.
+5. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.
+6. Connect their domain, then test the form, the phone links and the thank-you redirect on a phone.
 
 Rules for values: avoid `<` and `>`, never use `{mx:` or `{/mx}`, and use hex codes for the brand and accent colours. The accent colour is the button colour and needs at least 4.5:1 contrast with white text. Check it at webaim.org/resources/contrastchecker.
 
@@ -60,7 +61,7 @@ Rules for values: avoid `<` and `>`, never use `{mx:` or `{/mx}`, and use hex co
 
 ### Conversion
 
-One goal per page: get a quote or call. The quote form sits in the hero on desktop and directly under the headline on mobile, every section ends in a call to action, the phone number is in the top bar, header, hero, footer and a sticky bottom bar on mobile, and the Google rating appears in the first screen. The form asks for four things only. Social proof uses real Google reviews pulled from custom values, plus the owner's photo and story, which is what makes small local businesses feel safe to call.
+One goal per page: get a quote or call. The quote form sits in the hero on desktop and directly under the headline on mobile, every section ends in a call to action, the phone number is in the top bar, header, hero, footer and a sticky bottom bar on mobile, and the Google rating appears in the first screen. The form asks for name and mobile, with email, service and job details optional, plus an SMS consent box, matching the ReviewHarvest forms. Social proof uses real Google reviews pulled from custom values, plus the owner's photo and story, which is what makes small local businesses feel safe to call.
 
 ### SEO
 
@@ -82,4 +83,6 @@ Skip link, visible focus rings, 48 px tap targets, WCAG AA colour contrast, a me
 
 - The header is set to stick to the top, but GHL wraps each Custom Code element in its own section, which usually stops sticky positioning. The mobile call bar is fixed, so the main call to action stays visible either way. If you want a sticky header, turn on GHL's sticky setting for the header section.
 - Service pages share one layout and pull their unique text from the service name and description. For stronger rankings in competitive trades, add 300 to 600 words of genuinely unique copy per service page.
-- The ReviewHarvest client sites were not reachable from this environment, so this layout is built from the standard high-converting local-service pattern they use rather than a direct comparison. Revisit once those domains are allowed.
+- Not copied from ReviewHarvest on purpose: the interactive floor-plan checklist, before/after slider, hero video, published prices, client portal button and ZIP-code quoting. Each suits only some trades, and the video and slider cost speed. They can be added per client.
+- The template has six service and six area pages. For a client with fewer, leave the spare service's or area's Name and Slug blank and unpublish its page. It then drops out of the menus, footer and card grids.
+- The footer credit reads "Website by Meridian AI Solutions Pty Ltd". To show a shorter name such as "Meridian AI Solutions", register it as a business name with ASIC first.

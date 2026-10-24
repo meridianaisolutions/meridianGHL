@@ -13,6 +13,7 @@ const { pages } = JSON.parse(read('pages.json'));
 const examples = Object.fromEntries(values.map((v) => [v.key, v.example]));
 // The preview uses local images so it can be tested offline.
 Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
+for (let i = 1; i <= 6; i++) examples[`site_gallery_${i}_url`] = `assets/job-${i}.webp`;
 const known = new Set(values.map((v) => v.key));
 const SERVICES = 6;
 const AREAS = 6;
@@ -31,6 +32,8 @@ const icons = {
   lock: svg('<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>', 14),
   menu: svg('<path d="M3 6h18M3 12h18M3 18h18"/>', 24),
   down: svg('<path d="m6 9 6 6 6-6"/>', 14),
+  facebook: svg('<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'),
+  instagram: svg('<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>'),
   arrow: svg('<path d="M5 12h14M13 5l7 7-7 7"/>', 18),
   google: `<svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>`,
 };
@@ -50,20 +53,27 @@ const previewForm = `<form class="f" action="#" onsubmit="return false">
       <label>Name<input name="name" autocomplete="name" required></label>
       <label>Mobile<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
       <label>Suburb<input name="suburb" autocomplete="address-level2"></label>
-      <label>What do you need?<select name="service"><option>{{cv.site_service_1_name}}</option><option>{{cv.site_service_2_name}}</option><option>{{cv.site_service_3_name}}</option><option>Something else</option></select></label>
-      <button class="btn btn-accent" type="submit">Get My Free Quote</button>
+      <label>Email<input name="email" type="email" autocomplete="email"></label>
+      <label>What do you need?<select name="service">${Array.from({ length: SERVICES }, (_, i) => `<option>{{cv.site_service_${i + 1}_name}}</option>`).join('')}<option>Not sure yet</option></select></label>
+      <label>Tell us about the job<textarea name="details" rows="3"></textarea></label>
+      <label class="consent"><input type="checkbox" name="sms_consent"><span>I agree to receive texts about my quote and booking. Msg and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy">privacy policy</a> and <a href="/terms-and-conditions">terms</a>.</span></label>
+      <button class="btn btn-accent" type="submit">Send My Quote Request</button>
     </form>`;
 
 const serviceCards = (skip) =>
   Array.from({ length: SERVICES }, (_, i) => i + 1)
     .filter((n) => n !== skip)
-    .map((n) => `<a class="card" href="/{{cv.site_service_${n}_slug}}"><span class="ico">${icons.check}</span><h3>{{cv.site_service_${n}_name}}</h3><p>{{cv.site_service_${n}_desc}}</p><span class="more">Learn more ${icons.arrow}</span></a>`)
+    .map((n) => `<a class="card" data-mx-opt href="/{{cv.site_service_${n}_slug}}"><span class="ico">${icons.check}</span><h3>{{cv.site_service_${n}_name}}</h3><p>{{cv.site_service_${n}_desc}}</p><span class="more">Learn more ${icons.arrow}</span></a>`)
     .join('\n    ');
 const links = (slot, count, skip) =>
   Array.from({ length: count }, (_, i) => i + 1)
     .filter((n) => n !== skip)
-    .map((n) => `<li><a href="/{{cv.site_${slot}_${n}_slug}}">{{cv.site_${slot}_${n}_name}}</a></li>`)
+    .map((n) => `<li data-mx-opt><a href="/{{cv.site_${slot}_${n}_slug}}">{{cv.site_${slot}_${n}_name}}</a></li>`)
     .join('');
+const areaCards = Array.from({ length: AREAS }, (_, i) => i + 1)
+  .map((n) => `<a class="card" data-mx-opt href="/{{cv.site_area_${n}_slug}}"><span class="ico">${icons.pin}</span><h3>{{cv.site_area_${n}_name}}</h3><p>{{cv.site_area_${n}_suburbs}}</p><span class="more">{{cv.site_trade}} in {{cv.site_area_${n}_name}} ${icons.arrow}</span></a>`)
+  .join('\n    ');
+const plainServices = Array.from({ length: SERVICES }, (_, i) => `<li data-mx-opt>{{cv.site_service_${i + 1}_name}}</li>`).join('');
 
 // JSON-LD. Values are written as {{cv.x}} placeholders and filled per output, so the
 // GHL output keeps merge tags and the preview gets JSON-escaped example text.
@@ -101,6 +111,8 @@ function schemaFor(page, n) {
       blocks.push({ '@context': 'https://schema.org', '@type': 'Service', name: `{{cv.site_service_${n}_name}}`, serviceType: `{{cv.site_service_${n}_name}}`, description: `{{cv.site_service_${n}_desc}}`, areaServed: '{{cv.site_service_areas}}', provider: { '@id': '{{cv.site_url}}/#business' } });
     if (kind === 'area')
       blocks.push({ '@context': 'https://schema.org', '@type': 'Service', name: `{{cv.site_trade}} in {{cv.${slot}name}}`, serviceType: '{{cv.site_trade}}', areaServed: { '@type': 'Place', name: `{{cv.${slot}name}}` }, provider: { '@id': '{{cv.site_url}}/#business' } });
+    if (kind === 'breadcrumb-hub')
+      blocks.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: '{{cv.site_url}}/' }, { '@type': 'ListItem', position: 2, name: page.crumb, item: `{{cv.site_url}}${page.path}` }] });
     if (kind === 'breadcrumb')
       blocks.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: '{{cv.site_url}}/' }, { '@type': 'ListItem', position: 2, name: `{{cv.${slot}name}}`, item: `{{cv.site_url}}/{{cv.${slot}slug}}` }] });
   }
@@ -119,6 +131,8 @@ function renderSection(name, page, n, mode) {
   html = html
     .replaceAll('{{quote_card}}', quoteCard(mode === 'ghl' ? ghlForm : previewForm))
     .replaceAll('{{services_cards}}', serviceCards(page.slot === 'area' ? null : n))
+    .replaceAll('{{services_links_plain}}', plainServices)
+    .replaceAll('{{areas_cards}}', areaCards)
     .replaceAll('{{services_links}}', links('service', SERVICES))
     .replaceAll('{{areas_links}}', links('area', AREAS))
     .replaceAll('{{other_areas_links}}', links('area', AREAS, page.slot === 'area' ? n : null))
@@ -199,7 +213,7 @@ ${previewBody}
 </body>
 </html>
 `);
-    seoRows.push(`| ${id} | \`${fill(sub(page.path), 'ghl')}\` | ${fill(sub(page.title), 'ghl')} | ${fill(sub(page.description), 'ghl')} | ${page.noindex ? 'noindex' : 'index'} |`);
+    seoRows.push(`| ${id} | \`${fill(sub(page.path), 'ghl')}\` | ${fill(sub(page.title), 'ghl').replace(/\|/g, '\\|')} | ${fill(sub(page.description), 'ghl')} | ${page.noindex ? 'noindex' : 'index'} |`);
   }
 }
 

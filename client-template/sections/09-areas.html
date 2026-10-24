@@ -4,14 +4,12 @@
     <h2>Working across {{cv.site_city}} and nearby suburbs</h2>
     <p class="lead">We work across {{cv.site_service_areas}}. Not sure if we cover your suburb? Call us and ask.</p>
     <ul class="chips">{{areas_links}}</ul>
-    <a class="btn btn-accent" href="#quote">Check My Area</a>
+    <div class="btn-row"><a class="btn btn-accent" href="#quote">Check My Area</a><a class="btn btn-ghost" style="color:var(--brand)" href="tel:{{cv.site_phone_link}}">{{icon:phone}} {{cv.site_phone_display}}</a></div>
   </div>
-  <div class="card">
-    <h3>{{cv.business_name}}</h3>
+  <div class="card map">
+    <iframe src="{{cv.site_map_embed_url}}" title="Map of the {{cv.business_name}} service area" width="600" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <p class="pin">{{icon:pin}} <span>{{cv.site_street_address}} {{cv.site_suburb}} {{cv.site_state}} {{cv.site_postcode}}</span></p>
     <p class="pin">{{icon:clock}} <span>{{cv.site_hours_text}}</span></p>
-    <p class="pin">{{icon:phone}} <a href="tel:{{cv.site_phone_link}}">{{cv.site_phone_display}}</a></p>
-    <p class="pin">{{icon:mail}} <a href="mailto:{{cv.site_email}}">{{cv.site_email}}</a></p>
-    <a class="more" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+    <a class="more" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer">Get directions</a>
   </div>
 </div></section>

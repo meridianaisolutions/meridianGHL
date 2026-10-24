@@ -1,10 +1,19 @@
-<section class="sec soft"><div class="wrap owner">
+<section class="sec soft" id="about"><div class="wrap owner">
   <img src="{{cv.site_owner_photo_url}}" alt="{{cv.business_owner_name}}, owner of {{cv.business_name}}" width="640" height="640" loading="lazy" decoding="async">
   <div>
     <span class="eyebrow">Locally owned since {{cv.site_founded_year}}</span>
-    <h2>A local {{cv.site_trade_person}} who picks up the phone</h2>
+    <h2>Why {{cv.site_city}} trusts {{cv.business_name}}</h2>
     <p class="lead">{{cv.site_owner_bio}}</p>
-    <p class="lead">{{cv.site_guarantee}}</p>
+    <ul class="ticks two">
+      <li>{{icon:check}} {{cv.site_usp_1}}</li>
+      <li>{{icon:check}} {{cv.site_usp_2}}</li>
+      <li>{{icon:check}} {{cv.site_usp_3}}</li>
+      <li>{{icon:check}} {{cv.site_licence}}</li>
+      <li>{{icon:check}} Fixed written price before we start</li>
+      <li>{{icon:check}} We turn up when we say we will</li>
+      <li>{{icon:check}} We leave the site tidy</li>
+      <li>{{icon:check}} {{cv.site_google_rating}}-star Google rating</li>
+    </ul>
     <p class="sig">{{cv.business_owner_name}}, Owner, {{cv.business_name}}</p>
     <div class="btn-row"><a class="btn btn-accent" href="#quote">Get My Free Quote</a><a class="btn btn-ghost" style="color:var(--brand)" href="tel:{{cv.site_phone_link}}">{{icon:phone}} {{cv.site_phone_display}}</a></div>
   </div>

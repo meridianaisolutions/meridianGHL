@@ -14,6 +14,7 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Licence | `{{ custom_values.site_licence }}` | Licence line shown in trust bar and footer. Use 'Fully insured' if no licence applies |
 | Site Founded Year | `{{ custom_values.site_founded_year }}` | e.g. 2012 |
 | Site Years Experience | `{{ custom_values.site_years_experience }}` | e.g. 12+ |
+| Site Legal Updated | `{{ custom_values.site_legal_updated }}` | Date the privacy policy and terms were last reviewed |
 
 ## Reviews
 
@@ -61,6 +62,9 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site State | `{{ custom_values.site_state }}` | e.g. QLD |
 | Site Postcode | `{{ custom_values.site_postcode }}` | e.g. 4006 |
 | Site Hours Text | `{{ custom_values.site_hours_text }}` | e.g. Mon to Fri 7am to 5pm, Sat 8am to 12pm |
+| Site Map Embed URL | `{{ custom_values.site_map_embed_url }}` | Google Maps > Share > Embed a map, then copy only the src link. Leave blank to hide the map |
+| Site Facebook URL | `{{ custom_values.site_facebook_url }}` | Full Facebook page link. Leave blank to hide the icon |
+| Site Instagram URL | `{{ custom_values.site_instagram_url }}` | Full Instagram profile link. Leave blank to hide the icon |
 
 ## Copy
 
@@ -111,27 +115,44 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Area 1 Name | `{{ custom_values.site_area_1_name }}` | Suburb, town or region this page targets |
 | Site Area 1 Slug | `{{ custom_values.site_area_1_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 1 Suburbs | `{{ custom_values.site_area_1_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 1 Body | `{{ custom_values.site_area_1_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 1 Body | `{{ custom_values.site_area_1_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 2 Name | `{{ custom_values.site_area_2_name }}` | Suburb, town or region this page targets |
 | Site Area 2 Slug | `{{ custom_values.site_area_2_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 2 Suburbs | `{{ custom_values.site_area_2_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 2 Body | `{{ custom_values.site_area_2_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 2 Body | `{{ custom_values.site_area_2_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 3 Name | `{{ custom_values.site_area_3_name }}` | Suburb, town or region this page targets |
 | Site Area 3 Slug | `{{ custom_values.site_area_3_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 3 Suburbs | `{{ custom_values.site_area_3_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 3 Body | `{{ custom_values.site_area_3_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 3 Body | `{{ custom_values.site_area_3_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 4 Name | `{{ custom_values.site_area_4_name }}` | Suburb, town or region this page targets |
 | Site Area 4 Slug | `{{ custom_values.site_area_4_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 4 Suburbs | `{{ custom_values.site_area_4_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 4 Body | `{{ custom_values.site_area_4_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 4 Body | `{{ custom_values.site_area_4_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 5 Name | `{{ custom_values.site_area_5_name }}` | Suburb, town or region this page targets |
 | Site Area 5 Slug | `{{ custom_values.site_area_5_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 5 Suburbs | `{{ custom_values.site_area_5_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 5 Body | `{{ custom_values.site_area_5_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 5 Body | `{{ custom_values.site_area_5_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 6 Name | `{{ custom_values.site_area_6_name }}` | Suburb, town or region this page targets |
 | Site Area 6 Slug | `{{ custom_values.site_area_6_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 6 Suburbs | `{{ custom_values.site_area_6_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 6 Body | `{{ custom_values.site_area_6_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 6 Body | `{{ custom_values.site_area_6_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
+
+## Gallery
+
+| Name in GHL | Merge tag | What to enter |
+| --- | --- | --- |
+| Site Gallery 1 URL | `{{ custom_values.site_gallery_1_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 1 Caption | `{{ custom_values.site_gallery_1_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
+| Site Gallery 2 URL | `{{ custom_values.site_gallery_2_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 2 Caption | `{{ custom_values.site_gallery_2_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
+| Site Gallery 3 URL | `{{ custom_values.site_gallery_3_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 3 Caption | `{{ custom_values.site_gallery_3_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
+| Site Gallery 4 URL | `{{ custom_values.site_gallery_4_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 4 Caption | `{{ custom_values.site_gallery_4_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
+| Site Gallery 5 URL | `{{ custom_values.site_gallery_5_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 5 Caption | `{{ custom_values.site_gallery_5_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
+| Site Gallery 6 URL | `{{ custom_values.site_gallery_6_url }}` | Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo |
+| Site Gallery 6 Caption | `{{ custom_values.site_gallery_6_caption }}` | Service and suburb, e.g. Roof restoration, Logan |
 
 ## FAQ
 

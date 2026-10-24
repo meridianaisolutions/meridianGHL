@@ -523,7 +523,7 @@
       "status": "new",
       "group": "Service areas",
       "example": "A lot of Logan homes went up in the 80s and 90s, and their concrete tiles and ridge capping are now due for attention. We're in Logan most weeks for repairs, restorations and storm call-outs, so we can usually inspect within a couple of days.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_2_name",
@@ -555,7 +555,7 @@
       "status": "new",
       "group": "Service areas",
       "example": "Ipswich has plenty of old Queenslanders with their original corrugated iron, alongside the new estates out at Ripley. We repair and re-roof both, and we match heritage profiles where the street calls for it.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_3_name",
@@ -587,7 +587,7 @@
       "status": "new",
       "group": "Service areas",
       "example": "Salt air off the bay eats through cheap fixings and flashings faster than most people expect. On the peninsula we use marine-grade fasteners and Colorbond Ultra where it's needed, so the roof holds up.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_4_name",
@@ -619,7 +619,7 @@
       "status": "new",
       "group": "Service areas",
       "example": "Most Springfield homes are fairly new, so the work here is usually storm damage, overflowing gutters and builder defects that show up once the warranty runs out. If it's a quick fix, we'll tell you.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_5_name",
@@ -651,7 +651,7 @@
       "status": "new",
       "group": "Service areas",
       "example": "North Lakes cops some heavy summer storms rolling in off the hinterland. We do a lot of hail and wind damage repairs here, and we can supply the photos and report your insurer will ask for.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_6_name",
@@ -683,7 +683,135 @@
       "status": "new",
       "group": "Service areas",
       "example": "Between the bay breeze and the big gums, Redlands roofs deal with salt and a steady fall of leaves. Gutter guards and a regular valley clean prevent a lot of leaks here, and we can quote both on the same visit.",
-      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
+    },
+    {
+      "key": "site_gallery_1_url",
+      "name": "Site Gallery 1 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+1",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_1_caption",
+      "name": "Site Gallery 1 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Roof restoration, Logan",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_gallery_2_url",
+      "name": "Site Gallery 2 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+2",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_2_caption",
+      "name": "Site Gallery 2 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Storm damage repair, North Lakes",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_gallery_3_url",
+      "name": "Site Gallery 3 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+3",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_3_caption",
+      "name": "Site Gallery 3 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Re-roof, Ipswich",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_gallery_4_url",
+      "name": "Site Gallery 4 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+4",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_4_caption",
+      "name": "Site Gallery 4 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Gutter replacement, Redland City",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_gallery_5_url",
+      "name": "Site Gallery 5 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+5",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_5_caption",
+      "name": "Site Gallery 5 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Roof repairs, Redcliffe",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_gallery_6_url",
+      "name": "Site Gallery 6 URL",
+      "status": "new",
+      "group": "Gallery",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Job+6",
+      "help": "Photo of a real job, about 800 x 600. Upload to Media and paste the link. Leave blank to hide this photo"
+    },
+    {
+      "key": "site_gallery_6_caption",
+      "name": "Site Gallery 6 Caption",
+      "status": "new",
+      "group": "Gallery",
+      "example": "Roof inspection, Springfield",
+      "help": "Service and suburb, e.g. Roof restoration, Logan"
+    },
+    {
+      "key": "site_map_embed_url",
+      "name": "Site Map Embed URL",
+      "status": "new",
+      "group": "Contact",
+      "example": "https://maps.google.com/maps?q=Brisbane%20QLD&z=10&output=embed",
+      "help": "Google Maps > Share > Embed a map, then copy only the src link. Leave blank to hide the map"
+    },
+    {
+      "key": "site_facebook_url",
+      "name": "Site Facebook URL",
+      "status": "new",
+      "group": "Contact",
+      "example": "https://facebook.com/",
+      "help": "Full Facebook page link. Leave blank to hide the icon"
+    },
+    {
+      "key": "site_instagram_url",
+      "name": "Site Instagram URL",
+      "status": "new",
+      "group": "Contact",
+      "example": "https://instagram.com/",
+      "help": "Full Instagram profile link. Leave blank to hide the icon"
+    },
+    {
+      "key": "site_legal_updated",
+      "name": "Site Legal Updated",
+      "status": "new",
+      "group": "Business",
+      "example": "24 October 2026",
+      "help": "Date the privacy policy and terms were last reviewed"
     },
     {
       "key": "site_faq_1_q",

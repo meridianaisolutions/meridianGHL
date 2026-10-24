@@ -7,14 +7,19 @@
 <header class="hdr"><div class="wrap">
   <a class="logo" href="/" aria-label="{{cv.business_name}} home"><img src="{{cv.logo_link}}" alt="{{cv.business_name}} logo" width="180" height="72"></a>
   <nav class="nav" aria-label="Main">
-    <div class="dd"><a href="/#services">Services {{icon:down}}</a><ul class="dd-panel">{{services_links}}</ul></div><div class="dd"><a href="/#areas">Areas {{icon:down}}</a><ul class="dd-panel">{{areas_links}}</ul></div><a href="/#reviews">Reviews</a><a href="/#faq">FAQ</a><a href="/contact">Contact</a>
+    <div class="dd"><a href="/services">Services {{icon:down}}</a><ul class="dd-panel"><li><a href="/services">All services</a></li>{{services_links}}</ul></div>
+    <div class="dd"><a href="/service-areas">Service areas {{icon:down}}</a><ul class="dd-panel"><li><a href="/service-areas">All service areas</a></li>{{areas_links}}</ul></div>
+    <div class="dd"><a href="/about">About {{icon:down}}</a><ul class="dd-panel"><li><a href="/about">About us</a></li><li><a href="/#reviews">Reviews</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    <a href="/#work">Our work</a>
   </nav>
   <div class="hdr-cta">
     <a class="hdr-phone" href="tel:{{cv.site_phone_link}}">{{icon:phone}} {{cv.site_phone_display}}</a>
     <a class="btn btn-accent" href="{{cv.site_booking_url}}">Free Quote</a>
     <details class="menu"><summary aria-label="Open menu">{{icon:menu}}</summary>
       <nav class="menu-panel" aria-label="Mobile">
-        <details><summary>Services {{icon:down}}</summary><ul>{{services_links}}</ul></details><details><summary>Service areas {{icon:down}}</summary><ul>{{areas_links}}</ul></details><a href="/#reviews">Reviews</a><a href="/#faq">FAQ</a><a href="/contact">Contact</a><a href="tel:{{cv.site_phone_link}}">Call {{cv.site_phone_display}}</a>
+        <details><summary>Services {{icon:down}}</summary><ul><li><a href="/services">All services</a></li>{{services_links}}</ul></details>
+        <details><summary>Service areas {{icon:down}}</summary><ul><li><a href="/service-areas">All service areas</a></li>{{areas_links}}</ul></details>
+        <a href="/about">About us</a><a href="/#work">Our work</a><a href="/#reviews">Reviews</a><a href="/#faq">FAQ</a><a href="/contact">Contact</a><a href="tel:{{cv.site_phone_link}}">Call {{cv.site_phone_display}}</a>
       </nav>
     </details>
   </div>

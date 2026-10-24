@@ -6,8 +6,27 @@
       "path": "/",
       "title": "{{cv.site_trade}} {{cv.site_city}} | {{cv.business_name}}",
       "description": "{{cv.site_google_rating}}-star rated {{cv.site_trade_person}} in {{cv.site_city}}. {{cv.site_usp_1}}. Call {{cv.site_phone_display}} or get a free quote online.",
-      "sections": ["01-header", "02-hero", "03-trust", "04-services", "05-how", "06-reviews", "07-owner", "08-band", "09-areas", "10-faq", "11-final-cta", "12-footer"],
-      "schema": ["business", "faq"]
+      "sections": [
+        "01-header",
+        "02-hero",
+        "13-marquee",
+        "03-trust",
+        "04-services",
+        "07-owner",
+        "08-band",
+        "14-different",
+        "05-how",
+        "06-reviews",
+        "15-gallery",
+        "09-areas",
+        "10-faq",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "faq"
+      ]
     },
     {
       "id": "service-N",
@@ -15,8 +34,25 @@
       "repeat": 6,
       "title": "{{cv.site_service_N_name}} {{cv.site_city}} | {{cv.business_name}}",
       "description": "{{cv.site_service_N_name}} in {{cv.site_city}} from a {{cv.site_google_rating}}-star local {{cv.site_trade_person}}. Fixed written quotes. Call {{cv.site_phone_display}}.",
-      "sections": ["01-header", "20-service-head", "03-trust", "21-service-body", "05-how", "06-reviews", "10-faq", "22-other-services", "11-final-cta", "12-footer"],
-      "schema": ["business", "service", "breadcrumb"]
+      "sections": [
+        "01-header",
+        "20-service-head",
+        "03-trust",
+        "21-service-body",
+        "09-areas",
+        "05-how",
+        "06-reviews",
+        "15-gallery",
+        "10-faq",
+        "22-other-services",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "service",
+        "breadcrumb"
+      ]
     },
     {
       "id": "area-N",
@@ -25,16 +61,107 @@
       "repeat": 6,
       "title": "{{cv.site_trade}} {{cv.site_area_N_name}} | {{cv.business_name}}",
       "description": "Local {{cv.site_trade_person}} in {{cv.site_area_N_name}}, rated {{cv.site_google_rating}} stars. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
-      "sections": ["01-header", "23-area-head", "03-trust", "24-area-body", "06-reviews", "05-how", "10-faq", "25-other-areas", "11-final-cta", "12-footer"],
-      "schema": ["business", "area", "breadcrumb"]
+      "sections": [
+        "01-header",
+        "23-area-head",
+        "03-trust",
+        "24-area-body",
+        "29-area-services",
+        "06-reviews",
+        "15-gallery",
+        "09-areas",
+        "10-faq",
+        "25-other-areas",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "area",
+        "breadcrumb"
+      ]
+    },
+    {
+      "id": "services",
+      "path": "/services",
+      "title": "{{cv.site_trade}} Services {{cv.site_city}} | {{cv.business_name}}",
+      "description": "Every {{cv.site_trade_person}} service we offer across {{cv.site_city}}, rated {{cv.site_google_rating}} stars. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
+      "sections": [
+        "01-header",
+        "26-hub-services",
+        "03-trust",
+        "07-owner",
+        "05-how",
+        "06-reviews",
+        "10-faq",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "breadcrumb-hub"
+      ],
+      "crumb": "Services"
+    },
+    {
+      "id": "service-areas",
+      "path": "/service-areas",
+      "title": "Service Areas | {{cv.business_name}} {{cv.site_city}}",
+      "description": "Suburbs and towns {{cv.business_name}} covers around {{cv.site_city}}. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
+      "sections": [
+        "01-header",
+        "27-hub-areas",
+        "03-trust",
+        "09-areas",
+        "06-reviews",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "breadcrumb-hub"
+      ],
+      "crumb": "Service areas"
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "title": "About Us | {{cv.business_name}} {{cv.site_city}}",
+      "description": "Meet {{cv.business_owner_name}} and the {{cv.business_name}} team, a local {{cv.site_trade_person}} in {{cv.site_city}} since {{cv.site_founded_year}}.",
+      "sections": [
+        "01-header",
+        "28-about-head",
+        "07-owner",
+        "14-different",
+        "08-band",
+        "15-gallery",
+        "06-reviews",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business",
+        "breadcrumb-hub"
+      ],
+      "crumb": "About us"
     },
     {
       "id": "contact",
       "path": "/contact",
       "title": "Contact {{cv.business_name}} | {{cv.site_trade}} {{cv.site_city}}",
       "description": "Get a free {{cv.site_trade_person}} quote in {{cv.site_city}}. Call {{cv.site_phone_display}} or send us the details online.",
-      "sections": ["01-header", "30-contact", "06-reviews", "12-footer"],
-      "schema": ["business"]
+      "sections": [
+        "01-header",
+        "30-contact",
+        "06-reviews",
+        "14-different",
+        "09-areas",
+        "11-final-cta",
+        "12-footer"
+      ],
+      "schema": [
+        "business"
+      ]
     },
     {
       "id": "thank-you",
@@ -42,7 +169,12 @@
       "title": "Thank you | {{cv.business_name}}",
       "description": "Thanks for contacting {{cv.business_name}}.",
       "noindex": true,
-      "sections": ["01-header", "40-thank-you", "06-reviews", "12-footer"],
+      "sections": [
+        "01-header",
+        "40-thank-you",
+        "06-reviews",
+        "12-footer"
+      ],
       "schema": []
     },
     {
@@ -50,15 +182,23 @@
       "path": "/privacy-policy",
       "title": "Privacy policy | {{cv.business_name}}",
       "description": "How {{cv.business_name}} collects, uses and protects your personal information.",
-      "sections": ["01-header", "50-privacy", "12-footer"],
+      "sections": [
+        "01-header",
+        "50-privacy",
+        "12-footer"
+      ],
       "schema": []
     },
     {
-      "id": "terms",
-      "path": "/terms",
+      "id": "terms-and-conditions",
+      "path": "/terms-and-conditions",
       "title": "Terms and conditions | {{cv.business_name}}",
       "description": "The terms that apply to quotes, bookings and work by {{cv.business_name}}, and to use of this website.",
-      "sections": ["01-header", "51-terms", "12-footer"],
+      "sections": [
+        "01-header",
+        "51-terms",
+        "12-footer"
+      ],
       "schema": []
     }
   ]

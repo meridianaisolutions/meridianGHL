@@ -47,14 +47,16 @@
         var name = a[j].name, val = sub(a[j].value);
         if (name === 'href' || name === 'data-mx-src') val = safeUrl(val);
         e.setAttribute(name, val);
+        // Optional links (social profiles) are left blank to hide them.
+        if (name === 'href' && !val) e.style.display = 'none';
       }
       var src = e.getAttribute('data-mx-src');
       if (src != null) {
         e.removeAttribute('data-mx-src');
         // An empty value would load the page itself as an image, so hide the element instead.
-        if (!src || /\/$/.test(src)) { e.style.display = 'none'; continue; }
+        if (!src || /\/$/.test(src)) { (e.parentNode.nodeName === 'FIGURE' ? e.parentNode : e).style.display = 'none'; continue; }
         e.setAttribute('src', src);
-        if (e.nodeName === 'IFRAME' && !formScript) {
+        if (e.nodeName === 'IFRAME' && /leadconnectorhq\.com\/widget\/form/.test(src) && !formScript) {
           formScript = true;
           var s = document.createElement('script');
           s.src = 'https://link.msgsndr.com/js/form_embed.js';
@@ -63,6 +65,11 @@
         }
       }
     }
+    // A service or area with a blank slug drops out of every menu, list and card grid.
+    [].forEach.call(root.querySelectorAll('[data-mx-opt]'), function (e) {
+      var l = e.nodeName === 'A' ? e : e.querySelector('a'), v = l ? l.getAttribute('href') : e.textContent.trim();
+      if (!v || v === '/') e.style.display = 'none';
+    });
   };
   document.addEventListener('DOMContentLoaded', function () {
     mxFill(document.body);
