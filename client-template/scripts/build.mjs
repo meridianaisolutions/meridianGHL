@@ -38,7 +38,7 @@ const stars = icons.star.repeat(5);
 // stand-in so Lighthouse measures the template rather than GHL's form app.
 const quoteCard = (form) => `<div class="quote" id="quote">
     <h2>Get a free quote</h2>
-    <p>Takes 30 seconds. We reply within 24 hours, no obligation.</p>
+    <p>Takes 30 seconds. We reply within 24 hours and there's no obligation.</p>
     ${form}
     <p class="fine">${icons.lock} Your details stay private and are never shared.</p>
   </div>`;

@@ -8,7 +8,8 @@
   function load() {
     if (data) return data;
     var w = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT), t;
-    while ((t = w.nextNode())) if (t.nodeValue.indexOf('{mx:') > -1) break;
+    // Skip script and style text: this script's own source contains '{mx:'.
+    while ((t = w.nextNode())) if (t.nodeValue.indexOf('{mx:') > -1 && !/^(SCRIPT|STYLE)$/.test(t.parentNode.nodeName)) break;
     if (!t) return null;
     var el = t.parentNode;
     // Climb to the outermost wrapper that holds nothing but the data, so the whole element hides.
@@ -48,8 +49,10 @@
         e.setAttribute(name, val);
       }
       var src = e.getAttribute('data-mx-src');
-      if (src) {
+      if (src != null) {
         e.removeAttribute('data-mx-src');
+        // An empty value would load the page itself as an image, so hide the element instead.
+        if (!src || /\/$/.test(src)) { e.style.display = 'none'; continue; }
         e.setAttribute('src', src);
         if (e.nodeName === 'IFRAME' && !formScript) {
           formScript = true;

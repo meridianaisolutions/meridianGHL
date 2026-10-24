@@ -27,7 +27,7 @@ var TAG = /\{\{\s*custom_values\.(\w+)\s*\}\}/g, HAS = /\{\{\s*custom_values\./,
 function load() {
 if (data) return data;
 var w = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT), t;
-while ((t = w.nextNode())) if (t.nodeValue.indexOf('{mx:') > -1) break;
+while ((t = w.nextNode())) if (t.nodeValue.indexOf('{mx:') > -1 && !/^(SCRIPT|STYLE)$/.test(t.parentNode.nodeName)) break;
 if (!t) return null;
 var el = t.parentNode;
 var PAIRS = /\{mx:(\w+)\}([\s\S]*?)\{\/mx\}/g;
@@ -65,8 +65,9 @@ if (name === 'href' || name === 'data-mx-src') val = safeUrl(val);
 e.setAttribute(name, val);
 }
 var src = e.getAttribute('data-mx-src');
-if (src) {
+if (src != null) {
 e.removeAttribute('data-mx-src');
+if (!src || /\/$/.test(src)) { e.style.display = 'none'; continue; }
 e.setAttribute('src', src);
 if (e.nodeName === 'IFRAME' && !formScript) {
 formScript = true;
