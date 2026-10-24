@@ -5,7 +5,7 @@
   "brand": {
     "name": "Meridian AI Solutions",
     "short": "Meridian",
-    "founder": "Marcus",
+    "founder": "Marcus Burst",
     "founderRole": "Founder, Meridian AI Solutions",
     "phoneE164": "+61403806286",
     "areaServed": "Australia",
@@ -50,6 +50,7 @@
     "gbp": "/google-business-profile",
     "websites": "/websites",
     "pricing": "/#pricing",
+    "about": "/about",
     "blog": "/blog",
     "book": "/book-a-call",
     "contact": "/contact",
@@ -110,10 +111,10 @@
       "plans": [
         {
           "name": "Starter",
-          "value": "A $4,995 website, paid monthly",
+          "value": "Paid off over 24 months, then it's yours",
           "price": "$249",
           "period": "/month",
-          "outright": "$4,995",
+          "outright": "$5,478",
           "features": [
             "15-page website built to convert",
             "Quote button, click-to-call or form above the fold on every page",
@@ -123,10 +124,10 @@
         },
         {
           "name": "Standard",
-          "value": "A $5,795 website, paid monthly",
+          "value": "Paid off over 24 months, then it's yours",
           "price": "$299",
           "period": "/month",
-          "outright": "$5,795",
+          "outright": "$6,578",
           "popular": true,
           "features": [
             "Everything in Starter",
@@ -137,10 +138,10 @@
         },
         {
           "name": "Scale",
-          "value": "A $8,295 website, paid monthly",
+          "value": "Paid off over 24 months, then it's yours",
           "price": "$499",
           "period": "/month",
-          "outright": "$8,295",
+          "outright": "$10,978",
           "features": [
             "Everything in Standard",
             "40-page website: every service, every suburb",
@@ -148,12 +149,7 @@
             "Priority support"
           ]
         }
-      ],
-      "booster": {
-        "price": "$299",
-        "period": "/month",
-        "body": "Two new SEO pages every month, such as suburb pages, service pages or articles, to keep growing your reach. Add it to any plan."
-      }
+      ]
     },
     "system": {
       "price": "$799",

@@ -73,9 +73,16 @@ The dashboard screenshots live in `assets/paige/`. GHL pages load them from `ass
 
 ## To confirm before go-live
 
-- **Prices.** Set by Marcus on 24 Oct 2026, in AUD including GST (`site.config.json` > `offer`): reviews $199/$299/$499, profile management $699, websites $249/$299/$499 a month or $4,995/$5,795/$8,295 outright, Site Booster $299, and the system $799 a month + $1,599 setup ($699 a month for 6 months, $666 a month annually). Hosting after month 24 is $99 a month.
+- **Prices.** Set by Marcus on 24 Oct 2026, in AUD including GST (`site.config.json` > `offer`): reviews $199/$299/$499, profile management $699, websites $249/$299/$499 a month or $5,478/$6,578/$10,978 outright (22 months, so buying outright saves two months), and the system $799 a month + $1,599 setup (quarterly billed $2,397 with setup waived and shown as most popular, $699 a month for 6 months, $666 a month annually). Hosting after month 24 is $99 a month.
 - **Guarantees.** 30-day money-back on websites and the system, websites paid off after 24 months, unlimited changes within 2 business days, first website draft in 7 days.
 - **Claims** on the pricing and home pages that depend on how delivery is set up: live within 3 days, AI-written review replies, 5-star reviews posted to socials, "connects to the job software you use", unlimited users, 30-day cool-down for repeat customers.
 - **Founder photo** for the home page (the spot currently shows an "M" tile; see the comment in `src/pages/home.html`).
 - **Legal pages** are a plain-English starting point, not legal advice. Have them checked, especially the trial, cancellation and overseas data sections.
 - Whether the old site's blog posts should be kept, since they may carry search traffic.
+
+## Logo and photos
+
+- The header and footer logos are `assets/meridian-logo.svg` and `assets/meridian-logo-light.svg` (light text for the dark footer). They load from `assetBase`. If you'd rather host them in GHL, upload both to Media, then update `b5_our_business_logo_link` and swap the two `{{img:...}}` tokens for the media URLs.
+- Stock photos in `assets/photos/` are from Unsplash (free licence, see `credits.txt`). `assets/work/` holds screenshots of the Summit Roofing example site.
+- After committing new assets, set `assetBase` in `site.config.json` to the new commit hash so jsDelivr serves the right files, then rebuild.
+

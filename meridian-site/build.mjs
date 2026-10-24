@@ -47,7 +47,7 @@ function renderPlans(key) {
     extra: `<p class="mr-plan-free">First ${o.trialDays} days free</p>`,
   })).join('');
   if (key === 'websites') return o.websites.plans.map((p) => planCard({
-    ...p, lines: [p.value, `Or buy it outright for ${p.outright}`], features: p.features,
+    ...p, lines: [p.value, `Or buy it outright for ${p.outright} and save two months`], features: p.features,
     cta: `Choose ${p.name}`, ctaHref: cfg.links.book,
   })).join('');
   throw new Error(`Unknown plan set ${key}`);

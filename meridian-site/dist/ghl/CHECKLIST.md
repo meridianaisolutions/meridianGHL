@@ -53,6 +53,16 @@ Pages, in nav order:
   - Custom Code element: paste `pages/websites/block-1.html`
   - Footer global section
 
+## About (/about)
+
+- SEO title: About Meridian AI Solutions | Google Reviews & Local SEO
+- Meta description: Meridian AI Solutions is a Sydney-based team helping Australian home service businesses get more Google reviews, rank higher on Maps and win more jobs.
+- Page head tracking code: `pages/about/page-head-tracking-code.html`
+- Sections, top to bottom:
+  - Header global section
+  - Custom Code element: paste `pages/about/block-1.html`
+  - Footer global section
+
 ## Blog (/blog)
 
 - SEO title: Blog: Google Reviews & Local SEO Tips | Meridian AI Solutions
