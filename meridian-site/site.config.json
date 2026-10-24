@@ -1,0 +1,99 @@
+{
+  "_note": "Single source of truth for the Meridian site build. Values marked TODO need Marcus's confirmation before go-live.",
+  "siteUrl": "https://meridianaisolutions.com.au",
+  "brand": {
+    "name": "Meridian AI Solutions",
+    "short": "Meridian",
+    "seoProduct": "Meridian",
+    "reviewProduct": "Meridian",
+    "founder": "Marcus",
+    "founderRole": "Founder, Meridian AI Solutions",
+    "phoneE164": "+61403806286",
+    "areaServed": "Australia",
+    "legalName": "Meridian AI Solutions Pty Ltd",
+    "abn": "87 693 331 887",
+    "locality": "Sydney",
+    "region": "NSW"
+  },
+  "customValues": {
+    "_note": "Keys exist in the 'Meridian AI Solutions' sub-account (QE1a9gJjBZGR6dcIgfCx). 'sample' is only used for the local preview build.",
+    "name": {
+      "ghl": "{{ custom_values.b3_our_business_name }}",
+      "sample": "Meridian AI Solutions"
+    },
+    "phone": {
+      "ghl": "{{ custom_values.b2_our_business_phone_number }}",
+      "sample": "0403 806 286"
+    },
+    "email": {
+      "ghl": "{{ custom_values.b1_our_business_email }}",
+      "sample": "marcus@meridianaisolutions.com.au"
+    },
+    "logo": {
+      "ghl": "{{ custom_values.b5_our_business_logo_link }}",
+      "sample": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='36' viewBox='0 0 168 36'%3E%3Crect width='36' height='36' rx='10' fill='%2312312a'/%3E%3Cpath d='M9 26v-8a4.5 4.5 0 0 1 9 0v8M18 18a4.5 4.5 0 0 1 9 0v8' fill='none' stroke='%23fffbf4' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='8.5' r='3.4' fill='%23ffd84a'/%3E%3Ctext x='44' y='25' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='%2312312a' letter-spacing='-0.6'%3Emeridian%3C/text%3E%3C/svg%3E"
+    },
+    "url": {
+      "ghl": "{{ custom_values.b4_our_business_website_url }}",
+      "sample": "https://meridianaisolutions.com.au"
+    },
+    "login": {
+      "ghl": "{{ custom_values.b7_your_whitelabel_login_url }}",
+      "sample": "#client-login"
+    }
+  },
+  "links": {
+    "home": "/",
+    "reviews": "/google-reviews",
+    "seo": "/local-seo",
+    "pricing": "/pricing",
+    "book": "/book-a-call",
+    "contact": "/contact",
+    "privacy": "/privacy-policy",
+    "terms": "/terms-and-conditions",
+    "thanks": "/thank-you"
+  },
+  "offer": {
+    "_note": "Modelled on ReviewHarvest's offer for now (Marcus, 24 Oct 2026). Prices are RH's USD numbers shown as AUD: confirm before go-live.",
+    "trialDays": "10",
+    "contract": "No lock-in contract. Cancel any time.",
+    "setupDays": "3",
+    "trialTitle": "Try it free for 10 days",
+    "trialBody": "Start with a 10-day free trial. We set everything up and launch your first review campaign, and you're only billed on day 10 if you decide to stay. No contract, cancel any time.",
+    "plansNote": "Every plan includes one past-customer reactivation campaign, even if it goes over your monthly limit. Follow-ups never count towards your limit.",
+    "plans": [
+      {
+        "name": "Starter",
+        "requests": "Up to 50 new review requests a month",
+        "price": "$99",
+        "period": "/month",
+        "blurb": "For smaller businesses getting started with reviews."
+      },
+      {
+        "name": "Growth",
+        "requests": "50 to 100 new review requests a month",
+        "price": "$179",
+        "period": "/month",
+        "popular": true,
+        "blurb": "For busy businesses serving customers every day."
+      },
+      {
+        "name": "Pro",
+        "requests": "100 to 300 new review requests a month",
+        "price": "$279",
+        "period": "/month",
+        "blurb": "For high-volume and multi-crew businesses."
+      }
+    ],
+    "planFeatures": [
+      "Past-customer review reactivation",
+      "Automated text and email requests",
+      "Personalised image review requests",
+      "Smart follow-ups that stop once reviewed",
+      "AI-written replies to every review",
+      "5-star reviews shared to your socials",
+      "Connects to the job software you use",
+      "Unlimited users and a 1-on-1 setup call"
+    ]
+  }
+}
