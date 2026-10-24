@@ -34,7 +34,7 @@
 .mx .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
 /* Top bar and header */
-.mx .hdr{position:sticky;top:8px;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:8px auto}
+.mx .hdr{position:fixed;top:8px;left:0;right:0;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:0 auto}
 .mx .hdr .wrap{padding-left:16px;padding-right:16px}
 .mx .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
 .mx .logo img{width:auto;height:48px;max-width:180px;object-fit:contain}
@@ -94,7 +94,7 @@
 .mx .hero{position:relative;color:#fff;background:var(--brand);overflow:hidden}
 .mx .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
 .mx .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--brand) 0%,rgba(0,0,0,.15) 100%);opacity:.85}
-.mx .hero .wrap{position:relative;z-index:1;display:grid;gap:32px;padding-top:48px;padding-bottom:56px}
+.mx .hero .wrap{position:relative;z-index:1;display:grid;gap:32px;padding-top:136px;padding-bottom:56px}
 .mx .hero h1{color:#fff}
 .mx .hero h1 small{display:block;font-size:.5em;font-weight:700;letter-spacing:0;opacity:.9;margin-bottom:.4em}
 .mx .hero .lead{color:rgba(255,255,255,.9)}
@@ -184,7 +184,9 @@
 .mx .mbar .btn-ghost{color:var(--brand)}
 
 /* Simple page header (service, contact, legal pages) */
-.mx .phead{background:var(--brand);color:#fff;padding:48px 0}
+.mx .phead{background:var(--brand);color:#fff;padding:136px 0 48px}
+.mx .sec#main{padding-top:160px}
+.mx [id]{scroll-margin-top:100px}
 .mx .phead h1{color:#fff;font-size:clamp(1.9rem,4.5vw,3rem)}
 .mx .phead .lead{color:rgba(255,255,255,.88)}
 .mx .crumbs{font-size:.85rem;margin-bottom:12px;opacity:.85}
@@ -206,7 +208,7 @@
   .mx .nav{display:flex;gap:20px}
   .mx .menu{display:none}
   .mx .hdr-phone{display:inline-flex;align-items:center;gap:6px}
-  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;padding-top:72px;padding-bottom:80px}
+  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;padding-top:160px;padding-bottom:80px}
   .mx .owner{grid-template-columns:.8fr 1.2fr}
   .mx .areas{grid-template-columns:1fr 1fr}
   .mx .faq-wrap{grid-template-columns:.8fr 1.2fr}
