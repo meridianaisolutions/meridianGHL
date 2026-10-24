@@ -40,6 +40,7 @@ const quoteCard = (form) => `<div class="quote" id="quote">
     <h2>Get a free quote</h2>
     <p>Takes 30 seconds. We reply within 24 hours and there's no obligation.</p>
     ${form}
+    <p class="fine"><span class="stars" aria-hidden="true">${stars}</span> {{cv.site_google_rating}} from {{cv.site_google_review_count}} Google reviews</p>
     <p class="fine">${icons.lock} Your details stay private and are never shared.</p>
   </div>`;
 const ghlForm = `<iframe data-mx-src="https://api.leadconnectorhq.com/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560"></iframe>`;

@@ -41,9 +41,10 @@ Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom value
 3. Create the website in Sites > Websites, starting blank, and create the pages with the paths in `SEO-SETTINGS.md`. A service page's path must match that service's Slug custom value (`roof-repairs` and so on).
 4. Build the header global section. On the home page, add a full-width section with no padding. Put a Text element in it and paste `DATA-TEXT-ELEMENT.txt` into it (as plain text). Below that, add a Custom Code element and paste `dist/ghl/home/01-header.html`. Save the section as a Global section called "Header". It must be the first section on every page, because it carries the styles, the fill script and the data.
 5. Add the other blocks. For each page, add one full-width section with no padding per remaining file in `dist/ghl/<page>/`, in order, each holding one Custom Code element with that file's contents. Save the trust strip, how it works, reviews, FAQ, final CTA and footer as Global sections the first time and reuse them, so one change updates every page. The last file on most pages is the structured data block.
-6. Set each page's SEO title and description from `SEO-SETTINGS.md`. Check on one page that the custom values in them render in the preview's browser tab title. Tick noindex on the Thank you page.
-7. Upload a favicon and set the site's social share image.
-8. Take the snapshot.
+6. Turn on the website's sitemap in its settings. Once a client's domain is live, verify it in Google Search Console and submit the sitemap, and link the site from their Google Business Profile.
+7. Set each page's SEO title and description from `SEO-SETTINGS.md`. Check on one page that the custom values in them render in the preview's browser tab title. Tick noindex on the Thank you page.
+8. Upload a favicon and set the site's social share image.
+9. Take the snapshot.
 
 ## Onboarding a client
 

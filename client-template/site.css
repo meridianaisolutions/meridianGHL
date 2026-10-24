@@ -132,7 +132,7 @@
 
 /* Footer */
 .mx .ftr{background:#0e1117;color:#c9ced8;font-size:.95rem;padding:56px 0 96px}
-.mx .ftr h3{color:#fff;font-size:1rem}
+.mx .ftr .fh{color:#fff;font-size:1rem;margin-bottom:.75em}
 .mx .ftr a{color:#c9ced8;text-decoration:none}
 .mx .ftr a:hover{color:#fff;text-decoration:underline}
 .mx .ftr .cols{display:grid;gap:32px}

@@ -66,7 +66,7 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 
 | Name in GHL | Merge tag | What to enter |
 | --- | --- | --- |
-| Site Hero Headline | `{{ custom_values.site_hero_headline }}` | Benefit-led promise, under 8 words. The H1 adds the trade and city automatically |
+| Site Hero Headline | `{{ custom_values.site_hero_headline }}` | Outcome the customer wants plus the pain they want to avoid, under 9 words, e.g. [Outcome] without [pain]. The H1 adds the trade and city automatically |
 | Site Hero Subheadline | `{{ custom_values.site_hero_subheadline }}` | e.g. Leaks, storm damage and full restorations for Brisbane homes. Free, no-obligation quotes within 24 hours. |
 | Site USP 1 | `{{ custom_values.site_usp_1 }}` | e.g. Free quote within 24 hours |
 | Site USP 2 | `{{ custom_values.site_usp_2 }}` | e.g. Licensed, insured and local |
@@ -82,21 +82,27 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Service 1 Name | `{{ custom_values.site_service_1_name }}` | e.g. Roof Repairs |
 | Site Service 1 Slug | `{{ custom_values.site_service_1_slug }}` | Must match the GHL page path for this service |
 | Site Service 1 Desc | `{{ custom_values.site_service_1_desc }}` | e.g. Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after. |
+| Site Service 1 Body | `{{ custom_values.site_service_1_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 2 Name | `{{ custom_values.site_service_2_name }}` | e.g. Roof Restoration |
 | Site Service 2 Slug | `{{ custom_values.site_service_2_slug }}` | e.g. roof-restoration |
 | Site Service 2 Desc | `{{ custom_values.site_service_2_desc }}` | e.g. Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement. |
+| Site Service 2 Body | `{{ custom_values.site_service_2_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 3 Name | `{{ custom_values.site_service_3_name }}` | e.g. Re-Roofing |
 | Site Service 3 Slug | `{{ custom_values.site_service_3_slug }}` | e.g. re-roofing |
 | Site Service 3 Desc | `{{ custom_values.site_service_3_desc }}` | e.g. Full tile-to-metal and metal-to-metal replacements with a clean site every day. |
+| Site Service 3 Body | `{{ custom_values.site_service_3_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 4 Name | `{{ custom_values.site_service_4_name }}` | e.g. Storm Damage |
 | Site Service 4 Slug | `{{ custom_values.site_service_4_slug }}` | e.g. storm-damage |
 | Site Service 4 Desc | `{{ custom_values.site_service_4_desc }}` | e.g. Emergency make-safe and insurance-ready reports after hail, wind and storm events. |
+| Site Service 4 Body | `{{ custom_values.site_service_4_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 5 Name | `{{ custom_values.site_service_5_name }}` | e.g. Gutters and Downpipes |
 | Site Service 5 Slug | `{{ custom_values.site_service_5_slug }}` | e.g. gutters-downpipes |
 | Site Service 5 Desc | `{{ custom_values.site_service_5_desc }}` | e.g. New gutters, downpipes and guards that stop overflow and protect your foundations. |
+| Site Service 5 Body | `{{ custom_values.site_service_5_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 6 Name | `{{ custom_values.site_service_6_name }}` | e.g. Roof Inspections |
 | Site Service 6 Slug | `{{ custom_values.site_service_6_slug }}` | e.g. roof-inspections |
 | Site Service 6 Desc | `{{ custom_values.site_service_6_desc }}` | e.g. Detailed photo reports for buyers, sellers and insurers, usually within 48 hours. |
+| Site Service 6 Body | `{{ custom_values.site_service_6_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 
 ## FAQ
 

@@ -1,87 +1,601 @@
 {
   "_comment": "Every custom value the client website template uses. 'existing' values are already in the review-automation snapshot; 'new' values were created in the Meridian AI Solutions sub-account on 24 Oct 2026 with these examples. GHL derives the key from the name (lowercase, spaces to underscores), so names must not change once pages reference them. 'example' is only used for the local preview build and as the starting value in the template sub-account. Avoid double quotes and < > in values: GHL inserts them as-is, and the JSON-LD block would break on a stray quote.",
   "values": [
-    { "key": "business_name", "name": "05. Business Name For Texts & Emails (senderID)", "status": "existing", "group": "Business", "example": "Summit Roofing Co" },
-    { "key": "logo_link", "name": "02. Logo Link (400w x 160h)", "status": "existing", "group": "Business", "example": "https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing" },
-    { "key": "google_review_link", "name": "01. Google Review Link", "status": "existing", "group": "Reviews", "example": "https://g.page/r/EXAMPLE/review" },
-    { "key": "business_owner_name", "name": "04. Business Owner First Name For Texts & Emails", "status": "existing", "group": "Business", "example": "Dave" },
-
-    { "key": "site_trade", "name": "Site Trade", "status": "new", "group": "Market", "example": "Roofing", "help": "The main service category in title case, e.g. Roofing, House Cleaning, Junk Removal" },
-    { "key": "site_trade_person", "name": "Site Trade Person", "status": "new", "group": "Market", "example": "roofer", "help": "What a customer would search for, lower case, e.g. roofer, cleaner, plumber" },
-    { "key": "site_city", "name": "Site City", "status": "new", "group": "Market", "example": "Brisbane", "help": "Main city or region the business targets" },
-    { "key": "site_service_areas", "name": "Site Service Areas", "status": "new", "group": "Market", "example": "Brisbane, Logan, Ipswich, Redcliffe, Springfield, Moreton Bay, Redland City and surrounding suburbs", "help": "Plain sentence listing suburbs and towns served" },
-    { "key": "site_schema_type", "name": "Site Schema Type", "status": "new", "group": "SEO", "example": "RoofingContractor", "help": "schema.org type: RoofingContractor, Plumber, Electrician, HVACBusiness, HousePainter, GeneralContractor, Locksmith, MovingCompany, or HomeAndConstructionBusiness if none fit" },
-
-    { "key": "site_url", "name": "Site URL", "status": "new", "group": "Business", "example": "https://summitroofing.com.au", "help": "Full domain with https and no trailing slash" },
-    { "key": "site_phone_display", "name": "Site Phone Display", "status": "new", "group": "Contact", "example": "0400 123 456", "help": "Phone as people read it" },
-    { "key": "site_phone_link", "name": "Site Phone Link", "status": "new", "group": "Contact", "example": "+61400123456", "help": "Phone in +61 format with no spaces, used for tap-to-call" },
-    { "key": "site_email", "name": "Site Email", "status": "new", "group": "Contact", "example": "hello@summitroofing.com.au" },
-    { "key": "site_street_address", "name": "Site Street Address", "status": "new", "group": "Contact", "example": "12 Example Street", "help": "Leave blank for service-area businesses that hide their address on Google" },
-    { "key": "site_suburb", "name": "Site Suburb", "status": "new", "group": "Contact", "example": "Newstead" },
-    { "key": "site_state", "name": "Site State", "status": "new", "group": "Contact", "example": "QLD" },
-    { "key": "site_postcode", "name": "Site Postcode", "status": "new", "group": "Contact", "example": "4006" },
-    { "key": "site_google_maps_url", "name": "Site Google Maps URL", "status": "new", "group": "Reviews", "example": "https://maps.google.com/?cid=0000000000", "help": "Share link of the Google Business Profile" },
-    { "key": "site_hours_text", "name": "Site Hours Text", "status": "new", "group": "Contact", "example": "Mon to Fri 7am to 5pm, Sat 8am to 12pm" },
-    { "key": "site_hours_schema", "name": "Site Hours Schema", "status": "new", "group": "SEO", "example": "Mo-Fr 07:00-17:00", "help": "schema.org openingHours format" },
-    { "key": "site_abn", "name": "Site ABN", "status": "new", "group": "Business", "example": "12 345 678 901" },
-    { "key": "site_licence", "name": "Site Licence", "status": "new", "group": "Business", "example": "QBCC Lic. 1234567", "help": "Licence line shown in trust bar and footer. Use 'Fully insured' if no licence applies" },
-    { "key": "site_founded_year", "name": "Site Founded Year", "status": "new", "group": "Business", "example": "2012" },
-    { "key": "site_years_experience", "name": "Site Years Experience", "status": "new", "group": "Business", "example": "12+" },
-
-    { "key": "site_google_rating", "name": "Site Google Rating", "status": "new", "group": "Reviews", "example": "4.9", "help": "Copy from the Google Business Profile. Must match Google" },
-    { "key": "site_google_review_count", "name": "Site Google Review Count", "status": "new", "group": "Reviews", "example": "127", "help": "Copy from the Google Business Profile. Must match Google" },
-    { "key": "site_review_1_name", "name": "Site Review 1 Name", "status": "new", "group": "Reviews", "example": "Sarah M." },
-    { "key": "site_review_1_suburb", "name": "Site Review 1 Suburb", "status": "new", "group": "Reviews", "example": "Paddington" },
-    { "key": "site_review_1_text", "name": "Site Review 1 Text", "status": "new", "group": "Reviews", "example": "Dave came out the same day after the storm, showed us photos of the damage and had it fixed by the weekend. Fair price and no mess left behind." },
-    { "key": "site_review_2_name", "name": "Site Review 2 Name", "status": "new", "group": "Reviews", "example": "James T." },
-    { "key": "site_review_2_suburb", "name": "Site Review 2 Suburb", "status": "new", "group": "Reviews", "example": "Logan" },
-    { "key": "site_review_2_text", "name": "Site Review 2 Text", "status": "new", "group": "Reviews", "example": "Three quotes and these guys were the only ones who turned up on time and explained everything. The roof looks brand new." },
-    { "key": "site_review_3_name", "name": "Site Review 3 Name", "status": "new", "group": "Reviews", "example": "Priya K." },
-    { "key": "site_review_3_suburb", "name": "Site Review 3 Suburb", "status": "new", "group": "Reviews", "example": "Ipswich" },
-    { "key": "site_review_3_text", "name": "Site Review 3 Text", "status": "new", "group": "Reviews", "example": "Booked online on Monday, quote by Tuesday, job done Friday. Communication was excellent the whole way through." },
-
-    { "key": "site_hero_headline", "name": "Site Hero Headline", "status": "new", "group": "Copy", "example": "Roof repairs done right the first time", "help": "Benefit-led promise, under 8 words. The H1 adds the trade and city automatically" },
-    { "key": "site_hero_subheadline", "name": "Site Hero Subheadline", "status": "new", "group": "Copy", "example": "Leaks, storm damage and full restorations for Brisbane homes. Free, no-obligation quotes within 24 hours." },
-    { "key": "site_usp_1", "name": "Site USP 1", "status": "new", "group": "Copy", "example": "Free quote within 24 hours" },
-    { "key": "site_usp_2", "name": "Site USP 2", "status": "new", "group": "Copy", "example": "Licensed, insured and local" },
-    { "key": "site_usp_3", "name": "Site USP 3", "status": "new", "group": "Copy", "example": "10-year workmanship guarantee" },
-    { "key": "site_guarantee", "name": "Site Guarantee", "status": "new", "group": "Copy", "example": "If you are not happy with the job, we come back and make it right at no cost. Every job is backed by our 10-year workmanship guarantee." },
-    { "key": "site_offer", "name": "Site Offer", "status": "new", "group": "Copy", "example": "Free roof health check with every quote", "help": "Short offer for the CTA band. Keep it true and current" },
-    { "key": "site_owner_bio", "name": "Site Owner Bio", "status": "new", "group": "Copy", "example": "I started Summit Roofing because I was tired of seeing homeowners get burned by cowboys. We are a small local team, we answer the phone, we turn up when we say we will, and we treat your home like our own." },
-
-    { "key": "site_service_1_name", "name": "Site Service 1 Name", "status": "new", "group": "Services", "example": "Roof Repairs" },
-    { "key": "site_service_1_slug", "name": "Site Service 1 Slug", "status": "new", "group": "Services", "example": "roof-repairs", "help": "Must match the GHL page path for this service" },
-    { "key": "site_service_1_desc", "name": "Site Service 1 Desc", "status": "new", "group": "Services", "example": "Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after." },
-    { "key": "site_service_2_name", "name": "Site Service 2 Name", "status": "new", "group": "Services", "example": "Roof Restoration" },
-    { "key": "site_service_2_slug", "name": "Site Service 2 Slug", "status": "new", "group": "Services", "example": "roof-restoration" },
-    { "key": "site_service_2_desc", "name": "Site Service 2 Desc", "status": "new", "group": "Services", "example": "Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement." },
-    { "key": "site_service_3_name", "name": "Site Service 3 Name", "status": "new", "group": "Services", "example": "Re-Roofing" },
-    { "key": "site_service_3_slug", "name": "Site Service 3 Slug", "status": "new", "group": "Services", "example": "re-roofing" },
-    { "key": "site_service_3_desc", "name": "Site Service 3 Desc", "status": "new", "group": "Services", "example": "Full tile-to-metal and metal-to-metal replacements with a clean site every day." },
-    { "key": "site_service_4_name", "name": "Site Service 4 Name", "status": "new", "group": "Services", "example": "Storm Damage" },
-    { "key": "site_service_4_slug", "name": "Site Service 4 Slug", "status": "new", "group": "Services", "example": "storm-damage" },
-    { "key": "site_service_4_desc", "name": "Site Service 4 Desc", "status": "new", "group": "Services", "example": "Emergency make-safe and insurance-ready reports after hail, wind and storm events." },
-    { "key": "site_service_5_name", "name": "Site Service 5 Name", "status": "new", "group": "Services", "example": "Gutters and Downpipes" },
-    { "key": "site_service_5_slug", "name": "Site Service 5 Slug", "status": "new", "group": "Services", "example": "gutters-downpipes" },
-    { "key": "site_service_5_desc", "name": "Site Service 5 Desc", "status": "new", "group": "Services", "example": "New gutters, downpipes and guards that stop overflow and protect your foundations." },
-    { "key": "site_service_6_name", "name": "Site Service 6 Name", "status": "new", "group": "Services", "example": "Roof Inspections" },
-    { "key": "site_service_6_slug", "name": "Site Service 6 Slug", "status": "new", "group": "Services", "example": "roof-inspections" },
-    { "key": "site_service_6_desc", "name": "Site Service 6 Desc", "status": "new", "group": "Services", "example": "Detailed photo reports for buyers, sellers and insurers, usually within 48 hours." },
-
-    { "key": "site_faq_1_q", "name": "Site FAQ 1 Q", "status": "new", "group": "FAQ", "example": "How much does a roof repair cost?" },
-    { "key": "site_faq_1_a", "name": "Site FAQ 1 A", "status": "new", "group": "FAQ", "example": "Most repairs fall between $350 and $1,500 depending on access and materials. We give you a fixed written price before any work starts, so there are no surprises." },
-    { "key": "site_faq_2_q", "name": "Site FAQ 2 Q", "status": "new", "group": "FAQ", "example": "How quickly can you come out?" },
-    { "key": "site_faq_2_a", "name": "Site FAQ 2 A", "status": "new", "group": "FAQ", "example": "We usually inspect within 1 to 2 business days, and same day for active leaks and storm damage." },
-    { "key": "site_faq_3_q", "name": "Site FAQ 3 Q", "status": "new", "group": "FAQ", "example": "Are you licensed and insured?" },
-    { "key": "site_faq_3_a", "name": "Site FAQ 3 A", "status": "new", "group": "FAQ", "example": "Yes. We hold a current QBCC licence and full public liability insurance, and we are happy to send certificates before we start." },
-    { "key": "site_faq_4_q", "name": "Site FAQ 4 Q", "status": "new", "group": "FAQ", "example": "Do you offer a guarantee?" },
-    { "key": "site_faq_4_a", "name": "Site FAQ 4 A", "status": "new", "group": "FAQ", "example": "Every job comes with our 10-year workmanship guarantee on top of the manufacturer warranty on materials." },
-
-    { "key": "site_brand_color", "name": "Site Brand Color", "status": "new", "group": "Brand", "example": "#0b2545", "help": "Main brand colour as a hex code. Used for header, headings and dark sections" },
-    { "key": "site_accent_color", "name": "Site Accent Color", "status": "new", "group": "Brand", "example": "#c2410c", "help": "Button colour. Needs strong contrast with white text (WCAG AA 4.5:1)" },
-    { "key": "site_hero_image_url", "name": "Site Hero Image URL", "status": "new", "group": "Brand", "example": "https://placehold.co/1600x1000/1d3557/1d3557/webp", "help": "1600 x 1000 WebP under 150 KB, a real photo of the team or a finished job" },
-    { "key": "site_owner_photo_url", "name": "Site Owner Photo URL", "status": "new", "group": "Brand", "example": "https://placehold.co/640x640/cccccc/333333/webp?text=Owner", "help": "Square 640 x 640 WebP of the owner or team" },
-    { "key": "site_quote_form_id", "name": "Site Quote Form ID", "status": "new", "group": "Conversion", "example": "EXAMPLEFORMID", "help": "ID of the GHL quote form (Sites > Forms > Integrate). Only used if you embed the form with custom code" },
-    { "key": "site_booking_url", "name": "Site Booking URL", "status": "new", "group": "Conversion", "example": "/contact", "help": "Where Get a Quote buttons go. A GHL calendar link or /contact" }
+    {
+      "key": "business_name",
+      "name": "05. Business Name For Texts & Emails (senderID)",
+      "status": "existing",
+      "group": "Business",
+      "example": "Summit Roofing Co"
+    },
+    {
+      "key": "logo_link",
+      "name": "02. Logo Link (400w x 160h)",
+      "status": "existing",
+      "group": "Business",
+      "example": "https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing"
+    },
+    {
+      "key": "google_review_link",
+      "name": "01. Google Review Link",
+      "status": "existing",
+      "group": "Reviews",
+      "example": "https://g.page/r/EXAMPLE/review"
+    },
+    {
+      "key": "business_owner_name",
+      "name": "04. Business Owner First Name For Texts & Emails",
+      "status": "existing",
+      "group": "Business",
+      "example": "Dave"
+    },
+    {
+      "key": "site_trade",
+      "name": "Site Trade",
+      "status": "new",
+      "group": "Market",
+      "example": "Roofing",
+      "help": "The main service category in title case, e.g. Roofing, House Cleaning, Junk Removal"
+    },
+    {
+      "key": "site_trade_person",
+      "name": "Site Trade Person",
+      "status": "new",
+      "group": "Market",
+      "example": "roofer",
+      "help": "What a customer would search for, lower case, e.g. roofer, cleaner, plumber"
+    },
+    {
+      "key": "site_city",
+      "name": "Site City",
+      "status": "new",
+      "group": "Market",
+      "example": "Brisbane",
+      "help": "Main city or region the business targets"
+    },
+    {
+      "key": "site_service_areas",
+      "name": "Site Service Areas",
+      "status": "new",
+      "group": "Market",
+      "example": "Brisbane, Logan, Ipswich, Redcliffe, Springfield, Moreton Bay, Redland City and surrounding suburbs",
+      "help": "Plain sentence listing suburbs and towns served"
+    },
+    {
+      "key": "site_schema_type",
+      "name": "Site Schema Type",
+      "status": "new",
+      "group": "SEO",
+      "example": "RoofingContractor",
+      "help": "schema.org type: RoofingContractor, Plumber, Electrician, HVACBusiness, HousePainter, GeneralContractor, Locksmith, MovingCompany, or HomeAndConstructionBusiness if none fit"
+    },
+    {
+      "key": "site_url",
+      "name": "Site URL",
+      "status": "new",
+      "group": "Business",
+      "example": "https://summitroofing.com.au",
+      "help": "Full domain with https and no trailing slash"
+    },
+    {
+      "key": "site_phone_display",
+      "name": "Site Phone Display",
+      "status": "new",
+      "group": "Contact",
+      "example": "0400 123 456",
+      "help": "Phone as people read it"
+    },
+    {
+      "key": "site_phone_link",
+      "name": "Site Phone Link",
+      "status": "new",
+      "group": "Contact",
+      "example": "+61400123456",
+      "help": "Phone in +61 format with no spaces, used for tap-to-call"
+    },
+    {
+      "key": "site_email",
+      "name": "Site Email",
+      "status": "new",
+      "group": "Contact",
+      "example": "hello@summitroofing.com.au"
+    },
+    {
+      "key": "site_street_address",
+      "name": "Site Street Address",
+      "status": "new",
+      "group": "Contact",
+      "example": "12 Example Street",
+      "help": "Leave blank for service-area businesses that hide their address on Google"
+    },
+    {
+      "key": "site_suburb",
+      "name": "Site Suburb",
+      "status": "new",
+      "group": "Contact",
+      "example": "Newstead"
+    },
+    {
+      "key": "site_state",
+      "name": "Site State",
+      "status": "new",
+      "group": "Contact",
+      "example": "QLD"
+    },
+    {
+      "key": "site_postcode",
+      "name": "Site Postcode",
+      "status": "new",
+      "group": "Contact",
+      "example": "4006"
+    },
+    {
+      "key": "site_google_maps_url",
+      "name": "Site Google Maps URL",
+      "status": "new",
+      "group": "Reviews",
+      "example": "https://maps.google.com/?cid=0000000000",
+      "help": "Share link of the Google Business Profile"
+    },
+    {
+      "key": "site_hours_text",
+      "name": "Site Hours Text",
+      "status": "new",
+      "group": "Contact",
+      "example": "Mon to Fri 7am to 5pm, Sat 8am to 12pm"
+    },
+    {
+      "key": "site_hours_schema",
+      "name": "Site Hours Schema",
+      "status": "new",
+      "group": "SEO",
+      "example": "Mo-Fr 07:00-17:00",
+      "help": "schema.org openingHours format"
+    },
+    {
+      "key": "site_abn",
+      "name": "Site ABN",
+      "status": "new",
+      "group": "Business",
+      "example": "12 345 678 901"
+    },
+    {
+      "key": "site_licence",
+      "name": "Site Licence",
+      "status": "new",
+      "group": "Business",
+      "example": "QBCC Lic. 1234567",
+      "help": "Licence line shown in trust bar and footer. Use 'Fully insured' if no licence applies"
+    },
+    {
+      "key": "site_founded_year",
+      "name": "Site Founded Year",
+      "status": "new",
+      "group": "Business",
+      "example": "2012"
+    },
+    {
+      "key": "site_years_experience",
+      "name": "Site Years Experience",
+      "status": "new",
+      "group": "Business",
+      "example": "12+"
+    },
+    {
+      "key": "site_google_rating",
+      "name": "Site Google Rating",
+      "status": "new",
+      "group": "Reviews",
+      "example": "4.9",
+      "help": "Copy from the Google Business Profile. Must match Google"
+    },
+    {
+      "key": "site_google_review_count",
+      "name": "Site Google Review Count",
+      "status": "new",
+      "group": "Reviews",
+      "example": "127",
+      "help": "Copy from the Google Business Profile. Must match Google"
+    },
+    {
+      "key": "site_review_1_name",
+      "name": "Site Review 1 Name",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Sarah M."
+    },
+    {
+      "key": "site_review_1_suburb",
+      "name": "Site Review 1 Suburb",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Paddington"
+    },
+    {
+      "key": "site_review_1_text",
+      "name": "Site Review 1 Text",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Dave came out the same day after the storm, showed us photos of the damage and had it fixed by the weekend. Fair price and no mess left behind."
+    },
+    {
+      "key": "site_review_2_name",
+      "name": "Site Review 2 Name",
+      "status": "new",
+      "group": "Reviews",
+      "example": "James T."
+    },
+    {
+      "key": "site_review_2_suburb",
+      "name": "Site Review 2 Suburb",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Logan"
+    },
+    {
+      "key": "site_review_2_text",
+      "name": "Site Review 2 Text",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Three quotes and these guys were the only ones who turned up on time and explained everything. The roof looks brand new."
+    },
+    {
+      "key": "site_review_3_name",
+      "name": "Site Review 3 Name",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Priya K."
+    },
+    {
+      "key": "site_review_3_suburb",
+      "name": "Site Review 3 Suburb",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Ipswich"
+    },
+    {
+      "key": "site_review_3_text",
+      "name": "Site Review 3 Text",
+      "status": "new",
+      "group": "Reviews",
+      "example": "Booked online on Monday, quote by Tuesday, job done Friday. Communication was excellent the whole way through."
+    },
+    {
+      "key": "site_hero_headline",
+      "name": "Site Hero Headline",
+      "status": "new",
+      "group": "Copy",
+      "example": "Roof leaks fixed fast, without the surprise bill",
+      "help": "Outcome the customer wants plus the pain they want to avoid, under 9 words, e.g. [Outcome] without [pain]. The H1 adds the trade and city automatically"
+    },
+    {
+      "key": "site_hero_subheadline",
+      "name": "Site Hero Subheadline",
+      "status": "new",
+      "group": "Copy",
+      "example": "Leaks, storm damage and full restorations for Brisbane homes. Free, no-obligation quotes within 24 hours."
+    },
+    {
+      "key": "site_usp_1",
+      "name": "Site USP 1",
+      "status": "new",
+      "group": "Copy",
+      "example": "Free quote within 24 hours"
+    },
+    {
+      "key": "site_usp_2",
+      "name": "Site USP 2",
+      "status": "new",
+      "group": "Copy",
+      "example": "Licensed, insured and local"
+    },
+    {
+      "key": "site_usp_3",
+      "name": "Site USP 3",
+      "status": "new",
+      "group": "Copy",
+      "example": "10-year workmanship guarantee"
+    },
+    {
+      "key": "site_guarantee",
+      "name": "Site Guarantee",
+      "status": "new",
+      "group": "Copy",
+      "example": "If you are not happy with the job, we come back and make it right at no cost. Every job is backed by our 10-year workmanship guarantee."
+    },
+    {
+      "key": "site_offer",
+      "name": "Site Offer",
+      "status": "new",
+      "group": "Copy",
+      "example": "Free roof health check with every quote",
+      "help": "Short offer for the CTA band. Keep it true and current"
+    },
+    {
+      "key": "site_owner_bio",
+      "name": "Site Owner Bio",
+      "status": "new",
+      "group": "Copy",
+      "example": "I started Summit Roofing because I was tired of seeing homeowners get burned by cowboys. We are a small local team, we answer the phone, we turn up when we say we will, and we treat your home like our own."
+    },
+    {
+      "key": "site_service_1_name",
+      "name": "Site Service 1 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Roof Repairs"
+    },
+    {
+      "key": "site_service_1_slug",
+      "name": "Site Service 1 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "roof-repairs",
+      "help": "Must match the GHL page path for this service"
+    },
+    {
+      "key": "site_service_1_desc",
+      "name": "Site Service 1 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after."
+    },
+    {
+      "key": "site_service_1_body",
+      "name": "Site Service 1 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "Most leaks start small: a cracked tile, a lifted flashing or a blocked valley. We find the cause, show you photos and fix it properly so it doesn't come back next storm. Every repair gets a fixed written price before we start.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_service_2_name",
+      "name": "Site Service 2 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Roof Restoration"
+    },
+    {
+      "key": "site_service_2_slug",
+      "name": "Site Service 2 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "roof-restoration"
+    },
+    {
+      "key": "site_service_2_desc",
+      "name": "Site Service 2 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement."
+    },
+    {
+      "key": "site_service_2_body",
+      "name": "Site Service 2 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "A restoration brings an old tile or metal roof back to near new. We pressure clean, replace broken tiles, re-bed and re-point the ridge caps, then apply a sealer and two coats of membrane paint in the colour you choose.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_service_3_name",
+      "name": "Site Service 3 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Re-Roofing"
+    },
+    {
+      "key": "site_service_3_slug",
+      "name": "Site Service 3 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "re-roofing"
+    },
+    {
+      "key": "site_service_3_desc",
+      "name": "Site Service 3 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "Full tile-to-metal and metal-to-metal replacements with a clean site every day."
+    },
+    {
+      "key": "site_service_3_body",
+      "name": "Site Service 3 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "When a roof is past repair, we strip it back and replace it with new Colorbond or tiles. We check the battens and gutters while it is open, keep the site tidy each day and handle the council paperwork.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_service_4_name",
+      "name": "Site Service 4 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Storm Damage"
+    },
+    {
+      "key": "site_service_4_slug",
+      "name": "Site Service 4 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "storm-damage"
+    },
+    {
+      "key": "site_service_4_desc",
+      "name": "Site Service 4 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "Emergency make-safe and insurance-ready reports after hail, wind and storm events."
+    },
+    {
+      "key": "site_service_4_body",
+      "name": "Site Service 4 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "After hail or wind damage we make the roof safe quickly, then document the damage with photos and a written report your insurer can use. We can work directly with your insurer's assessor.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_service_5_name",
+      "name": "Site Service 5 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Gutters and Downpipes"
+    },
+    {
+      "key": "site_service_5_slug",
+      "name": "Site Service 5 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "gutters-downpipes"
+    },
+    {
+      "key": "site_service_5_desc",
+      "name": "Site Service 5 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "New gutters, downpipes and guards that stop overflow and protect your foundations."
+    },
+    {
+      "key": "site_service_5_body",
+      "name": "Site Service 5 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "Overflowing gutters cause rot, leaks and foundation damage. We replace gutters and downpipes in Colorbond, fit leaf guards and make sure water runs away from the house.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_service_6_name",
+      "name": "Site Service 6 Name",
+      "status": "new",
+      "group": "Services",
+      "example": "Roof Inspections"
+    },
+    {
+      "key": "site_service_6_slug",
+      "name": "Site Service 6 Slug",
+      "status": "new",
+      "group": "Services",
+      "example": "roof-inspections"
+    },
+    {
+      "key": "site_service_6_desc",
+      "name": "Site Service 6 Desc",
+      "status": "new",
+      "group": "Services",
+      "example": "Detailed photo reports for buyers, sellers and insurers, usually within 48 hours."
+    },
+    {
+      "key": "site_service_6_body",
+      "name": "Site Service 6 Body",
+      "status": "new",
+      "group": "Services",
+      "example": "Buying, selling or just worried? We inspect the whole roof, including flashings, valleys and the roof space, and send a photo report within 48 hours with clear priorities and prices.",
+      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
+    },
+    {
+      "key": "site_faq_1_q",
+      "name": "Site FAQ 1 Q",
+      "status": "new",
+      "group": "FAQ",
+      "example": "How much does a roof repair cost?"
+    },
+    {
+      "key": "site_faq_1_a",
+      "name": "Site FAQ 1 A",
+      "status": "new",
+      "group": "FAQ",
+      "example": "Most repairs fall between $350 and $1,500 depending on access and materials. We give you a fixed written price before any work starts, so there are no surprises."
+    },
+    {
+      "key": "site_faq_2_q",
+      "name": "Site FAQ 2 Q",
+      "status": "new",
+      "group": "FAQ",
+      "example": "How quickly can you come out?"
+    },
+    {
+      "key": "site_faq_2_a",
+      "name": "Site FAQ 2 A",
+      "status": "new",
+      "group": "FAQ",
+      "example": "We usually inspect within 1 to 2 business days, and same day for active leaks and storm damage."
+    },
+    {
+      "key": "site_faq_3_q",
+      "name": "Site FAQ 3 Q",
+      "status": "new",
+      "group": "FAQ",
+      "example": "Are you licensed and insured?"
+    },
+    {
+      "key": "site_faq_3_a",
+      "name": "Site FAQ 3 A",
+      "status": "new",
+      "group": "FAQ",
+      "example": "Yes. We hold a current QBCC licence and full public liability insurance, and we are happy to send certificates before we start."
+    },
+    {
+      "key": "site_faq_4_q",
+      "name": "Site FAQ 4 Q",
+      "status": "new",
+      "group": "FAQ",
+      "example": "Do you offer a guarantee?"
+    },
+    {
+      "key": "site_faq_4_a",
+      "name": "Site FAQ 4 A",
+      "status": "new",
+      "group": "FAQ",
+      "example": "Every job comes with our 10-year workmanship guarantee on top of the manufacturer warranty on materials."
+    },
+    {
+      "key": "site_brand_color",
+      "name": "Site Brand Color",
+      "status": "new",
+      "group": "Brand",
+      "example": "#0b2545",
+      "help": "Main brand colour as a hex code. Used for header, headings and dark sections"
+    },
+    {
+      "key": "site_accent_color",
+      "name": "Site Accent Color",
+      "status": "new",
+      "group": "Brand",
+      "example": "#c2410c",
+      "help": "Button colour. Needs strong contrast with white text (WCAG AA 4.5:1)"
+    },
+    {
+      "key": "site_hero_image_url",
+      "name": "Site Hero Image URL",
+      "status": "new",
+      "group": "Brand",
+      "example": "https://placehold.co/1600x1000/1d3557/1d3557/webp",
+      "help": "1600 x 1000 WebP under 150 KB, a real photo of the team or a finished job"
+    },
+    {
+      "key": "site_owner_photo_url",
+      "name": "Site Owner Photo URL",
+      "status": "new",
+      "group": "Brand",
+      "example": "https://placehold.co/640x640/cccccc/333333/webp?text=Owner",
+      "help": "Square 640 x 640 WebP of the owner or team"
+    },
+    {
+      "key": "site_quote_form_id",
+      "name": "Site Quote Form ID",
+      "status": "new",
+      "group": "Conversion",
+      "example": "EXAMPLEFORMID",
+      "help": "ID of the GHL quote form (Sites > Forms > Integrate). Only used if you embed the form with custom code"
+    },
+    {
+      "key": "site_booking_url",
+      "name": "Site Booking URL",
+      "status": "new",
+      "group": "Conversion",
+      "example": "/contact",
+      "help": "Where Get a Quote buttons go. A GHL calendar link or /contact"
+    }
   ]
 }

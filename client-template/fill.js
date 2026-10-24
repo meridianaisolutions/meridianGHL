@@ -64,5 +64,10 @@
       }
     }
   };
-  document.addEventListener('DOMContentLoaded', function () { mxFill(document.body); });
+  document.addEventListener('DOMContentLoaded', function () {
+    mxFill(document.body);
+    // Shared blocks link to #quote; on pages without the form, send those links to the booking URL.
+    if (!document.getElementById('quote') && data && data.site_booking_url)
+      [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(data.site_booking_url)); });
+  });
 })();
