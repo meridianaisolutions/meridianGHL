@@ -1,0 +1,17 @@
+<section class="phead" id="main"><div class="wrap">
+  <p class="crumbs"><a href="/">Home</a> / Contact</p>
+  <h1>Contact {{cv.business_name}}</h1>
+  <p class="lead">Free, no-obligation quotes for {{cv.site_trade}} across {{cv.site_city}}. Most quotes are back within 24 hours.</p>
+</div></section>
+<section class="sec"><div class="wrap split">
+  <div>
+    <h2>Talk to {{cv.business_owner_name}} and the team</h2>
+    <p class="pin">{{icon:phone}} <a href="tel:{{cv.site_phone_link}}"><strong>{{cv.site_phone_display}}</strong></a></p>
+    <p class="pin">{{icon:mail}} <a href="mailto:{{cv.site_email}}">{{cv.site_email}}</a></p>
+    <p class="pin">{{icon:pin}} <span>{{cv.site_street_address}} {{cv.site_suburb}} {{cv.site_state}} {{cv.site_postcode}}</span></p>
+    <p class="pin">{{icon:clock}} <span>{{cv.site_hours_text}}</span></p>
+    <p>We service {{cv.site_service_areas}}.</p>
+    <p><a class="btn btn-ghost" style="color:var(--brand)" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
+  </div>
+  {{quote_card}}
+</div></section>

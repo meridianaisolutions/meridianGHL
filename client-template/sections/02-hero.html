@@ -1,0 +1,20 @@
+<section class="hero" id="main">
+  <img class="hero-bg" src="{{cv.site_hero_image_url}}" alt="" width="1600" height="1000" fetchpriority="high" decoding="async">
+  <div class="wrap">
+    <div>
+      <a class="rating" href="{{cv.site_google_maps_url}}" target="_blank" rel="noopener noreferrer"><span class="stars" aria-hidden="true">{{stars}}</span> {{cv.site_google_rating}} stars from {{cv.site_google_review_count}} Google reviews</a>
+      <h1><small>{{cv.site_trade}} in {{cv.site_city}}</small> {{cv.site_hero_headline}}</h1>
+      <p class="lead">{{cv.site_hero_subheadline}}</p>
+      <ul class="ticks">
+        <li>{{icon:check}} {{cv.site_usp_1}}</li>
+        <li>{{icon:check}} {{cv.site_usp_2}}</li>
+        <li>{{icon:check}} {{cv.site_usp_3}}</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-accent" href="#quote">Get My Free Quote</a>
+        <a class="btn btn-ghost" href="tel:{{cv.site_phone_link}}">{{icon:phone}} Call {{cv.site_phone_display}}</a>
+      </div>
+    </div>
+    {{quote_card}}
+  </div>
+</section>
