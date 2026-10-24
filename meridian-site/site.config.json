@@ -56,7 +56,7 @@
     "terms": "/terms-and-conditions"
   },
   "offer": {
-    "_note": "Modelled on ReviewHarvest's offer and prices (Marcus, 24 Oct 2026: 'copy reviewharvest for now'). Every price here is RH's USD number shown as AUD and is a placeholder until Marcus sets Meridian's prices.",
+    "_note": "Modelled on ReviewHarvest's offer (Marcus, 24 Oct 2026: 'copy reviewharvest for now'). Prices set by Marcus on 24 Oct 2026, AUD including GST. Website outright prices are scaled from ReviewHarvest's ratios.",
     "contract": "No lock-in contract. Cancel any time.",
     "setupDays": "3",
     "trialDays": "30",
@@ -69,14 +69,14 @@
         {
           "name": "Starter",
           "requests": "Up to 50 new review requests a month",
-          "price": "$99",
+          "price": "$199",
           "period": "/month",
           "blurb": "For smaller businesses getting started with reviews."
         },
         {
           "name": "Growth",
           "requests": "50 to 100 new review requests a month",
-          "price": "$179",
+          "price": "$299",
           "period": "/month",
           "popular": true,
           "blurb": "For busy businesses serving customers every day."
@@ -84,7 +84,7 @@
         {
           "name": "Pro",
           "requests": "100 to 300 new review requests a month",
-          "price": "$279",
+          "price": "$499",
           "period": "/month",
           "blurb": "For high-volume and multi-crew businesses."
         }
@@ -101,7 +101,7 @@
       ]
     },
     "gbp": {
-      "price": "$400",
+      "price": "$699",
       "period": "/month"
     },
     "websites": {
@@ -109,10 +109,10 @@
       "plans": [
         {
           "name": "Starter",
-          "value": "A $2,995 website, paid monthly",
-          "price": "$149",
+          "value": "A $4,995 website, paid monthly",
+          "price": "$249",
           "period": "/month",
-          "outright": "$2,995",
+          "outright": "$4,995",
           "features": [
             "15-page website built to convert",
             "Quote button, click-to-call or form above the fold on every page",
@@ -122,10 +122,10 @@
         },
         {
           "name": "Standard",
-          "value": "A $3,500 website, paid monthly",
-          "price": "$179",
+          "value": "A $5,795 website, paid monthly",
+          "price": "$299",
           "period": "/month",
-          "outright": "$3,500",
+          "outright": "$5,795",
           "popular": true,
           "features": [
             "Everything in Starter",
@@ -136,10 +136,10 @@
         },
         {
           "name": "Scale",
-          "value": "A $4,995 website, paid monthly",
-          "price": "$299",
+          "value": "A $8,295 website, paid monthly",
+          "price": "$499",
           "period": "/month",
-          "outright": "$4,995",
+          "outright": "$8,295",
           "features": [
             "Everything in Standard",
             "40-page website: every service, every suburb",
@@ -149,20 +149,20 @@
         }
       ],
       "booster": {
-        "price": "$199",
+        "price": "$299",
         "period": "/month",
         "body": "Two new SEO pages every month, such as suburb pages, service pages or articles, to keep growing your reach. Add it to any plan."
       }
     },
     "system": {
-      "price": "$389",
+      "price": "$799",
       "period": "/month",
-      "setup": "$1,000",
-      "separately": "$758",
-      "quarterly": "$1,167",
-      "sixMonthly": "$342",
-      "annual": "$324",
-      "annualTotal": "$3,890"
+      "setup": "$1,599",
+      "separately": "$1,297",
+      "quarterly": "$2,397",
+      "sixMonthly": "$699",
+      "annual": "$666",
+      "annualTotal": "$7,990"
     }
   }
 }
