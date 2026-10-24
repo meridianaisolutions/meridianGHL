@@ -70,7 +70,6 @@ When one of these changes in GHL, change it in `site.config.json`, run `node bui
 ## To confirm before go-live
 
 - **Prices.** Set by Marcus on 24 Oct 2026, in AUD including GST (`site.config.json` > `offer`): reviews $199/$299/$499, profile management $699, websites $249/$299/$499 a month or $4,995/$5,795/$8,295 outright, Site Booster $299, and the system $799 a month + $1,599 setup ($699 a month for 6 months, $666 a month annually). Hosting after month 24 is $99 a month.
-- **Bundle name.** "Local Growth System" stands in for ReviewHarvest's "Local Authority System" (`brand.systemName`).
 - **Guarantees.** 30-day money-back on websites and the system, websites paid off after 24 months, unlimited changes within 2 business days, first website draft in 7 days.
 - **Claims** on the pricing and home pages that depend on how delivery is set up: live within 3 days, AI-written review replies, 5-star reviews posted to socials, "connects to the job software you use", unlimited users, 30-day cool-down for repeat customers.
 - **Founder photo** for the home page (the spot currently shows an "M" tile; see the comment in `src/pages/home.html`).
