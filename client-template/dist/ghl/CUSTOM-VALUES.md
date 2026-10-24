@@ -104,6 +104,35 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Service 6 Desc | `{{ custom_values.site_service_6_desc }}` | e.g. Detailed photo reports for buyers, sellers and insurers, usually within 48 hours. |
 | Site Service 6 Body | `{{ custom_values.site_service_6_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 
+## Service areas
+
+| Name in GHL | Merge tag | What to enter |
+| --- | --- | --- |
+| Site Area 1 Name | `{{ custom_values.site_area_1_name }}` | Suburb, town or region this page targets |
+| Site Area 1 Slug | `{{ custom_values.site_area_1_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 1 Suburbs | `{{ custom_values.site_area_1_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 1 Body | `{{ custom_values.site_area_1_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 2 Name | `{{ custom_values.site_area_2_name }}` | Suburb, town or region this page targets |
+| Site Area 2 Slug | `{{ custom_values.site_area_2_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 2 Suburbs | `{{ custom_values.site_area_2_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 2 Body | `{{ custom_values.site_area_2_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 3 Name | `{{ custom_values.site_area_3_name }}` | Suburb, town or region this page targets |
+| Site Area 3 Slug | `{{ custom_values.site_area_3_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 3 Suburbs | `{{ custom_values.site_area_3_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 3 Body | `{{ custom_values.site_area_3_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 4 Name | `{{ custom_values.site_area_4_name }}` | Suburb, town or region this page targets |
+| Site Area 4 Slug | `{{ custom_values.site_area_4_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 4 Suburbs | `{{ custom_values.site_area_4_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 4 Body | `{{ custom_values.site_area_4_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 5 Name | `{{ custom_values.site_area_5_name }}` | Suburb, town or region this page targets |
+| Site Area 5 Slug | `{{ custom_values.site_area_5_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 5 Suburbs | `{{ custom_values.site_area_5_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 5 Body | `{{ custom_values.site_area_5_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+| Site Area 6 Name | `{{ custom_values.site_area_6_name }}` | Suburb, town or region this page targets |
+| Site Area 6 Slug | `{{ custom_values.site_area_6_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
+| Site Area 6 Suburbs | `{{ custom_values.site_area_6_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
+| Site Area 6 Body | `{{ custom_values.site_area_6_body }}` | Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates |
+
 ## FAQ
 
 | Name in GHL | Merge tag | What to enter |

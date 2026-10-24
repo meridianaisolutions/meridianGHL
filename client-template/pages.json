@@ -1,5 +1,5 @@
 {
-  "_comment": "Pages in the template. 'path' is the GHL page path. 'title' and 'description' go into GHL page Settings > SEO meta data. 'N' in a service page is replaced by 1 to 6. Keep titles under 60 characters and descriptions under 155 once values are filled in.",
+  "_comment": "Pages in the template. 'path' is the GHL page path. 'title' and 'description' go into GHL page Settings > SEO meta data. 'N' in a repeated page is replaced by 1 to 6; 'slot' says whether N picks a service (default) or an area. Keep titles under 60 characters and descriptions under 155 once values are filled in.",
   "pages": [
     {
       "id": "home",
@@ -17,6 +17,16 @@
       "description": "{{cv.site_service_N_name}} in {{cv.site_city}} from a {{cv.site_google_rating}}-star local {{cv.site_trade_person}}. Fixed written quotes. Call {{cv.site_phone_display}}.",
       "sections": ["01-header", "20-service-head", "03-trust", "21-service-body", "05-how", "06-reviews", "10-faq", "22-other-services", "11-final-cta", "12-footer"],
       "schema": ["business", "service", "breadcrumb"]
+    },
+    {
+      "id": "area-N",
+      "slot": "area",
+      "path": "/{{cv.site_area_N_slug}}",
+      "repeat": 6,
+      "title": "{{cv.site_trade}} {{cv.site_area_N_name}} | {{cv.business_name}}",
+      "description": "Local {{cv.site_trade_person}} in {{cv.site_area_N_name}}, rated {{cv.site_google_rating}} stars. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
+      "sections": ["01-header", "23-area-head", "03-trust", "24-area-body", "06-reviews", "05-how", "10-faq", "25-other-areas", "11-final-cta", "12-footer"],
+      "schema": ["business", "area", "breadcrumb"]
     },
     {
       "id": "contact",
@@ -41,6 +51,14 @@
       "title": "Privacy policy | {{cv.business_name}}",
       "description": "How {{cv.business_name}} collects, uses and protects your personal information.",
       "sections": ["01-header", "50-privacy", "12-footer"],
+      "schema": []
+    },
+    {
+      "id": "terms",
+      "path": "/terms",
+      "title": "Terms and conditions | {{cv.business_name}}",
+      "description": "The terms that apply to quotes, bookings and work by {{cv.business_name}}, and to use of this website.",
+      "sections": ["01-header", "51-terms", "12-footer"],
       "schema": []
     }
   ]

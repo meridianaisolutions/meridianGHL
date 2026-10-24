@@ -15,6 +15,7 @@ const examples = Object.fromEntries(values.map((v) => [v.key, v.example]));
 Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
 const known = new Set(values.map((v) => v.key));
 const SERVICES = 6;
+const AREAS = 6;
 
 const svg = (body, size = 20) =>
   `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
@@ -29,6 +30,7 @@ const icons = {
   mail: svg('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>'),
   lock: svg('<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>', 14),
   menu: svg('<path d="M3 6h18M3 12h18M3 18h18"/>', 24),
+  down: svg('<path d="m6 9 6 6 6-6"/>', 14),
   arrow: svg('<path d="M5 12h14M13 5l7 7-7 7"/>', 18),
   google: `<svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>`,
 };
@@ -57,11 +59,16 @@ const serviceCards = (skip) =>
     .filter((n) => n !== skip)
     .map((n) => `<a class="card" href="/{{cv.site_service_${n}_slug}}"><span class="ico">${icons.check}</span><h3>{{cv.site_service_${n}_name}}</h3><p>{{cv.site_service_${n}_desc}}</p><span class="more">Learn more ${icons.arrow}</span></a>`)
     .join('\n    ');
-const serviceLinks = Array.from({ length: SERVICES }, (_, i) => `<li><a href="/{{cv.site_service_${i + 1}_slug}}">{{cv.site_service_${i + 1}_name}}</a></li>`).join('');
+const links = (slot, count, skip) =>
+  Array.from({ length: count }, (_, i) => i + 1)
+    .filter((n) => n !== skip)
+    .map((n) => `<li><a href="/{{cv.site_${slot}_${n}_slug}}">{{cv.site_${slot}_${n}_name}}</a></li>`)
+    .join('');
 
 // JSON-LD. Values are written as {{cv.x}} placeholders and filled per output, so the
 // GHL output keeps merge tags and the preview gets JSON-escaped example text.
 function schemaFor(page, n) {
+  const slot = `site_${page.slot || 'service'}_${n}_`;
   const blocks = [];
   const business = {
     '@context': 'https://schema.org',
@@ -92,8 +99,10 @@ function schemaFor(page, n) {
       blocks.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [1, 2, 3, 4].map((i) => ({ '@type': 'Question', name: `{{cv.site_faq_${i}_q}}`, acceptedAnswer: { '@type': 'Answer', text: `{{cv.site_faq_${i}_a}}` } })) });
     if (kind === 'service')
       blocks.push({ '@context': 'https://schema.org', '@type': 'Service', name: `{{cv.site_service_${n}_name}}`, serviceType: `{{cv.site_service_${n}_name}}`, description: `{{cv.site_service_${n}_desc}}`, areaServed: '{{cv.site_service_areas}}', provider: { '@id': '{{cv.site_url}}/#business' } });
+    if (kind === 'area')
+      blocks.push({ '@context': 'https://schema.org', '@type': 'Service', name: `{{cv.site_trade}} in {{cv.${slot}name}}`, serviceType: '{{cv.site_trade}}', areaServed: { '@type': 'Place', name: `{{cv.${slot}name}}` }, provider: { '@id': '{{cv.site_url}}/#business' } });
     if (kind === 'breadcrumb')
-      blocks.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: '{{cv.site_url}}/' }, { '@type': 'ListItem', position: 2, name: `{{cv.site_service_${n}_name}}`, item: `{{cv.site_url}}/{{cv.site_service_${n}_slug}}` }] });
+      blocks.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: '{{cv.site_url}}/' }, { '@type': 'ListItem', position: 2, name: `{{cv.${slot}name}}`, item: `{{cv.site_url}}/{{cv.${slot}slug}}` }] });
   }
   return blocks.map((b) => `<script type="application/ld+json">${JSON.stringify(b)}</script>`).join('\n');
 }
@@ -109,11 +118,13 @@ function renderSection(name, page, n, mode) {
   if (name === '01-header') html = `<style>${css}</style>\n` + read('sections/00-theme.html').replace(/^<!--[\s\S]*?-->\n?/, '') + html;
   html = html
     .replaceAll('{{quote_card}}', quoteCard(mode === 'ghl' ? ghlForm : previewForm))
-    .replaceAll('{{services_cards}}', serviceCards(n))
-    .replaceAll('{{services_links}}', serviceLinks)
+    .replaceAll('{{services_cards}}', serviceCards(page.slot === 'area' ? null : n))
+    .replaceAll('{{services_links}}', links('service', SERVICES))
+    .replaceAll('{{areas_links}}', links('area', AREAS))
+    .replaceAll('{{other_areas_links}}', links('area', AREAS, page.slot === 'area' ? n : null))
     .replaceAll('{{stars}}', stars)
     .replace(/\{\{icon:(\w+)\}\}/g, (_, k) => { if (!icons[k]) throw new Error(`Unknown icon ${k} in ${name}`); return icons[k]; });
-  if (n) html = html.replaceAll('site_service_N_', `site_service_${n}_`);
+  if (n) html = html.replaceAll(`site_${page.slot || 'service'}_N_`, `site_${page.slot || 'service'}_${n}_`);
   // Browsers would request an image or form URL before the tags are filled, so those wait in data-mx-src.
   html = html.replace(/<(img|iframe)([^>]*?) src="([^"]*\{\{cv\.[^"]*)"/g, '<$1$2 data-mx-src="$3"');
   html = html.trim();
@@ -145,7 +156,7 @@ for (const page of pages) {
   const ns = page.repeat ? Array.from({ length: page.repeat }, (_, i) => i + 1) : [null];
   for (const n of ns) {
     const id = n ? page.id.replace('N', n) : page.id;
-    const sub = (s) => (n ? s.replaceAll('site_service_N_', `site_service_${n}_`) : s);
+    const sub = (s) => (n ? s.replaceAll(`site_${page.slot || 'service'}_N_`, `site_${page.slot || 'service'}_${n}_`) : s);
     const schema = schemaFor(page, n);
     const blocks = (mode) => page.sections.map((name) => ({ name, html: renderSection(name, page, n, mode) }));
 

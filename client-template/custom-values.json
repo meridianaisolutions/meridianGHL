@@ -494,6 +494,198 @@
       "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
     },
     {
+      "key": "site_area_1_name",
+      "name": "Site Area 1 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Logan",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_1_slug",
+      "name": "Site Area 1 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-logan",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_1_suburbs",
+      "name": "Site Area 1 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Springwood, Shailer Park, Daisy Hill, Beenleigh and Loganholme",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_1_body",
+      "name": "Site Area 1 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "A lot of Logan homes went up in the 80s and 90s, and their concrete tiles and ridge capping are now due for attention. We're in Logan most weeks for repairs, restorations and storm call-outs, so we can usually inspect within a couple of days.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
+      "key": "site_area_2_name",
+      "name": "Site Area 2 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Ipswich",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_2_slug",
+      "name": "Site Area 2 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-ipswich",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_2_suburbs",
+      "name": "Site Area 2 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Booval, Brassall, Raceview, Redbank Plains and Ripley",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_2_body",
+      "name": "Site Area 2 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Ipswich has plenty of old Queenslanders with their original corrugated iron, alongside the new estates out at Ripley. We repair and re-roof both, and we match heritage profiles where the street calls for it.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
+      "key": "site_area_3_name",
+      "name": "Site Area 3 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Redcliffe",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_3_slug",
+      "name": "Site Area 3 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-redcliffe",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_3_suburbs",
+      "name": "Site Area 3 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Scarborough, Margate, Woody Point, Clontarf and Kippa-Ring",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_3_body",
+      "name": "Site Area 3 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Salt air off the bay eats through cheap fixings and flashings faster than most people expect. On the peninsula we use marine-grade fasteners and Colorbond Ultra where it's needed, so the roof holds up.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
+      "key": "site_area_4_name",
+      "name": "Site Area 4 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Springfield",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_4_slug",
+      "name": "Site Area 4 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-springfield",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_4_suburbs",
+      "name": "Site Area 4 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Springfield Lakes, Augustine Heights, Brookwater, Spring Mountain and Camira",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_4_body",
+      "name": "Site Area 4 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Most Springfield homes are fairly new, so the work here is usually storm damage, overflowing gutters and builder defects that show up once the warranty runs out. If it's a quick fix, we'll tell you.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
+      "key": "site_area_5_name",
+      "name": "Site Area 5 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "North Lakes",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_5_slug",
+      "name": "Site Area 5 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-north-lakes",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_5_suburbs",
+      "name": "Site Area 5 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Mango Hill, Griffin, Kallangur, Petrie and Narangba",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_5_body",
+      "name": "Site Area 5 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "North Lakes cops some heavy summer storms rolling in off the hinterland. We do a lot of hail and wind damage repairs here, and we can supply the photos and report your insurer will ask for.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
+      "key": "site_area_6_name",
+      "name": "Site Area 6 Name",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Redland City",
+      "help": "Suburb, town or region this page targets"
+    },
+    {
+      "key": "site_area_6_slug",
+      "name": "Site Area 6 Slug",
+      "status": "new",
+      "group": "Service areas",
+      "example": "roofing-redland-city",
+      "help": "Must match the GHL page path for this area, e.g. trade-suburb"
+    },
+    {
+      "key": "site_area_6_suburbs",
+      "name": "Site Area 6 Suburbs",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Cleveland, Capalaba, Victoria Point, Thornlands and Alexandra Hills",
+      "help": "Nearby suburbs covered from this area, as a sentence list"
+    },
+    {
+      "key": "site_area_6_body",
+      "name": "Site Area 6 Body",
+      "status": "new",
+      "group": "Service areas",
+      "example": "Between the bay breeze and the big gums, Redlands roofs deal with salt and a steady fall of leaves. Gutter guards and a regular valley clean prevent a lot of leaks here, and we can quote both on the same visit.",
+      "help": "Two to four sentences about working in this area: local housing, weather, typical jobs. Must be unique per area or Google treats the pages as duplicates"
+    },
+    {
       "key": "site_faq_1_q",
       "name": "Site FAQ 1 Q",
       "status": "new",
