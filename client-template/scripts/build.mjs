@@ -168,7 +168,7 @@ mkdirSync(join(out, 'ghl'), { recursive: true });
 mkdirSync(join(out, 'preview'), { recursive: true });
 cpSync(join(root, 'preview-assets'), join(out, 'preview', 'assets'), { recursive: true });
 
-// Paste into one native Text element at the top of every page (inside the header global section).
+// Paste as plain text into one Paragraph element at the top of every page (inside the header global section), hidden on Desktop, Tablet and Mobile.
 const dataLines = values.map((v) => `{mx:${v.key}}{{ custom_values.${v.key} }}{/mx}`);
 const seoRows = [];
 for (const page of pages) {
