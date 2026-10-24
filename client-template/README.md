@@ -1,6 +1,6 @@
 # Meridian client website template
 
-A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites, which we captured and compared page by page on 24 Oct 2026: a floating header with Services, Service areas and About dropdowns, reviews up front, a quote form above the fold, a service ticker, tap-to-call everywhere, an eight-point why-trust list with the owner's story, a guarantee banner, three differentiators, a three-step process, Google reviews, a job gallery, a coverage map, a two-column FAQ, a dark final call to action and a sticky mobile call bar.
+A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites, which we captured and compared page by page on 24 Oct 2026: a floating header with Services, Service areas and About dropdowns, reviews up front, a quote form above the fold, a service ticker, tap-to-call everywhere, an eight-point why-trust list with the owner's story, a guarantee banner, three differentiators, Google reviews, a three-step process, a job gallery, a coverage map, a two-column FAQ, a dark final call to action and a sticky mobile call bar.
 
 Every piece of client-specific text, colour, image and link comes from a GHL custom value, so a new client is set up by loading the snapshot and filling in the custom values. No page editing is needed.
 
