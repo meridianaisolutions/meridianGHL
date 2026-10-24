@@ -1,7 +1,7 @@
 {
   "_note": "Single source of truth for the Meridian site build. Values marked TODO need Marcus's confirmation before go-live.",
   "siteUrl": "https://meridianaisolutions.com.au",
-  "assetBase": "https://cdn.jsdelivr.net/gh/meridianaisolutions/meridianghl@2e9c173cfcb13b669a2de5e92333511f78e738cd/meridian-site/assets/",
+  "assetBase": "https://cdn.jsdelivr.net/gh/meridianaisolutions/meridianghl@2dd2075d0d5487d5dd7d3882d44180e6adf88aed/meridian-site/assets/",
   "brand": {
     "name": "Meridian AI Solutions",
     "short": "Meridian",
