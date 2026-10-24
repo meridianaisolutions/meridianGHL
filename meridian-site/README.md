@@ -27,19 +27,19 @@ Change copy in `src/`, prices in `site.config.json`, then run `node build.mjs` (
 | Terms and conditions | `/terms-and-conditions` | none |
 | Thank you | `/thank-you` | none, noindex |
 
-## Custom values used
+## Custom values
 
-The site reads these existing values from the **Meridian AI Solutions** sub-account. No new custom values were created, the `site_*` prefix belongs to the client template, and the review-automation values (`business_name`, `logo_link`, `google_review_link`, `business_owner_name`) are left alone.
+GHL prints `{{ custom_values.* }}` as raw text inside Custom Code elements (Marcus tested this on 24 Oct 2026), so the build bakes the real values into the blocks instead. `site.config.json` > `customValues` holds each value next to the sub-account custom value it mirrors:
 
-| In the page | Custom value |
+| In the page | Mirrors custom value |
 |---|---|
-| Business name | `{{ custom_values.b3_our_business_name }}` |
-| Phone (display and `tel:` links) | `{{ custom_values.b2_our_business_phone_number }}` |
-| Email | `{{ custom_values.b1_our_business_email }}` |
-| Header logo | `{{ custom_values.b5_our_business_logo_link }}` |
-| Client login link | `{{ custom_values.b7_your_whitelabel_login_url }}` (currently empty: fill it in) |
+| Business name | `b3_our_business_name` |
+| Phone (display and `tel:` links) | `b2_our_business_phone_number` |
+| Email | `b1_our_business_email` |
+| Header logo | `b5_our_business_logo_link` |
+| Client login link | `b7_your_whitelabel_login_url` (empty, so the link is left out until it's filled in) |
 
-The JSON-LD structured data is written from `site.config.json` instead of custom values, so it is always valid JSON even if a value is empty.
+When one of these changes in GHL, change it in `site.config.json`, run `node build.mjs` and re-paste the header, footer and any affected blocks. No new custom values were created, and the client template's `site_*` prefix and the review-automation values are untouched.
 
 ## Install in GHL
 
@@ -49,7 +49,7 @@ The JSON-LD structured data is written from `site.config.json` instead of custom
 4. **Each page.** Follow `dist/ghl/CHECKLIST.md`. For every block, add a full-width section with zero padding and margins, a full-width row and a Custom Code element, then paste the block. In the page's Settings: SEO title and description from the checklist, a social share image, and paste the page's `page-head-tracking-code.html` into the page's Header tracking code.
 5. **Calendar.** Calendars > "Demo Call": turn it on, rename it "Free Trial Setup Call", set the slot to 20 or 30 minutes, add yourself as the team member, and set the confirmation to redirect to `/thank-you`. Place it on `/book-a-call` where the checklist says.
 6. **Form.** Use "Website Form" on `/contact` with name, email, phone, business name, message and a consent checkbox. Turn on the form's spam protection (captcha).
-7. **Check in preview.** Phone, email, business name and logo should show real values. If any shows `{{ custom_values... }}`, that value is empty in Settings > Custom Values.
+7. **Check in preview.** Check the logo's proportions in the header. The block sets it to 36px high, and the width follows the image.
 8. **Go live.** Connect meridianaisolutions.com.au to the website, then add URL redirects (Sites > URL Redirects): `/privacy` to `/privacy-policy`, `/terms` to `/terms-and-conditions`, and any old blog post URLs you are not keeping to `/`. Turn on the sitemap, and submit `https://meridianaisolutions.com.au/sitemap.xml` in Google Search Console.
 
 ## Review notes
@@ -69,6 +69,6 @@ The JSON-LD structured data is written from `site.config.json` instead of custom
 - **Prices.** $99 / $179 / $279 are ReviewHarvest's USD prices shown as AUD including GST, as a placeholder (`site.config.json` > `offer.plans`).
 - **Claims** on the pricing and home pages that depend on how delivery is set up: live within 3 days, AI-written review replies, 5-star reviews posted to socials, "connects to the job software you use", unlimited users, 30-day cool-down for repeat customers.
 - **Founder photo** for the home page (the spot currently shows an "M" tile; see the comment in `src/pages/home.html`).
-- **Client login URL** custom value is empty.
+- **Client login URL** is empty, so the login link is hidden. Add it to `site.config.json` and rebuild.
 - **Legal pages** are a plain-English starting point, not legal advice. Have them checked, especially the trial, cancellation and overseas data sections.
 - Whether the old site's blog posts should be kept, since they may carry search traffic.

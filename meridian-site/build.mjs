@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the Meridian site into:
-//   dist/ghl/      paste-ready blocks for GoHighLevel (custom values left as GHL merge fields)
-//   dist/preview/  standalone pages with sample values, for local review and Lighthouse
+//   dist/ghl/      paste-ready blocks for GoHighLevel (contact details baked in from site.config.json)
+//   dist/preview/  standalone pages for local review and Lighthouse
 // No dependencies. Run: node build.mjs
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -41,15 +41,20 @@ function renderPlans() {
     </article>`).join('');
 }
 
-// mode: 'ghl' keeps merge fields, 'preview' swaps in sample values
+// mode: 'ghl' for paste-ready blocks, 'preview' for the local preview (only differs where a value has a 'preview' override)
 function render(tpl, mode, page = {}) {
+  // no client login URL yet: drop the link rather than point it at nothing
+  if (!cfg.customValues.login.value && mode === 'ghl') tpl = tpl.replace(/<li><a href="\{\{cv:login\}\}"[^>]*>Client login<\/a><\/li>/g, '');
   return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_.-]+)\s*\}\}|\{\{\s*plans\s*\}\}/g, (m, ns, key) => {
     if (m.replace(/\s/g, '') === '{{plans}}') return renderPlans();
     switch (ns) {
       case 'cv': {
         const v = cfg.customValues[key];
         if (!v) throw new Error(`Unknown custom value ${key} in ${page.id}`);
-        return mode === 'ghl' ? v.ghl : esc(v.sample);
+        // GHL leaves merge fields raw inside Custom Code, so the real value is baked in
+        const val = mode === 'preview' && v.preview !== undefined ? v.preview : v.value;
+        if (!val && key !== 'login') throw new Error(`Custom value ${key} is empty in site.config.json`);
+        return esc(val || '#');
       }
       case 'brand': return esc(get(cfg.brand, key));
       case 'link': return get(cfg.links, key);
@@ -81,12 +86,12 @@ function schemaFor(page) {
     name: cfg.brand.name,
     url: base + '/',
     telephone: cfg.brand.phoneE164,
-    email: cfg.customValues.email.sample,
+    email: cfg.customValues.email.value,
     areaServed: { '@type': 'Country', name: cfg.brand.areaServed },
     address: { '@type': 'PostalAddress', addressLocality: cfg.brand.locality, addressRegion: cfg.brand.region, addressCountry: 'AU' },
     legalName: cfg.brand.legalName,
     taxID: 'ABN ' + cfg.brand.abn,
-    logo: cfg.customValues.logo.sample.startsWith('http') ? cfg.customValues.logo.sample : undefined,
+    logo: cfg.customValues.logo.value || undefined,
     description: 'Google review generation and automated local SEO for Australian service businesses.',
     knowsAbout: ['Google reviews', 'Google Business Profile optimisation', 'Local SEO', 'Reputation management'],
   };

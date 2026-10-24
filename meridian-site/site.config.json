@@ -16,30 +16,32 @@
     "region": "NSW"
   },
   "customValues": {
-    "_note": "Keys exist in the 'Meridian AI Solutions' sub-account (QE1a9gJjBZGR6dcIgfCx). 'sample' is only used for the local preview build.",
+    "_note": "GHL does NOT render {{ custom_values.* }} inside Custom Code elements (tested 24 Oct 2026), so the build bakes 'value' into the blocks. 'ghl' records which sub-account custom value each one mirrors: when you change a custom value in GHL, change it here too and rebuild. 'preview' overrides the value for the local preview only.",
     "name": {
       "ghl": "{{ custom_values.b3_our_business_name }}",
-      "sample": "Meridian AI Solutions"
+      "value": "Meridian AI Solutions"
     },
     "phone": {
       "ghl": "{{ custom_values.b2_our_business_phone_number }}",
-      "sample": "0403 806 286"
+      "value": "0403 806 286"
     },
     "email": {
       "ghl": "{{ custom_values.b1_our_business_email }}",
-      "sample": "marcus@meridianaisolutions.com.au"
+      "value": "marcus@meridianaisolutions.com.au"
     },
     "logo": {
       "ghl": "{{ custom_values.b5_our_business_logo_link }}",
-      "sample": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='36' viewBox='0 0 168 36'%3E%3Crect width='36' height='36' rx='10' fill='%2312312a'/%3E%3Cpath d='M9 26v-8a4.5 4.5 0 0 1 9 0v8M18 18a4.5 4.5 0 0 1 9 0v8' fill='none' stroke='%23fffbf4' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='8.5' r='3.4' fill='%23ffd84a'/%3E%3Ctext x='44' y='25' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='%2312312a' letter-spacing='-0.6'%3Emeridian%3C/text%3E%3C/svg%3E"
+      "value": "https://assets.cdn.filesafe.space/QE1a9gJjBZGR6dcIgfCx/media/6adb4f977d0b8317d6430c16.png",
+      "preview": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='36' viewBox='0 0 168 36'%3E%3Crect width='36' height='36' rx='10' fill='%2312312a'/%3E%3Cpath d='M9 26v-8a4.5 4.5 0 0 1 9 0v8M18 18a4.5 4.5 0 0 1 9 0v8' fill='none' stroke='%23fffbf4' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='8.5' r='3.4' fill='%23ffd84a'/%3E%3Ctext x='44' y='25' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='%2312312a' letter-spacing='-0.6'%3Emeridian%3C/text%3E%3C/svg%3E"
     },
     "url": {
       "ghl": "{{ custom_values.b4_our_business_website_url }}",
-      "sample": "https://meridianaisolutions.com.au"
+      "value": "https://meridianaisolutions.com.au"
     },
     "login": {
       "ghl": "{{ custom_values.b7_your_whitelabel_login_url }}",
-      "sample": "#client-login"
+      "value": "",
+      "preview": "#client-login"
     }
   },
   "links": {
