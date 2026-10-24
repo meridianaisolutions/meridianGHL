@@ -3,7 +3,7 @@
 //   dist/ghl/      paste-ready blocks for GoHighLevel (contact details baked in from site.config.json)
 //   dist/preview/  standalone pages for local review and Lighthouse
 // No dependencies. Run: node build.mjs
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, cpSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { icons } from './src/icons.mjs';
@@ -53,9 +53,9 @@ function renderPlans(key) {
   throw new Error(`Unknown plan set ${key}`);
 }
 
-// mode: 'ghl' for paste-ready blocks, 'preview' for the local preview (only differs where a value has a 'preview' override)
+// mode: 'ghl' for paste-ready blocks, 'preview' for the local preview (differs for 'preview' value overrides and image paths)
 function render(tpl, mode, page = {}) {
-  return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_.-]+)\s*\}\}/g, (m, ns, key) => {
+  return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_./-]+)\s*\}\}/g, (m, ns, key) => {
     switch (ns) {
       case 'plans': return renderPlans(key);
       case 'cv': {
@@ -73,6 +73,8 @@ function render(tpl, mode, page = {}) {
         if (v === undefined) throw new Error(`Unknown offer value ${key} in ${page.id}`);
         return esc(v);
       }
+      // images live in assets/; GHL pages load them from assetBase (a CDN or GHL media folder)
+      case 'img': return mode === 'ghl' ? cfg.assetBase + key : '/assets/' + key;
       case 'icon': {
         if (!icons[key]) throw new Error(`Unknown icon ${key}`);
         return icons[key];
@@ -196,4 +198,5 @@ for (const { page, steps } of manifest.sort((a, b) => a.page.order - b.page.orde
   lines.push('  - Footer global section', '');
 }
 writeFileSync(out('ghl', 'CHECKLIST.md'), lines.join('\n'));
+cpSync(join(root, 'assets'), out('preview', 'assets'), { recursive: true });
 console.log(`Built ${pages.length} pages -> dist/ghl and dist/preview (css ${css.length} bytes)`);

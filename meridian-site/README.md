@@ -18,7 +18,7 @@ Change copy in `src/`, prices in `site.config.json`, then run `node build.mjs` (
 
 | Page | Slug | Native GHL element |
 |---|---|---|
-| Home | `/` | none |
+| Home | `/` | Form ("Website Form") after the last block |
 | Local Growth System (bundle) | `/local-growth-system` | none |
 | Review Management | `/google-reviews` | none |
 | Google Business Profile | `/google-business-profile` | none |
@@ -44,6 +44,10 @@ GHL prints `{{ custom_values.* }}` as raw text inside Custom Code elements (Marc
 
 When one of these changes in GHL, change it in `site.config.json`, run `node build.mjs` and re-paste the header, footer and any affected blocks. No new custom values were created, and the client template's `site_*` prefix and the review-automation values are untouched.
 
+## Images
+
+The dashboard screenshots live in `assets/paige/`. GHL pages load them from `assetBase` in `site.config.json`, which points at jsDelivr's free CDN copy of this repo, pinned to the commit that added them. To host them in GHL instead, upload the files to Media Storage in one folder and set `assetBase` to that folder's URL. If you add or change an image, commit it, then update the commit hash in `assetBase`.
+
 ## Install in GHL
 
 1. **Website.** In Sites > Websites, open (or duplicate) "Review Site Template" and rename it "Meridian Website". Create the pages and slugs in the table above.
@@ -57,7 +61,7 @@ When one of these changes in GHL, change it in `site.config.json`, run `node bui
 
 ## Review notes
 
-**Speed.** Lighthouse (mobile, simulated throttling) on the preview build: Accessibility 100 and SEO 100 on every page, and Performance 100 on every page except home, which scores 96 to 100 between runs. Best Practices is 96 locally only because the preview server has no favicon. There's no JavaScript beyond loading the fonts without blocking, all icons are inline SVG, the CSS is about 18 KB, and the only images are the logo (and a founder photo later). Once inside GHL, its own page runtime and the calendar and form widgets add weight, so expect the live score to land lower, typically 85 to 95 on mobile. Keeping the home page free of native widgets protects the page that matters most.
+**Speed.** Lighthouse (mobile, simulated throttling) on the preview build: Accessibility 100 and SEO 100 on every page, and Performance 100 on every page except home, which scores 96 to 100 between runs. Best Practices is 96 locally only because the preview server has no favicon. There's no JavaScript beyond loading the fonts without blocking, all icons are inline SVG, the CSS is about 18 KB, and the only images are the logo, a few lazy-loaded WebP dashboard screenshots (under 110 KB each) and a founder photo later. Once inside GHL, its own page runtime and the calendar and form widgets add weight, so expect the live score to land lower, typically 85 to 95 on mobile. The home page now ends with the native contact form, which adds GHL's form script to that page.
 
 **SEO.** One H1 per page, logical heading order, unique titles under 70 characters and descriptions under 160, `en-AU` content and spelling, internal links between the services, pricing and booking pages, and breadcrumbs. Structured data covers ProfessionalService (with ABN, Sydney, Australia-wide), WebSite, WebPage, Service, BreadcrumbList and FAQPage. Google no longer shows FAQ rich results for most sites, but the markup is harmless and helps AI search tools read the answers.
 

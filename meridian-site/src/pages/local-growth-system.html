@@ -19,14 +19,17 @@
       <div class="mr-ctas"><a class="mr-btn" href="{{link:book}}">Book a free call</a><a class="mr-btn mr-btn--ghost" href="#included">See what's included</a></div>
       <p class="mr-micro">{{offer:contract}} {{offer:moneyBack}}.</p>
     </div>
-    <div class="mr-pack" role="img" aria-label="Illustration of Google map results with your business in first place">
-      <p class="mr-pack-q">{{icon:search}} plumber near me</p>
-      <ol>
-        <li class="mr-you"><span><b>Your Business</b><span>Open now · Your suburb</span></span>{{icon:stars5}}</li>
-        <li><span><b>Competitor A</b><span>Closes 5pm</span></span><span>4.1 ★</span></li>
-        <li><span><b>Competitor B</b><span>Closed</span></span><span>3.8 ★</span></li>
-      </ol>
-      <p class="mr-micro" style="text-align:center;color:var(--mr-muted)">Example map results</p>
+    <div class="mr-rank" role="img" aria-label="Example Google Maps results with your business ranked first">
+      <p class="mr-rank-q">{{icon:search}} plumber near me</p>
+      <div>
+        <svg class="mr-map" viewBox="0 0 400 300" aria-hidden="true" focusable="false"><rect width="400" height="300" rx="16" fill="#e7f0e2"/><path d="M262 22h112v84H262z" fill="#cde5c2"/><circle cx="70" cy="250" r="56" fill="#cde5c2"/><path d="M-10 196C80 166 140 262 232 232S358 156 410 174" fill="none" stroke="#a8d1ec" stroke-width="18"/><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M0 92H400M164 0V300M0 30L400 262" stroke-width="10"/><path d="M0 150H400M300 0V300M80 0V300M0 220H160M220 92V300" stroke-width="4"/></g><path d="M190 52C230 24 282 40 290 74" fill="none" stroke="#12312a" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/><g font-family="Inter,Arial,sans-serif" font-weight="800" font-size="15" text-anchor="middle"><circle cx="296" cy="104" r="20" fill="#17603c" stroke="#fff" stroke-width="4"/><text x="296" y="109" fill="#fff">1</text><circle cx="360" cy="214" r="15" fill="#c2412d" stroke="#fff" stroke-width="3"/><text x="360" y="219" fill="#fff" font-size="13">2</text><circle cx="262" cy="262" r="15" fill="#c2412d" stroke="#fff" stroke-width="3"/><text x="262" y="267" fill="#fff" font-size="13">3</text></g></svg>
+        <ol class="mr-rank-list">
+          <li class="mr-r-you"><b>1</b><span><strong>Your Business</strong><span>5.0 <i>★★★★★</i> 225 reviews</span></span></li>
+          <li><b>2</b><span><strong>Competitor</strong><span>4.0 <i>★★★★<s>★</s></i> 112 reviews</span></span></li>
+          <li><b>3</b><span><strong>Competitor</strong><span>4.2 <i>★★★★<s>★</s></i> 87 reviews</span></span></li>
+        </ol>
+      </div>
+      <p class="mr-rank-cap">Example map results</p>
     </div>
   </div>
 </section>
@@ -39,7 +42,7 @@
       <p class="mr-lede">Most businesses only work on one of them. We run all three together.</p>
     </div>
     <div class="mr-grid mr-grid--3">
-      <div class="mr-card"><span class="mr-ico">{{icon:map}}</span><h3>Get found</h3><p>We fully manage your Google Business Profile: the posts, photos, categories and updates Google checks when it decides who shows up first. On its own, that's a {{offer:gbp.price}} a month service.</p><p style="margin-top:12px"><a href="{{link:gbp}}">Profile management {{icon:arrow}}</a></p></div>
+      <div class="mr-card"><span class="mr-ico">{{icon:map}}</span><h3>Get found</h3><p>We fully manage your Google Business Profile: posts at least every 5 days, new photos and videos, review replies within the hour, and a monthly map of where you rank across your area. On its own, that's a {{offer:gbp.price}} a month service.</p><p style="margin-top:12px"><a href="{{link:gbp}}">Profile management {{icon:arrow}}</a></p></div>
       <div class="mr-card"><span class="mr-ico">{{icon:star}}</span><h3>Get trusted</h3><p>Five-star reviews on autopilot: past-customer reactivation, automatic requests after every job, follow-ups and replies, all handled.</p><p style="margin-top:12px"><a href="{{link:reviews}}">Review management {{icon:arrow}}</a></p></div>
       <div class="mr-card"><span class="mr-ico">{{icon:zap}}</span><h3>Get booked</h3><p>A custom 20-page website built to convert, with quote buttons on every page, leads sent straight to your CRM and unlimited changes.</p><p style="margin-top:12px"><a href="{{link:websites}}">Websites {{icon:arrow}}</a></p></div>
     </div>
@@ -61,7 +64,22 @@
   </div>
 </section>
 
-<section class="mr-sec" aria-labelledby="math-h">
+<section class="mr-sec" aria-labelledby="see-h">
+  <div class="mr-wrap">
+    <div class="mr-head mr-head--c">
+      <p class="mr-eyebrow">What you'll see</p>
+      <h2 id="see-h">Proof in your own numbers, every month</h2>
+      <p class="mr-lede">Your monthly report maps where you rank across your area and shows the views, calls, website clicks and direction requests your profile brought in.</p>
+    </div>
+    <div class="mr-shots">
+      <figure class="mr-shot"><div class="mr-ba"><span>Before</span><span>3&frac12; months later</span></div><img src="{{img:paige/gbp-heatmap.webp}}" alt="Two map ranking grids of the same area. Before, every point shows rank 20 or lower in red. After, most points show rank 1 or 2 in green." width="1112" height="548" loading="lazy" decoding="async"><figcaption>Example ranking map. Green is the top 3, red is outside the top 20.</figcaption></figure>
+      <figure class="mr-shot"><img src="{{img:paige/gbp-report.webp}}" alt="Performance report showing Google Search and Maps views, phone calls, website clicks and direction requests compared with the last period" width="1125" height="755" loading="lazy" decoding="async"><figcaption>Monthly performance report</figcaption></figure>
+    </div>
+    <p class="mr-micro" style="text-align:center;margin-top:18px">Screens from our demo account. Your report shows your own business.</p>
+  </div>
+</section>
+
+<section class="mr-sec mr-sec--soft" aria-labelledby="math-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c">
       <p class="mr-eyebrow">The maths</p>
@@ -75,7 +93,7 @@
   </div>
 </section>
 
-<section class="mr-sec mr-sec--soft" aria-labelledby="road-h">
+<section class="mr-sec" aria-labelledby="road-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c">
       <p class="mr-eyebrow">What we do</p>
@@ -90,7 +108,7 @@
   </div>
 </section>
 
-<section class="mr-sec" id="system-price" aria-labelledby="price-h">
+<section class="mr-sec mr-sec--soft" id="system-price" aria-labelledby="price-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c">
       <p class="mr-eyebrow">Pricing</p>
@@ -114,7 +132,7 @@
   </div>
 </section>
 
-<section class="mr-sec mr-sec--soft" aria-labelledby="risk-h">
+<section class="mr-sec" aria-labelledby="risk-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c"><p class="mr-eyebrow">Guarantee</p><h2 id="risk-h">Our guarantees</h2></div>
     <div class="mr-grid mr-grid--3">
@@ -125,7 +143,7 @@
   </div>
 </section>
 
-<section class="mr-sec" aria-labelledby="faq-h">
+<section class="mr-sec mr-sec--soft" aria-labelledby="faq-h">
   <div class="mr-wrap">
     <div class="mr-head mr-head--c"><h2 id="faq-h">Questions owners ask</h2></div>
     <div class="mr-faq">
