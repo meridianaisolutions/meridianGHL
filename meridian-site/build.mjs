@@ -44,6 +44,7 @@ function renderPlans(key) {
   if (key === 'reviews') return o.reviews.plans.map((p) => planCard({
     ...p, lines: [p.requests, p.blurb], features: o.reviews.features,
     cta: `Start my ${o.trialDays}-day free trial`, ctaHref: cfg.links.book,
+    extra: `<p class="mr-plan-free">First ${o.trialDays} days free</p>`,
   })).join('');
   if (key === 'websites') return o.websites.plans.map((p) => planCard({
     ...p, lines: [p.value, `Or buy it outright for ${p.outright}`], features: p.features,
@@ -54,8 +55,6 @@ function renderPlans(key) {
 
 // mode: 'ghl' for paste-ready blocks, 'preview' for the local preview (only differs where a value has a 'preview' override)
 function render(tpl, mode, page = {}) {
-  // no client login URL yet: drop the link rather than point it at nothing
-  if (!cfg.customValues.login.value && mode === 'ghl') tpl = tpl.replace(/<li><a href="\{\{cv:login\}\}"[^>]*>Client login<\/a><\/li>/g, '');
   return tpl.replace(/\{\{\s*([a-zA-Z]+)[.:]([a-zA-Z0-9_.-]+)\s*\}\}/g, (m, ns, key) => {
     switch (ns) {
       case 'plans': return renderPlans(key);
@@ -64,7 +63,7 @@ function render(tpl, mode, page = {}) {
         if (!v) throw new Error(`Unknown custom value ${key} in ${page.id}`);
         // GHL leaves merge fields raw inside Custom Code, so the real value is baked in
         const val = mode === 'preview' && v.preview !== undefined ? v.preview : v.value;
-        if (!val && key !== 'login') throw new Error(`Custom value ${key} is empty in site.config.json`);
+        if (!val) throw new Error(`Custom value ${key} is empty in site.config.json`);
         return esc(val || '#');
       }
       case 'brand': return esc(get(cfg.brand, key));

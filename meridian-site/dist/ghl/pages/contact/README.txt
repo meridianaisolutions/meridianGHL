@@ -1,7 +1,7 @@
 Page name:        Contact
 URL slug:         /contact
 SEO title:        Contact Meridian AI Solutions | Google Reviews & Local SEO  (58 chars)
-Meta description: Questions about Google reviews or local SEO? Call, email or send us a message. We reply within one business day.  (112 chars)
+Meta description: Questions about Google reviews, websites or local SEO? Send us a message and we'll reply within one business day.  (113 chars)
 Keywords:         contact meridian ai solutions
 Indexing:         index
 
