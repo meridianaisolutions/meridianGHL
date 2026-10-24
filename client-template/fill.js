@@ -28,7 +28,7 @@
   function safeUrl(u) { return (!/^[a-z][\w+.-]*:/i.test(u) || /^(https?|tel|mailto):/i.test(u)) && !/[\s"'<>\\]/.test(u) ? u : '#'; }
   function safeCss(c) { return /^#[0-9a-f]{3,8}$|^[a-z]+$/i.test(c) ? c : 'inherit'; }
   function json(v) { return JSON.stringify(v).slice(1, -1); }
-  var formScript = false;
+  var loaded = {};
   window.mxFill = function (root) {
     if (!load() || !root) return;
     var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), t, list = [];
@@ -56,10 +56,12 @@
         // An empty value would load the page itself as an image, so hide the element instead.
         if (!src || /\/$/.test(src)) { (e.parentNode.nodeName === 'FIGURE' ? e.parentNode : e).style.display = 'none'; continue; }
         e.setAttribute('src', src);
-        if (e.nodeName === 'IFRAME' && /leadconnectorhq\.com\/widget\/form/.test(src) && !formScript) {
-          formScript = true;
+        // GHL embeds (form, review widget) need their helper script once the iframe is live.
+        var js = e.getAttribute('data-mx-js');
+        if (js && !loaded[js]) {
+          loaded[js] = true;
           var s = document.createElement('script');
-          s.src = 'https://link.msgsndr.com/js/form_embed.js';
+          s.src = js;
           s.defer = true;
           document.body.appendChild(s);
         }

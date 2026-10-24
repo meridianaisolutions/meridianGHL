@@ -285,6 +285,14 @@
       "help": "Month and year the review was left, as shown on Google, e.g. September 2026"
     },
     {
+      "key": "site_review_widget_url",
+      "name": "Site Review Widget URL",
+      "status": "new",
+      "group": "Reviews",
+      "example": "https://reputationhub.site/reputation/widgets/review_widget/QE1a9gJjBZGR6dcIgfCx",
+      "help": "In Reputation > Widgets, build a review widget (5-star only, colours to suit the site), copy its embed code and paste only the iframe src link here. Shown in the hero"
+    },
+    {
       "key": "site_hero_headline",
       "name": "Site Hero Headline",
       "status": "new",
@@ -365,6 +373,14 @@
       "example": "Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after."
     },
     {
+      "key": "site_service_1_image_url",
+      "name": "Site Service 1 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+1",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
+    },
+    {
       "key": "site_service_1_body",
       "name": "Site Service 1 Body",
       "status": "new",
@@ -392,6 +408,14 @@
       "status": "new",
       "group": "Services",
       "example": "Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement."
+    },
+    {
+      "key": "site_service_2_image_url",
+      "name": "Site Service 2 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+2",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
       "key": "site_service_2_body",
@@ -423,6 +447,14 @@
       "example": "Full tile-to-metal and metal-to-metal replacements with a clean site every day."
     },
     {
+      "key": "site_service_3_image_url",
+      "name": "Site Service 3 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+3",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
+    },
+    {
       "key": "site_service_3_body",
       "name": "Site Service 3 Body",
       "status": "new",
@@ -450,6 +482,14 @@
       "status": "new",
       "group": "Services",
       "example": "Emergency make-safe and insurance-ready reports after hail, wind and storm events."
+    },
+    {
+      "key": "site_service_4_image_url",
+      "name": "Site Service 4 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+4",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
       "key": "site_service_4_body",
@@ -481,6 +521,14 @@
       "example": "New gutters, downpipes and guards that stop overflow and protect your foundations."
     },
     {
+      "key": "site_service_5_image_url",
+      "name": "Site Service 5 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+5",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
+    },
+    {
       "key": "site_service_5_body",
       "name": "Site Service 5 Body",
       "status": "new",
@@ -508,6 +556,14 @@
       "status": "new",
       "group": "Services",
       "example": "Detailed photo reports for buyers, sellers and insurers, usually within 48 hours."
+    },
+    {
+      "key": "site_service_6_image_url",
+      "name": "Site Service 6 Image URL",
+      "status": "new",
+      "group": "Services",
+      "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+6",
+      "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
       "key": "site_service_6_body",

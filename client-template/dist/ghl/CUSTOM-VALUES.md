@@ -36,6 +36,7 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Review 3 Suburb | `{{ custom_values.site_review_3_suburb }}` | e.g. Ipswich |
 | Site Review 3 Text | `{{ custom_values.site_review_3_text }}` | e.g. Booked online on Monday, quote by Tuesday, job done Friday. Communication was excellent the whole way through. |
 | Site Review 3 Date | `{{ custom_values.site_review_3_date }}` | Month and year the review was left, as shown on Google, e.g. September 2026 |
+| Site Review Widget URL | `{{ custom_values.site_review_widget_url }}` | In Reputation > Widgets, build a review widget (5-star only, colours to suit the site), copy its embed code and paste only the iframe src link here. Shown in the hero |
 
 ## Market
 
@@ -89,26 +90,32 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Service 1 Name | `{{ custom_values.site_service_1_name }}` | e.g. Roof Repairs |
 | Site Service 1 Slug | `{{ custom_values.site_service_1_slug }}` | Must match the GHL page path for this service |
 | Site Service 1 Desc | `{{ custom_values.site_service_1_desc }}` | e.g. Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after. |
+| Site Service 1 Image URL | `{{ custom_values.site_service_1_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 1 Body | `{{ custom_values.site_service_1_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 2 Name | `{{ custom_values.site_service_2_name }}` | e.g. Roof Restoration |
 | Site Service 2 Slug | `{{ custom_values.site_service_2_slug }}` | e.g. roof-restoration |
 | Site Service 2 Desc | `{{ custom_values.site_service_2_desc }}` | e.g. Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement. |
+| Site Service 2 Image URL | `{{ custom_values.site_service_2_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 2 Body | `{{ custom_values.site_service_2_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 3 Name | `{{ custom_values.site_service_3_name }}` | e.g. Re-Roofing |
 | Site Service 3 Slug | `{{ custom_values.site_service_3_slug }}` | e.g. re-roofing |
 | Site Service 3 Desc | `{{ custom_values.site_service_3_desc }}` | e.g. Full tile-to-metal and metal-to-metal replacements with a clean site every day. |
+| Site Service 3 Image URL | `{{ custom_values.site_service_3_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 3 Body | `{{ custom_values.site_service_3_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 4 Name | `{{ custom_values.site_service_4_name }}` | e.g. Storm Damage |
 | Site Service 4 Slug | `{{ custom_values.site_service_4_slug }}` | e.g. storm-damage |
 | Site Service 4 Desc | `{{ custom_values.site_service_4_desc }}` | e.g. Emergency make-safe and insurance-ready reports after hail, wind and storm events. |
+| Site Service 4 Image URL | `{{ custom_values.site_service_4_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 4 Body | `{{ custom_values.site_service_4_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 5 Name | `{{ custom_values.site_service_5_name }}` | e.g. Gutters and Downpipes |
 | Site Service 5 Slug | `{{ custom_values.site_service_5_slug }}` | e.g. gutters-downpipes |
 | Site Service 5 Desc | `{{ custom_values.site_service_5_desc }}` | e.g. New gutters, downpipes and guards that stop overflow and protect your foundations. |
+| Site Service 5 Image URL | `{{ custom_values.site_service_5_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 5 Body | `{{ custom_values.site_service_5_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 6 Name | `{{ custom_values.site_service_6_name }}` | e.g. Roof Inspections |
 | Site Service 6 Slug | `{{ custom_values.site_service_6_slug }}` | e.g. roof-inspections |
 | Site Service 6 Desc | `{{ custom_values.site_service_6_desc }}` | e.g. Detailed photo reports for buyers, sellers and insurers, usually within 48 hours. |
+| Site Service 6 Image URL | `{{ custom_values.site_service_6_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
 | Site Service 6 Body | `{{ custom_values.site_service_6_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 
 ## Service areas

@@ -13,7 +13,7 @@ const { pages } = JSON.parse(read('pages.json'));
 const examples = Object.fromEntries(values.map((v) => [v.key, v.example]));
 // The preview uses local images so it can be tested offline.
 Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
-for (let i = 1; i <= 6; i++) examples[`site_gallery_${i}_url`] = `assets/job-${i}.webp`;
+for (let i = 1; i <= 6; i++) examples[`site_gallery_${i}_url`] = examples[`site_service_${i}_image_url`] = `assets/job-${i}.webp`;
 const known = new Set(values.map((v) => v.key));
 const SERVICES = 6;
 const AREAS = 6;
@@ -48,7 +48,11 @@ const quoteCard = (form) => `<div class="quote" id="quote">
     <p class="fine"><span class="stars" aria-hidden="true">${stars}</span> {{cv.site_google_rating}} from {{cv.site_google_review_count}} Google reviews</p>
     <p class="fine">${icons.lock} Your details stay private and are never shared.</p>
   </div>`;
-const ghlForm = `<iframe data-mx-src="https://api.leadconnectorhq.com/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560"></iframe>`;
+const ghlForm = `<iframe data-mx-src="https://api.leadconnectorhq.com/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560" data-mx-js="https://link.msgsndr.com/js/form_embed.js"></iframe>`;
+// Hero reviews. GHL shows the client's Reputation review widget (5-star filter and colours are
+// set in the widget); the preview shows two static cards so it can be scored offline.
+const ghlReviews = `<iframe class="lc_reviews_widget" data-mx-src="{{cv.site_review_widget_url}}" data-mx-js="https://reputationhub.site/reputation/assets/review-widget.js" title="Google reviews" loading="lazy" scrolling="no" style="width:100%;min-width:100%;border:0"></iframe>`;
+const reviewCard = (n) => `<figure class="hr-card"><span class="stars" aria-hidden="true">${stars}</span><blockquote>{{cv.site_review_${n}_text}}</blockquote><figcaption>${icons.google} {{cv.site_review_${n}_name}}, {{cv.site_review_${n}_suburb}} <time>{{cv.site_review_${n}_date}}</time></figcaption></figure>`;
 const previewForm = `<form class="f" action="#" onsubmit="return false">
       <label>Name<input name="name" autocomplete="name" required></label>
       <label>Mobile<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
@@ -63,7 +67,7 @@ const previewForm = `<form class="f" action="#" onsubmit="return false">
 const serviceCards = (skip) =>
   Array.from({ length: SERVICES }, (_, i) => i + 1)
     .filter((n) => n !== skip)
-    .map((n) => `<a class="card" data-mx-opt href="/{{cv.site_service_${n}_slug}}"><span class="ico">${icons.check}</span><h3>{{cv.site_service_${n}_name}}</h3><p>{{cv.site_service_${n}_desc}}</p><span class="more">Learn more ${icons.arrow}</span></a>`)
+    .map((n) => `<a class="card" data-mx-opt href="/{{cv.site_service_${n}_slug}}"><img src="{{cv.site_service_${n}_image_url}}" alt="{{cv.site_service_${n}_name}}" width="800" height="600" loading="lazy" decoding="async"><h3>{{cv.site_service_${n}_name}}</h3><p>{{cv.site_service_${n}_desc}}</p><span class="more">Learn more ${icons.arrow}</span></a>`)
     .join('\n    ');
 const links = (slot, count, skip) =>
   Array.from({ length: count }, (_, i) => i + 1)
@@ -129,6 +133,7 @@ function renderSection(name, page, n, mode) {
   // The header carries the brand colours so every page that uses it is themed.
   if (name === '01-header') html = `<style>${css}</style>\n` + read('sections/00-theme.html').replace(/^<!--[\s\S]*?-->\n?/, '') + html;
   html = html
+    .replaceAll('{{hero_reviews}}', mode === 'ghl' ? ghlReviews : reviewCard(1) + reviewCard(2))
     .replaceAll('{{quote_card}}', quoteCard(mode === 'ghl' ? ghlForm : previewForm))
     .replaceAll('{{services_cards}}', serviceCards(page.slot === 'area' ? null : n))
     .replaceAll('{{services_links_plain}}', plainServices)

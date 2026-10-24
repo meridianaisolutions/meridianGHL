@@ -47,5 +47,11 @@ assert.equal(await page.locator('#services a.card:visible').count(), 5, 'blank s
 assert.equal(await page.locator('.gallery figure:visible').count(), 5, 'blank job photo not hidden');
 assert.equal(await page.locator('a[aria-label="Instagram"]').evaluate((a) => a.style.display), 'none', 'blank social link not hidden');
 
+// GHL embeds load their helper script once, and only after the iframe gets its URL.
+const embeds = readFileSync(join(preview, 'home.html'), 'utf8').replace('<div class="hero-revs"', '<iframe data-mx-src="{{ custom_values.site_url }}/w" data-mx-js="https://example.com/w.js"></iframe><iframe data-mx-src="{{ custom_values.site_url }}/w2" data-mx-js="https://example.com/w.js"></iframe><div class="hero-revs"');
+await page.route('https://example.com/**', (r) => r.abort());
+await page.setContent(embeds);
+assert.equal(await page.locator('script[src="https://example.com/w.js"]').count(), 1, 'embed script not loaded exactly once');
+
 await browser.close();
 console.log('fill.js checks passed');

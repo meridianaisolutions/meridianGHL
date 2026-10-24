@@ -50,10 +50,11 @@ Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom value
 
 1. Load the snapshot into the client's sub-account.
 2. Fill in every value in `dist/ghl/CUSTOM-VALUES.md`. Copy the Google rating and review count straight from their Google Business Profile, and use three real reviews.
-3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB), owner photo (640 x 640 WebP) and six job photos (800 x 600 WebP) to Media and paste the links into the image custom values. A blank job photo is hidden, as are blank social links and a blank map.
+3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB), owner photo (640 x 640 WebP), one photo per service for the service cards and six job photos (all 800 x 600 WebP) to Media and paste the links into the image custom values. A blank job photo is hidden, as are blank social links and a blank map.
 4. Write the six Site Area Body values fresh for each client: 100 to 200 words each about local housing, weather and typical jobs. Area pages share their layout, so this text is what stops Google treating them as duplicates.
-5. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.
-6. Connect their domain, then test the form, the phone links and the thank-you redirect on a phone.
+5. Set up the hero review widget. In Reputation > Widgets, create a review widget showing 5-star Google reviews only, set its colours to match the site (white cards on the dark hero work well), and paste the iframe src from its embed code into Site Review Widget URL. If the embed code's script link differs from `https://reputationhub.site/reputation/assets/review-widget.js` (white-label domains can change it), update `ghlReviews` in `scripts/build.mjs` and rebuild. The preview shows two static review cards in its place.
+6. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.
+7. Connect their domain, then test the form, the phone links and the thank-you redirect on a phone.
 
 Rules for values: avoid `<` and `>`, never use `{mx:` or `{/mx}`, and use hex codes for the brand and accent colours. The accent colour is the button colour and needs at least 4.5:1 contrast with white text. Check it at webaim.org/resources/contrastchecker.
 
