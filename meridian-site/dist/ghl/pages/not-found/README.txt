@@ -1,5 +1,5 @@
 Page name:        Page Not Found
-URL slug:         /404
+URL slug:         /error
 SEO title:        Page Not Found | Meridian AI Solutions  (38 chars)
 Meta description: We couldn't find that page.  (27 chars)
 Keywords:         

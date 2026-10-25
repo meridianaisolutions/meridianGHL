@@ -128,7 +128,7 @@ Pages, in nav order:
   - Custom Code element: paste `pages/thank-you/block-1.html`
   - Footer global section
 
-## Page Not Found (/404)
+## Page Not Found (/error)
 
 - SEO title: Page Not Found | Meridian AI Solutions
 - Meta description: We couldn't find that page.
