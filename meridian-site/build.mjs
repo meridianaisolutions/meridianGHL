@@ -92,41 +92,53 @@ function readPage(file) {
   return { ...JSON.parse(m[1]), id: file.replace(/\.html$/, ''), body: raw.slice(m[0].length) };
 }
 
-// JSON-LD is rendered from config, not custom values, so it is always valid JSON
+// JSON-LD is rendered from config, not custom values, so it is always valid JSON.
+// Home carries the one LocalBusiness block; every other page points at its @id.
+const base = cfg.siteUrl.replace(/\/$/, '');
+const bizId = { '@id': base + '/#business' };
+const money = (s) => Number(s.replace(/[$,]/g, ''));
+const offer = (name, price, billingDuration) => ({ '@type': 'Offer', name, price: money(price), priceCurrency: 'AUD',
+  priceSpecification: { '@type': 'UnitPriceSpecification', price: money(price), priceCurrency: 'AUD', valueAddedTaxIncluded: true, ...(billingDuration && { billingDuration }) } });
+const o = cfg.offer;
+const offers = {
+  reviews: () => o.reviews.plans.map((p) => offer(p.name, p.price, 'P1M')),
+  gbp: () => [offer('Google Business Profile management', o.gbp.price, 'P1M')],
+  websites: () => o.websites.plans.flatMap((p) => [offer(p.name + ', paid monthly', p.price, 'P1M'), offer(p.name + ', paid outright', p.outright)]),
+  system: () => [offer('Monthly', o.system.price, 'P1M'), offer('Quarterly', o.system.quarterly, 'P3M'), offer('6 months', o.system.sixMonthly, 'P1M'), offer('Annual', o.system.annualTotal, 'P1Y')],
+};
+const founder = { '@type': 'Person', name: cfg.brand.founder, jobTitle: 'Founder', url: base + '/about' };
+const crumbs = (...items) => ({ '@type': 'BreadcrumbList', itemListElement: [['Home', base + '/'], ...items].map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) });
+// escape "<" so nothing in the JSON can close the script tag
+const ldJson = (graph) => graph.length ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>` : '';
+
 function schemaFor(page) {
-  const base = cfg.siteUrl.replace(/\/$/, '');
   const url = base + (page.slug === '/' ? '/' : page.slug);
-  const org = {
-    '@type': 'ProfessionalService',
-    '@id': base + '/#org',
-    name: cfg.brand.name,
-    url: base + '/',
-    telephone: cfg.brand.phoneE164,
-    email: cfg.customValues.email.value,
+  const b = cfg.schema.business;
+  const graph = [];
+  if (page.slug === '/') graph.push({ '@type': 'LocalBusiness', ...bizId, name: cfg.brand.name, legalName: cfg.brand.legalName, url: base + '/',
+    logo: b.logo, image: b.logo, telephone: cfg.brand.phoneE164, email: b.email,
+    address: { '@type': 'PostalAddress', addressLocality: b.locality, addressRegion: cfg.brand.region, addressCountry: 'AU' },
     areaServed: { '@type': 'Country', name: cfg.brand.areaServed },
-    address: { '@type': 'PostalAddress', addressLocality: cfg.brand.locality, addressRegion: cfg.brand.region, addressCountry: 'AU' },
-    legalName: cfg.brand.legalName,
-    taxID: 'ABN ' + cfg.brand.abn,
-    logo: cfg.customValues.logo.value || undefined,
-    description: 'Google review generation and automated local SEO for Australian service businesses.',
-    knowsAbout: ['Google reviews', 'Google Business Profile optimisation', 'Local SEO', 'Reputation management'],
-  };
-  const graph = [org, { '@type': 'WebPage', '@id': url + '#page', url, name: page.title, description: page.description, isPartOf: { '@id': base + '/#site' }, about: { '@id': base + '/#org' }, inLanguage: 'en-AU' }];
-  if (page.slug === '/') graph.push({ '@type': 'WebSite', '@id': base + '/#site', url: base + '/', name: cfg.brand.name, publisher: { '@id': base + '/#org' }, inLanguage: 'en-AU' });
-  if (page.service) graph.push({ '@type': 'Service', name: page.service, serviceType: page.service, provider: { '@id': base + '/#org' }, areaServed: { '@type': 'Country', name: cfg.brand.areaServed }, url });
-  if (page.crumb) graph.push({ '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: base + '/' },
-    { '@type': 'ListItem', position: 2, name: page.crumb, item: url },
-  ] });
-  const faqs = [...page.body.matchAll(/<details[^>]*data-faq[^>]*>\s*<summary>([\s\S]*?)<\/summary>\s*<div>([\s\S]*?)<\/div>\s*<\/details>/g)];
-  if (faqs.length) graph.push({ '@type': 'FAQPage', mainEntity: faqs.map(([, q, a]) => ({
-    '@type': 'Question', name: strip(render(q, 'preview', page)),
-    acceptedAnswer: { '@type': 'Answer', text: strip(render(a, 'preview', page)) },
-  })) });
-  // escape "<" so nothing in the JSON can close the script tag
-  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>`;
+    openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
+    sameAs: b.sameAs });
+  if (page.service) graph.push({ '@type': 'Service', '@id': url + '#service', name: page.service, serviceType: page.service, url, provider: bizId,
+    areaServed: { '@type': 'Country', name: cfg.brand.areaServed }, offers: offers[page.offers]() });
+  if (page.schema === 'AboutPage') graph.push({ '@type': 'AboutPage', url, name: page.title, about: bizId }, { ...founder, worksFor: bizId });
+  if (page.schema === 'ContactPage') graph.push({ '@type': 'ContactPage', url, name: page.title, about: bizId });
+  if (page.schema === 'Blog') graph.push({ '@type': 'Blog', '@id': url + '#blog', url, name: cfg.brand.name + ' blog', description: page.description, publisher: bizId, inLanguage: 'en-AU' });
+  // breadcrumbs only ride along with a page's real schema, never on their own
+  if (graph.length && page.crumb) graph.push(crumbs([page.crumb, url]));
+  return ldJson(graph);
 }
-const strip = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
+
+// GHL Blogs owns post URLs; cfg.schema.blogPostPath is the prefix it gives posts
+function postSchema(post) {
+  const url = base + cfg.schema.blogPostPath + post.slug;
+  return ldJson([{ '@type': 'BlogPosting', '@id': url + '#post', headline: post.title, description: post.description, url, mainEntityOfPage: url,
+    articleSection: post.category, inLanguage: 'en-AU', author: founder, publisher: bizId, isPartOf: { '@id': base + cfg.links.blog + '#blog' },
+    ...(post.published && { datePublished: post.published }) },
+    crumbs(['Blog', base + cfg.links.blog], [post.title, url])]);
+}
 
 // ---------- build ----------
 rmSync(out(), { recursive: true, force: true });
@@ -161,7 +173,9 @@ for (const page of pages) {
     }
     if (parts[i + 1]) steps.push(`Native GHL ${parts[i + 1]} element: ${parts[i + 2]}`);
   }
-  writeFileSync(join(dir, 'page-head-tracking-code.html'), schemaFor(page) + (page.noindex ? '\n<meta name="robots" content="noindex,follow">' : '') + '\n');
+  const head = [schemaFor(page), page.noindex ? '<meta name="robots" content="noindex,follow">' : ''].filter(Boolean).join('\n');
+  if (head) writeFileSync(join(dir, 'page-head-tracking-code.html'), head + '\n');
+  page.hasHead = !!head;
   const seo = [
     `Page name:        ${page.name}`,
     `URL slug:         ${page.slug}`,
@@ -194,10 +208,17 @@ for (const page of pages) {
 // install checklist
 const lines = ['# GHL install checklist (generated)', '', 'Pages, in nav order:', ''];
 for (const { page, steps } of manifest.sort((a, b) => a.page.order - b.page.order)) {
-  lines.push(`## ${page.name} (${page.slug})`, '', `- SEO title: ${page.title}`, `- Meta description: ${page.description}`, `- Page head tracking code: \`pages/${page.id}/page-head-tracking-code.html\``, '- Sections, top to bottom:', '  - Header global section');
+  lines.push(`## ${page.name} (${page.slug})`, '', `- SEO title: ${page.title}`, `- Meta description: ${page.description}`, page.hasHead ? `- Page head tracking code: \`pages/${page.id}/page-head-tracking-code.html\`` : '- Page head tracking code: none (leave the box empty)', '- Sections, top to bottom:', '  - Header global section');
   for (const s of steps) lines.push(`  - ${s.replace('paste ', `paste \`pages/${page.id}/`).replace(/\.html$/, '.html`')}`);
   lines.push('  - Footer global section', '');
 }
 writeFileSync(out('ghl', 'CHECKLIST.md'), lines.join('\n'));
+
+// blog post schema, pasted into each post's SEO settings in GHL Blogs
+mkdirSync(out('ghl', 'blog'), { recursive: true });
+for (const f of readdirSync(join(root, 'blog')).filter((f) => f.endsWith('.html'))) {
+  const post = JSON.parse(readFileSync(join(root, 'blog', f), 'utf8').match(/^<!--post\s*([\s\S]*?)-->/)[1]);
+  writeFileSync(out('ghl', 'blog', post.slug + '-schema.html'), postSchema(post) + '\n');
+}
 cpSync(join(root, 'assets'), out('preview', 'assets'), { recursive: true });
 console.log(`Built ${pages.length} pages -> dist/ghl and dist/preview (css ${css.length} bytes)`);

@@ -15,6 +15,16 @@
     "region": "NSW",
     "systemName": "Local Growth System"
   },
+  "schema": {
+    "_note": "Mirrors the LocalBusiness block Marcus already has live on Home (25 Oct 2026). Every other page points at its @id, https://meridianaisolutions.com.au/#business. blogPostPath is the prefix GHL Blogs gives post URLs: check it against the first live post.",
+    "business": {
+      "email": "hello@meridianaisolutions.com.au",
+      "logo": "https://assets.cdn.filesafe.space/QE1a9gJjBZGR6dcIgfCx/media/6adb502955feecaeeac98c46.png",
+      "locality": "Kingsgrove",
+      "sameAs": ["https://maps.app.goo.gl/v7xhjkdvqcvgtRD59"]
+    },
+    "blogPostPath": "/post/"
+  },
   "customValues": {
     "_note": "GHL does NOT render {{ custom_values.* }} inside Custom Code elements (tested 24 Oct 2026), so the build bakes 'value' into the blocks. 'ghl' records which sub-account custom value each one mirrors: when you change a custom value in GHL, change it here too and rebuild. 'preview' overrides the value for the local preview only.",
     "name": {

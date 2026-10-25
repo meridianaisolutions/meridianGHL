@@ -79,7 +79,7 @@ Pages, in nav order:
 
 - SEO title: Book a Free Call | Meridian AI Solutions
 - Meta description: Book a free call about Google reviews, your website or your Google Business Profile, or start your 30-day free trial of review automation.
-- Page head tracking code: `pages/book-a-call/page-head-tracking-code.html`
+- Page head tracking code: none (leave the box empty)
 - Sections, top to bottom:
   - Header global section
   - Custom Code element: paste `pages/book-a-call/block-1.html`
@@ -102,7 +102,7 @@ Pages, in nav order:
 
 - SEO title: Privacy Policy | Meridian AI Solutions
 - Meta description: How Meridian AI Solutions collects, uses, stores and protects personal information under the Australian Privacy Principles.
-- Page head tracking code: `pages/privacy-policy/page-head-tracking-code.html`
+- Page head tracking code: none (leave the box empty)
 - Sections, top to bottom:
   - Header global section
   - Custom Code element: paste `pages/privacy-policy/block-1.html`
@@ -112,7 +112,7 @@ Pages, in nav order:
 
 - SEO title: Terms and Conditions | Meridian AI Solutions
 - Meta description: The terms that apply to Meridian AI Solutions' review management, website and Google Business Profile services, including trials, billing and cancellation.
-- Page head tracking code: `pages/terms-and-conditions/page-head-tracking-code.html`
+- Page head tracking code: none (leave the box empty)
 - Sections, top to bottom:
   - Header global section
   - Custom Code element: paste `pages/terms-and-conditions/block-1.html`

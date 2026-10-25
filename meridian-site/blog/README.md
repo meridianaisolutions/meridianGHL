@@ -9,6 +9,7 @@ The blog runs on GHL's built-in Blogs feature (Sites > Blogs), which handles pos
 3. On `/blog`, place the Blog Post List element where `dist/ghl/pages/blog/README.txt` says.
 4. For each post below: create a post, open the editor's HTML or code view and paste everything below the `<!--post ... -->` header. Then fill in the SEO title, description, slug, category and a featured image (1200x630, a real photo or a simple branded graphic) from that header.
 5. Check the post URL GHL gives the first post (usually `/post/<slug>`). If it isn't `/blog/<slug>`, update the one link between posts in `rank-higher-on-google-maps.html`.
+6. Paste `dist/ghl/blog/<slug>-schema.html` into the post's schema field in its SEO settings. If the post URL prefix isn't `/post/`, change `schema.blogPostPath` in `site.config.json` and rebuild first.
 
 ## Starter posts (ready to publish)
 
