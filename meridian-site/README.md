@@ -18,7 +18,7 @@ Change copy in `src/`, prices in `site.config.json`, then run `node build.mjs` (
 
 | Page | Slug | Native GHL element |
 |---|---|---|
-| Home | `/` | Form ("Website Form") after the last block |
+| Home | `/` | Form ("Website Form") in a 2-column row beside block 2 |
 | Local Growth System (bundle) | `/local-growth-system` | none |
 | Review Management | `/google-reviews` | none |
 | Google Business Profile | `/google-business-profile` | none |

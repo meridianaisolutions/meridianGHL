@@ -8,5 +8,7 @@ Indexing:         index
 Section order on the page (top to bottom):
   Header global section
   Custom Code element: paste block-1.html
-  Native GHL form element: "Website Form" (name, phone, email, message, consent checkbox; spam protection on)
+  New section, background #F6F1E6, one row with 2 columns: block-2.html in the left column, "Website Form" in the right. GHL stacks the columns on mobile.
+  Custom Code element: paste block-2.html
+  Native GHL form element: "Website Form" in the right column next to block-2 (form background #FFFFFF, border 1px #E6E0D4, radius 14px; consent text names Meridian AI Solutions; spam protection on)
   Footer global section

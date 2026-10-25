@@ -159,7 +159,8 @@ for (const page of pages) {
       writeFileSync(join(dir, name), minifyHtml(render(html, 'ghl', page)));
       steps.push(`Custom Code element: paste ${name}`);
     }
-    if (parts[i + 1]) steps.push(`Native GHL ${parts[i + 1]} element: ${parts[i + 2]}`);
+    // @ghl:row only marks a layout break, it isn't an element
+    if (parts[i + 1]) steps.push(parts[i + 1] === 'row' ? parts[i + 2] : `Native GHL ${parts[i + 1]} element: ${parts[i + 2]}`);
   }
   writeFileSync(join(dir, 'page-head-tracking-code.html'), schemaFor(page) + (page.noindex ? '\n<meta name="robots" content="noindex,follow">' : '') + '\n');
   const seo = [
@@ -181,7 +182,7 @@ for (const page of pages) {
   // preview build
   const previewBody = parts.map((p, i) => {
     if (i % 3 === 0) return render(p, 'preview', page);
-    if (i % 3 === 1) return `<div class="mr"><div class="mr-wrap" style="padding:28px 20px"><div style="border:2px dashed #94a3b8;border-radius:14px;padding:28px;text-align:center;color:#475569;font-weight:600">Native GHL ${esc(p)} element goes here: ${esc(parts[i + 1])}</div></div></div>`;
+    if (i % 3 === 1 && p !== 'row') return `<div class="mr"><div class="mr-wrap" style="padding:28px 20px"><div style="border:2px dashed #94a3b8;border-radius:14px;padding:28px;text-align:center;color:#475569;font-weight:600">Native GHL ${esc(p)} element goes here: ${esc(parts[i + 1])}</div></div></div>`;
     return '';
   }).join('');
   const navHeader = render(header, 'preview', page).replace(`href="${page.slug}"`, `href="${page.slug}" aria-current="page"`);
