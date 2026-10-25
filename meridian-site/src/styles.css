@@ -218,7 +218,7 @@
 .mr .mr-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,251,244,.97);border-top:1px solid var(--mr-line);box-shadow:0 -6px 20px rgba(18,49,42,.08)}
 .mr .mr-sticky .mr-btn{flex:1;min-height:48px;padding:.6rem 1rem;font-size:.98rem}
 @media(min-width:960px){.mr .mr-sticky{display:none}}
-@media(max-width:959px){.mr .mr-ftr{padding-bottom:96px}}
+@media(max-width:959px){.mr .mr-ftr{padding-bottom:96px}.mr .mr-sticky{padding-right:84px}}
 
 @media(prefers-reduced-motion:reduce){.mr *{transition:none!important;scroll-behavior:auto!important}}
 .mr .mr-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
