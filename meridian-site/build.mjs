@@ -168,7 +168,7 @@ for (const page of pages) {
     `SEO title:        ${page.title}  (${page.title.length} chars)`,
     `Meta description: ${page.description}  (${page.description.length} chars)`,
     `Keywords:         ${page.keywords || ''}`,
-    `Indexing:         ${page.noindex ? 'noindex (thank-you page)' : 'index'}`,
+    `Indexing:         ${page.noindex ? 'noindex' : 'index'}`,
     '',
     'Section order on the page (top to bottom):',
     '  Header global section',

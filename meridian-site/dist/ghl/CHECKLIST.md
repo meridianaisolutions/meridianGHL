@@ -127,3 +127,13 @@ Pages, in nav order:
   - Header global section
   - Custom Code element: paste `pages/thank-you/block-1.html`
   - Footer global section
+
+## Page Not Found (/404)
+
+- SEO title: Page Not Found | Meridian AI Solutions
+- Meta description: We couldn't find that page.
+- Page head tracking code: `pages/not-found/page-head-tracking-code.html`
+- Sections, top to bottom:
+  - Header global section
+  - Custom Code element: paste `pages/not-found/block-1.html`
+  - Footer global section
