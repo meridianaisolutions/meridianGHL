@@ -1,0 +1,165 @@
+{
+  "_note": "Single source of truth for the Meridian site build. Values marked TODO need Marcus's confirmation before go-live.",
+  "siteUrl": "https://meridianaisolutions.com.au",
+  "assetBase": "https://cdn.jsdelivr.net/gh/meridianaisolutions/meridianghl@2dd2075d0d5487d5dd7d3882d44180e6adf88aed/meridian-site/assets/",
+  "brand": {
+    "name": "Meridian AI Solutions",
+    "short": "Meridian",
+    "founder": "Marcus Burst",
+    "founderRole": "Founder, Meridian AI Solutions",
+    "phoneE164": "+61403806286",
+    "areaServed": "Australia",
+    "legalName": "Meridian AI Solutions Pty Ltd",
+    "abn": "87 693 331 887",
+    "locality": "Sydney",
+    "region": "NSW",
+    "systemName": "Local Growth System"
+  },
+  "customValues": {
+    "_note": "GHL does NOT render {{ custom_values.* }} inside Custom Code elements (tested 24 Oct 2026), so the build bakes 'value' into the blocks. 'ghl' records which sub-account custom value each one mirrors: when you change a custom value in GHL, change it here too and rebuild. 'preview' overrides the value for the local preview only.",
+    "name": {
+      "ghl": "{{ custom_values.b3_our_business_name }}",
+      "value": "Meridian AI Solutions"
+    },
+    "phone": {
+      "ghl": "{{ custom_values.b2_our_business_phone_number }}",
+      "value": "0403 806 286"
+    },
+    "email": {
+      "ghl": "{{ custom_values.b1_our_business_email }}",
+      "value": "marcus@meridianaisolutions.com.au"
+    },
+    "logo": {
+      "ghl": "{{ custom_values.b5_our_business_logo_link }}",
+      "value": "https://assets.cdn.filesafe.space/QE1a9gJjBZGR6dcIgfCx/media/6adb4f977d0b8317d6430c16.png",
+      "preview": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='36' viewBox='0 0 168 36'%3E%3Crect width='36' height='36' rx='10' fill='%2312312a'/%3E%3Cpath d='M9 26v-8a4.5 4.5 0 0 1 9 0v8M18 18a4.5 4.5 0 0 1 9 0v8' fill='none' stroke='%23fffbf4' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='8.5' r='3.4' fill='%23ffd84a'/%3E%3Ctext x='44' y='25' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='%2312312a' letter-spacing='-0.6'%3Emeridian%3C/text%3E%3C/svg%3E"
+    },
+    "url": {
+      "ghl": "{{ custom_values.b4_our_business_website_url }}",
+      "value": "https://meridianaisolutions.com.au"
+    },
+    "login": {
+      "ghl": "{{ custom_values.b7_your_whitelabel_login_url }}",
+      "value": "https://client.meridianaisolutions.com.au"
+    }
+  },
+  "links": {
+    "home": "/",
+    "system": "/local-growth-system",
+    "reviews": "/google-reviews",
+    "gbp": "/google-business-profile",
+    "websites": "/websites",
+    "pricing": "/#pricing",
+    "about": "/about",
+    "blog": "/blog",
+    "book": "/book-a-call",
+    "contact": "/contact",
+    "privacy": "/privacy-policy",
+    "terms": "/terms-and-conditions"
+  },
+  "offer": {
+    "_note": "Modelled on ReviewHarvest's offer (Marcus, 24 Oct 2026: 'copy reviewharvest for now'). Prices set by Marcus on 24 Oct 2026, AUD including GST. Website outright prices are scaled from ReviewHarvest's ratios.",
+    "contract": "No lock-in contract. Cancel any time.",
+    "setupDays": "3",
+    "trialDays": "30",
+    "trialTitle": "Try review automation free for 30 days",
+    "trialBody": "Start with a 30-day free trial of review automation. We set everything up with you and launch your first review campaign, and you're only billed on day 30 if you decide to stay. No contract, cancel any time.",
+    "moneyBack": "30-day money-back guarantee",
+    "reviews": {
+      "plansNote": "Every plan includes one past-customer reactivation campaign, even if it goes over your monthly limit. Follow-ups never count towards your limit.",
+      "plans": [
+        {
+          "name": "Starter",
+          "requests": "Up to 20 new review requests a month",
+          "price": "$199",
+          "period": "/month",
+          "blurb": "For smaller businesses getting started with reviews."
+        },
+        {
+          "name": "Growth",
+          "requests": "20 to 100 new review requests a month",
+          "price": "$299",
+          "period": "/month",
+          "popular": true,
+          "blurb": "For busy businesses serving customers every day."
+        },
+        {
+          "name": "Pro",
+          "requests": "100+ new review requests a month",
+          "price": "$499",
+          "period": "/month",
+          "blurb": "For high-volume and multi-crew businesses."
+        }
+      ],
+      "features": [
+        "Past-customer review reactivation",
+        "Automated text and email requests",
+        "Personalised image review requests",
+        "Smart follow-ups that stop once reviewed",
+        "AI-written replies to every review",
+        "5-star reviews shared to your socials",
+        "Connects to the job software you use",
+        "Unlimited users and a 1-on-1 setup call"
+      ]
+    },
+    "gbp": {
+      "price": "$699",
+      "period": "/month"
+    },
+    "websites": {
+      "note": "Monthly plans run for 24 months with hosting and security included. After month 24 the site is paid off and yours, and your payment drops to optional hosting at $99 a month.",
+      "plans": [
+        {
+          "name": "Starter",
+          "value": "Paid off over 24 months, then it's yours",
+          "price": "$249",
+          "period": "/month",
+          "outright": "$5,478",
+          "features": [
+            "15-page website built to convert",
+            "Quote button, click-to-call or form above the fold on every page",
+            "SEO foundations from day one",
+            "Unlimited changes, done within 2 business days"
+          ]
+        },
+        {
+          "name": "Standard",
+          "value": "Paid off over 24 months, then it's yours",
+          "price": "$299",
+          "period": "/month",
+          "outright": "$6,578",
+          "popular": true,
+          "features": [
+            "Everything in Starter",
+            "20-page website: more service and suburb pages",
+            "Leads sent straight into your CRM",
+            "Instant SMS alerts for new leads"
+          ]
+        },
+        {
+          "name": "Scale",
+          "value": "Paid off over 24 months, then it's yours",
+          "price": "$499",
+          "period": "/month",
+          "outright": "$10,978",
+          "features": [
+            "Everything in Standard",
+            "40-page website: every service, every suburb",
+            "Keyword-targeted content written for your area",
+            "Priority support"
+          ]
+        }
+      ]
+    },
+    "system": {
+      "price": "$799",
+      "period": "/month",
+      "setup": "$1,599",
+      "separately": "$1,297",
+      "quarterly": "$2,397",
+      "sixMonthly": "$699",
+      "annual": "$666",
+      "annualTotal": "$7,990"
+    }
+  }
+}
