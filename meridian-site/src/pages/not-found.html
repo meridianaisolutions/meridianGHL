@@ -8,8 +8,8 @@
 } -->
 <style>/* short page: every wrapper around the block (GHL adds its own) takes the footer colour, so no white bar shows below the footer */:has(.mr-hero){background:#0c231e!important}/* strips GHL's section padding without needing this page's section id */[id^="section-"]:has(.mr-hero),[id^="section-"]:has(.mr-hero)>.inner,[id^="section-"]:has(.mr-hero)>.inner>.c-row,[id^="section-"]:has(.mr-hero)>.inner>.c-row>.inner,[id^="section-"]:has(.mr-hero)>.inner>.c-row>.inner>.c-column,[id^="section-"]:has(.mr-hero)>.inner>.c-row>.inner>.c-column>.vertical.inner,[id^="section-"]:has(.mr-hero)>.inner>.c-row>.inner>.c-column>.vertical.inner>.c-custom-code{margin:0!important;padding:0!important;width:100%!important;max-width:none!important}</style>
 <div class="mr">
-<section class="mr-hero" aria-labelledby="hero-h">
-  <div class="mr-wrap" style="text-align:center;max-width:760px">
+<section class="mr-hero" aria-labelledby="hero-h" style="min-height:calc(100vh - 68px);display:flex;align-items:center">
+  <div class="mr-wrap" style="text-align:center;max-width:760px;width:100%">
     <p class="mr-eyebrow" style="color:#ffd84a">404</p>
     <h1 id="hero-h">We couldn't find <em>that page</em></h1>
     <p class="mr-lede" style="margin-left:auto;margin-right:auto">The link might be old, or the address could have a typo. Try one of these instead.</p>
