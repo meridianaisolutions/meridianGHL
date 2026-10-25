@@ -263,6 +263,6 @@
   <p class="mr-lede">We'll get back to you within one business day. Prefer to talk? Call <a href="tel:{{cv:phone}}">{{cv:phone}}</a>.</p>
 </section>
 <!-- GHL centres columns vertically with no Top option; pin this column to the top -->
-<script>(function(){var n=document.getElementById('msg-h').closest('section');while((n=n.parentElement)&&n.tagName!=='SECTION'){var s=getComputedStyle(n);if(s.display.indexOf('flex')>-1&&s.flexDirection.indexOf('column')===0)n.style.justifyContent='flex-start';else if(/flex|grid/.test(s.display))n.style.alignItems='flex-start';}})();</script>
+<style>section *:has(#msg-h){justify-content:flex-start!important;align-items:flex-start!important}</style>
 </div>
 <!-- @ghl:form "Website Form" in the right column next to block-2 (form background #FFFFFF, border 1px #E6E0D4, radius 14px; consent text names Meridian AI Solutions; spam protection on) -->
