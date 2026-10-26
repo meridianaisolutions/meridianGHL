@@ -28,6 +28,27 @@
   function safeUrl(u) { return (!/^[a-z][\w+.-]*:/i.test(u) || /^(https?|tel|mailto):/i.test(u)) && !/[\s"'<>\\]/.test(u) ? u : '#'; }
   function safeCss(c) { return /^#[0-9a-f]{3,8}$|^[a-z]+$/i.test(c) ? c : 'inherit'; }
   function json(v) { return JSON.stringify(v).slice(1, -1); }
+  // Long copy lives in native Text elements, which GHL renders and Google sees in the HTML.
+  // Each starts with a {text:name} line; its content moves into the matching slot and the
+  // emptied element (and its section, if nothing else is in it) is hidden.
+  var INLINE = /^(SPAN|STRONG|EM|B|I|U|A|FONT)$/;
+  function moveText(root) {
+    [].forEach.call(root.querySelectorAll('[data-mx-text]'), function (slot) {
+      if (slot.childNodes.length) return;
+      var mark = '{text:' + slot.getAttribute('data-mx-text') + '}', w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), t;
+      while ((t = w.nextNode())) if (t.nodeValue.indexOf(mark) > -1 && !/^(SCRIPT|STYLE)$/.test(t.parentNode.nodeName)) break;
+      if (!t) return;
+      t.nodeValue = t.nodeValue.replace(mark, '');
+      var block = t.parentNode;
+      while (INLINE.test(block.nodeName)) block = block.parentNode;
+      var box = block.parentNode;
+      if (!block.textContent.trim()) box.removeChild(block);
+      while (box.firstChild) slot.appendChild(box.firstChild);
+      var el = box;
+      while (el.parentNode && el.parentNode !== document.body && !el.parentNode.textContent.trim() && !el.parentNode.querySelector('img,iframe,video')) el = el.parentNode;
+      el.style.display = 'none';
+    });
+  }
   var loaded = {};
   window.mxFill = function (root) {
     if (!load() || !root) return;
@@ -72,6 +93,7 @@
       var l = e.nodeName === 'A' ? e : e.querySelector('a'), v = l ? l.getAttribute('href') : e.textContent.trim();
       if (!v || v === '/') e.style.display = 'none';
     });
+    moveText(root);
   };
   document.addEventListener('DOMContentLoaded', function () {
     mxFill(document.body);

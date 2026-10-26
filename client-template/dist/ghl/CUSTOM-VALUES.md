@@ -81,7 +81,6 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site USP 3 | `{{ custom_values.site_usp_3 }}` | e.g. 10-year workmanship guarantee |
 | Site Guarantee | `{{ custom_values.site_guarantee }}` | e.g. If you are not happy with the job, we come back and make it right at no cost. Every job is backed by our 10-year workmanship guarantee. |
 | Site Offer | `{{ custom_values.site_offer }}` | Short offer for the CTA band. Keep it true and current |
-| Site Owner Bio | `{{ custom_values.site_owner_bio }}` | e.g. I started Summit Roofing because I was tired of seeing homeowners get burned by cowboys. We are a small local team, we answer the phone, we turn up when we say we will, and we treat your home like our own. |
 
 ## Services
 
@@ -91,32 +90,26 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Service 1 Slug | `{{ custom_values.site_service_1_slug }}` | Must match the GHL page path for this service |
 | Site Service 1 Desc | `{{ custom_values.site_service_1_desc }}` | e.g. Leaks, cracked tiles and broken flashing found and fixed fast, with photos before and after. |
 | Site Service 1 Image URL | `{{ custom_values.site_service_1_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 1 Body | `{{ custom_values.site_service_1_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 2 Name | `{{ custom_values.site_service_2_name }}` | e.g. Roof Restoration |
 | Site Service 2 Slug | `{{ custom_values.site_service_2_slug }}` | e.g. roof-restoration |
 | Site Service 2 Desc | `{{ custom_values.site_service_2_desc }}` | e.g. Clean, repair, re-point and re-coat to add 15+ years to your roof for a fraction of a replacement. |
 | Site Service 2 Image URL | `{{ custom_values.site_service_2_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 2 Body | `{{ custom_values.site_service_2_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 3 Name | `{{ custom_values.site_service_3_name }}` | e.g. Re-Roofing |
 | Site Service 3 Slug | `{{ custom_values.site_service_3_slug }}` | e.g. re-roofing |
 | Site Service 3 Desc | `{{ custom_values.site_service_3_desc }}` | e.g. Full tile-to-metal and metal-to-metal replacements with a clean site every day. |
 | Site Service 3 Image URL | `{{ custom_values.site_service_3_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 3 Body | `{{ custom_values.site_service_3_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 4 Name | `{{ custom_values.site_service_4_name }}` | e.g. Storm Damage |
 | Site Service 4 Slug | `{{ custom_values.site_service_4_slug }}` | e.g. storm-damage |
 | Site Service 4 Desc | `{{ custom_values.site_service_4_desc }}` | e.g. Emergency make-safe and insurance-ready reports after hail, wind and storm events. |
 | Site Service 4 Image URL | `{{ custom_values.site_service_4_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 4 Body | `{{ custom_values.site_service_4_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 5 Name | `{{ custom_values.site_service_5_name }}` | e.g. Gutters and Downpipes |
 | Site Service 5 Slug | `{{ custom_values.site_service_5_slug }}` | e.g. gutters-downpipes |
 | Site Service 5 Desc | `{{ custom_values.site_service_5_desc }}` | e.g. New gutters, downpipes and guards that stop overflow and protect your foundations. |
 | Site Service 5 Image URL | `{{ custom_values.site_service_5_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 5 Body | `{{ custom_values.site_service_5_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 | Site Service 6 Name | `{{ custom_values.site_service_6_name }}` | e.g. Roof Inspections |
 | Site Service 6 Slug | `{{ custom_values.site_service_6_slug }}` | e.g. roof-inspections |
 | Site Service 6 Desc | `{{ custom_values.site_service_6_desc }}` | e.g. Detailed photo reports for buyers, sellers and insurers, usually within 48 hours. |
 | Site Service 6 Image URL | `{{ custom_values.site_service_6_image_url }}` | Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card |
-| Site Service 6 Body | `{{ custom_values.site_service_6_body }}` | Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank |
 
 ## Service areas
 
@@ -125,27 +118,21 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Site Area 1 Name | `{{ custom_values.site_area_1_name }}` | Suburb, town or region this page targets |
 | Site Area 1 Slug | `{{ custom_values.site_area_1_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 1 Suburbs | `{{ custom_values.site_area_1_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 1 Body | `{{ custom_values.site_area_1_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 2 Name | `{{ custom_values.site_area_2_name }}` | Suburb, town or region this page targets |
 | Site Area 2 Slug | `{{ custom_values.site_area_2_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 2 Suburbs | `{{ custom_values.site_area_2_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 2 Body | `{{ custom_values.site_area_2_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 3 Name | `{{ custom_values.site_area_3_name }}` | Suburb, town or region this page targets |
 | Site Area 3 Slug | `{{ custom_values.site_area_3_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 3 Suburbs | `{{ custom_values.site_area_3_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 3 Body | `{{ custom_values.site_area_3_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 4 Name | `{{ custom_values.site_area_4_name }}` | Suburb, town or region this page targets |
 | Site Area 4 Slug | `{{ custom_values.site_area_4_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 4 Suburbs | `{{ custom_values.site_area_4_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 4 Body | `{{ custom_values.site_area_4_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 5 Name | `{{ custom_values.site_area_5_name }}` | Suburb, town or region this page targets |
 | Site Area 5 Slug | `{{ custom_values.site_area_5_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 5 Suburbs | `{{ custom_values.site_area_5_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 5 Body | `{{ custom_values.site_area_5_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 | Site Area 6 Name | `{{ custom_values.site_area_6_name }}` | Suburb, town or region this page targets |
 | Site Area 6 Slug | `{{ custom_values.site_area_6_slug }}` | Must match the GHL page path for this area, e.g. trade-suburb |
 | Site Area 6 Suburbs | `{{ custom_values.site_area_6_suburbs }}` | Nearby suburbs covered from this area, as a sentence list |
-| Site Area 6 Body | `{{ custom_values.site_area_6_body }}` | A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates |
 
 ## Gallery
 

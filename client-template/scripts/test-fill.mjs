@@ -16,7 +16,17 @@ for (const file of readdirSync(preview).filter((f) => f.endsWith('.html'))) {
   const left = await page.evaluate(() => document.body.innerHTML.match(/custom_values\.\w+/g));
   assert.equal(left, null, `${file}: unfilled tags ${left}`);
   for (const ld of await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => x.textContent))) JSON.parse(ld);
+  assert.ok(!(await page.innerText('body')).includes('{text:'), `${file}: text marker left showing`);
+  assert.equal(await page.$$eval('[data-mx-text]', (s) => s.filter((e) => !e.textContent.trim()).length), 0, `${file}: empty text slot`);
 }
+
+// A Text element placed after its block, inside its own GHL-style section, still moves in and its section hides.
+const area = readFileSync(join(preview, 'area-1.html'), 'utf8');
+const [el, moved] = area.match(/<div class="c-text"><p>\{text:body\}<\/p>(<p>[^]*?<\/p>)<\/div>\n/);
+const after = area.replace(el, '');
+await page.setContent(after.replace('</body>', `<section id="ghl-sec"><div><div class="text-output"><p><strong>{text:body}</strong></p>${moved}</div></div></section></body>`));
+assert.ok((await page.textContent('[data-mx-text="body"]')).includes('Logan homes'), 'text placed after its block not moved');
+assert.equal(await page.locator('#ghl-sec').evaluate((e) => e.style.display), 'none', 'emptied Text section not hidden');
 
 // Bad values: markup, a javascript: link, CSS that breaks out of the colour, a quote in JSON-LD.
 const home = readFileSync(join(preview, 'home.html'), 'utf8')

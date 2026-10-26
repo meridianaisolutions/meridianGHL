@@ -10,6 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(root, p), 'utf8');
 const { values } = JSON.parse(read('custom-values.json'));
 const { pages } = JSON.parse(read('pages.json'));
+const texts = JSON.parse(read('texts.json'));
 const examples = Object.fromEntries(values.map((v) => [v.key, v.example]));
 // The preview uses local images so it can be tested offline.
 Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
@@ -150,13 +151,14 @@ function renderSection(name, page, n, mode) {
   return name === '01-header' ? `${html}\n<script>${fillJs}\nmxFill(document.currentScript.parentNode)</script>` : `${html}\n${refill}`;
 }
 
+const esc = (v) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Fill {{cv.key}} tokens. Inside JSON-LD the example text is JSON-escaped.
 function fill(html, mode) {
   const sub = (key, inJson) => {
     if (!known.has(key)) throw new Error(`Unknown custom value: ${key}`);
     if (mode === 'ghl') return `{{ custom_values.${key} }}`;
     const v = examples[key] ?? '';
-    return inJson ? JSON.stringify(v).slice(1, -1) : v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return inJson ? JSON.stringify(v).slice(1, -1) : esc(v);
   };
   return html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)|\{\{cv\.(\w+)\}\}/g, (m, open, body, close, key) =>
     open ? open + body.replace(/\{\{cv\.(\w+)\}\}/g, (_, k) => sub(k, true)) + close : sub(key, false));
@@ -186,13 +188,23 @@ for (const page of pages) {
     const ghlBlocks = blocks('ghl');
     if (schema) ghlBlocks.push({ name: '99-schema', html: `${schema}\n${refill}` });
     const wrap = (html) => `<div class="mx">\n${fill(html, 'ghl')}\n</div>`;
-    ghlBlocks.forEach(({ name, html }, i) =>
-      writeFileSync(join(dir, `${String(i + 1).padStart(2, '0')}-${name.replace(/^\d+-/, '')}.html`), `${wrap(html)}\n`));
+    // Each data-mx-text slot gets its copy from a native Text element pasted just before its block.
+    const textOf = (slot) => {
+      const t = typeof texts[slot] === 'string' ? texts[slot] : texts[slot]?.[id];
+      if (!t) throw new Error(`No ${slot} text for ${id} in texts.json`);
+      return t;
+    };
+    const slotsIn = (html) => [...html.matchAll(/data-mx-text="(\w+)"/g)].map((m) => m[1]);
+    const files = ghlBlocks.flatMap((b) => [...slotsIn(b.html).map((slot) => ({ name: `text-${slot}`, txt: `{text:${slot}}\n\n${textOf(slot)}\n` })), b]);
+    files.forEach(({ name, html, txt }, i) => {
+      const base = `${String(i + 1).padStart(2, '0')}-${name.replace(/^\d+-/, '')}`;
+      writeFileSync(join(dir, txt ? `${base}.txt` : `${base}.html`), txt ?? `${wrap(html)}\n`);
+    });
     // The preview is what GHL serves: the data Text element rendered with example values,
     // then the same blocks with raw merge tags, filled in the browser by fill.js.
     const previewBlocks = blocks('preview');
     if (schema) previewBlocks.push({ name: 'schema', html: `${schema}\n${refill}` });
-    const previewBody = `<div class="c-text"><p>${dataLines.map((l) => fill(l.replace(/\{\{ custom_values\.(\w+) \}\}/, '{{cv.$1}}'), 'preview')).join('</p><p>')}</p></div>\n${previewBlocks.map((b) => wrap(b.html)).join('\n')}`;
+    const previewBody = `<div class="c-text"><p>${dataLines.map((l) => fill(l.replace(/\{\{ custom_values\.(\w+) \}\}/, '{{cv.$1}}'), 'preview')).join('</p><p>')}</p></div>\n${previewBlocks.map((b) => slotsIn(b.html).map((slot) => `<div class="c-text"><p>{text:${slot}}</p>${textOf(slot).split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join('')}</div>\n`).join('') + wrap(b.html)).join('\n')}`;
 
     const title = fill(sub(page.title), 'preview');
     const desc = fill(sub(page.description), 'preview');

@@ -344,13 +344,6 @@
       "help": "Short offer for the CTA band. Keep it true and current"
     },
     {
-      "key": "site_owner_bio",
-      "name": "Site Owner Bio",
-      "status": "new",
-      "group": "Copy",
-      "example": "I started Summit Roofing because I was tired of seeing homeowners get burned by cowboys. We are a small local team, we answer the phone, we turn up when we say we will, and we treat your home like our own."
-    },
-    {
       "key": "site_service_1_name",
       "name": "Site Service 1 Name",
       "status": "new",
@@ -379,14 +372,6 @@
       "group": "Services",
       "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+1",
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
-    },
-    {
-      "key": "site_service_1_body",
-      "name": "Site Service 1 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "Most leaks start small: a cracked tile, a lifted flashing or a blocked valley. We find the cause, show you photos and fix it properly so it doesn't come back next storm. Every repair gets a fixed written price before we start.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
     },
     {
       "key": "site_service_2_name",
@@ -418,14 +403,6 @@
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
-      "key": "site_service_2_body",
-      "name": "Site Service 2 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "A restoration brings an old tile or metal roof back to near new. We pressure clean, replace broken tiles, re-bed and re-point the ridge caps, then apply a sealer and two coats of membrane paint in the colour you choose.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
-    },
-    {
       "key": "site_service_3_name",
       "name": "Site Service 3 Name",
       "status": "new",
@@ -453,14 +430,6 @@
       "group": "Services",
       "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+3",
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
-    },
-    {
-      "key": "site_service_3_body",
-      "name": "Site Service 3 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "When a roof is past repair, we strip it back and replace it with new Colorbond or tiles. We check the battens and gutters while it is open, keep the site tidy each day and handle the council paperwork.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
     },
     {
       "key": "site_service_4_name",
@@ -492,14 +461,6 @@
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
-      "key": "site_service_4_body",
-      "name": "Site Service 4 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "After hail or wind damage we make the roof safe quickly, then document the damage with photos and a written report your insurer can use. We can work directly with your insurer's assessor.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
-    },
-    {
       "key": "site_service_5_name",
       "name": "Site Service 5 Name",
       "status": "new",
@@ -527,14 +488,6 @@
       "group": "Services",
       "example": "https://placehold.co/800x600/1d3557/ffffff/webp?text=Service+5",
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
-    },
-    {
-      "key": "site_service_5_body",
-      "name": "Site Service 5 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "Overflowing gutters cause rot, leaks and foundation damage. We replace gutters and downpipes in Colorbond, fit leaf guards and make sure water runs away from the house.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
     },
     {
       "key": "site_service_6_name",
@@ -566,14 +519,6 @@
       "help": "Photo that shows this service, about 800 x 600 WebP. Upload to Media and paste the link. Shown on the service card"
     },
     {
-      "key": "site_service_6_body",
-      "name": "Site Service 6 Body",
-      "status": "new",
-      "group": "Services",
-      "example": "Buying, selling or just worried? We inspect the whole roof, including flashings, valleys and the roof space, and send a photo report within 48 hours with clear priorities and prices.",
-      "help": "Two to four sentences unique to this service, used on its own page. Unique copy is what lets each service page rank"
-    },
-    {
       "key": "site_area_1_name",
       "name": "Site Area 1 Name",
       "status": "new",
@@ -596,14 +541,6 @@
       "group": "Service areas",
       "example": "Springwood, Shailer Park, Daisy Hill, Beenleigh and Loganholme",
       "help": "Nearby suburbs covered from this area, as a sentence list"
-    },
-    {
-      "key": "site_area_1_body",
-      "name": "Site Area 1 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "A lot of Logan homes went up in the 80s and 90s, and the concrete tiles on them are now 30 to 40 years old. At that age the ridge capping has usually cracked, the bedding mortar has crumbled and the tile coating has worn off, so most of our Logan work is repointing and restoration, which costs far less than a new roof. Around Daisy Hill and Shailer Park the bushland drops a steady load of leaves and gum nuts into gutters and valleys, and that is where many of the leaks we find begin. Beenleigh and the older streets near the Logan River have more timber homes with metal roofs. Those tend to need new screws, fresh flashings and the odd rusted sheet replaced. Summer storms roll through most years, and after a bad one we put tarping and emergency repairs for Logan customers at the front of the queue. We're in Logan most weeks, so an inspection is usually only a couple of days away.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_2_name",
@@ -630,14 +567,6 @@
       "help": "Nearby suburbs covered from this area, as a sentence list"
     },
     {
-      "key": "site_area_2_body",
-      "name": "Site Area 2 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "Ipswich is full of old Queenslanders and workers' cottages, and many still have their original corrugated iron. In Booval, Brassall and Raceview we re-roof a lot of these homes, and on heritage and character streets we match the original profile and colour so the house still suits its neighbours. Some older Ipswich homes also have asbestos cement sheeting in the eaves or roof. We check for it before we quote, and if it has to come out we bring in a licensed removalist. Out at Ripley and Redbank Plains the homes are much newer, and the jobs there are mostly storm damage, blocked box gutters and flashings that were never sealed well. Ipswich summers run hotter than Brisbane's, and a tin roof with nothing under it turns the house into an oven. When we re-roof we can add sarking and insulation at the same time, and we fit whirlybirds to any roof.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
-    },
-    {
       "key": "site_area_3_name",
       "name": "Site Area 3 Name",
       "status": "new",
@@ -660,14 +589,6 @@
       "group": "Service areas",
       "example": "Scarborough, Margate, Woody Point, Clontarf and Kippa-Ring",
       "help": "Nearby suburbs covered from this area, as a sentence list"
-    },
-    {
-      "key": "site_area_3_body",
-      "name": "Site Area 3 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "Nowhere on the Redcliffe Peninsula is far from Moreton Bay, and the salt in the air is hard on roofs. Ordinary screws rust, flashings pit and cheap gutters can start leaking within a few years in Scarborough, Woody Point or along the Margate foreshore. When we replace metal here we use Colorbond Ultra, which BlueScope makes for homes near the coast, with stainless or class 4 fasteners to match. The peninsula has plenty of 1960s and 70s brick and fibro homes with tiled roofs, plus old beach houses that have been extended a room at a time. On those we often find two or three roofs joined by tired flashing, and that join is usually where the water gets in. We also work on unit blocks and townhouses along the waterfront, and we're happy to deal with your body corporate or strata manager directly. Clontarf and Kippa-Ring are part of our regular run as well.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_area_4_name",
@@ -694,14 +615,6 @@
       "help": "Nearby suburbs covered from this area, as a sentence list"
     },
     {
-      "key": "site_area_4_body",
-      "name": "Site Area 4 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "Springfield has been built almost entirely since the 1990s, and most homes in Springfield Lakes, Augustine Heights and Brookwater went up after 2000. Even a young roof can leak. The problems we see most are builder defects that only show once the warranty has run out: flashings badly fitted around skylights and solar panels, valleys that were never sealed properly, and gutters too small for a heavy summer storm. Two-storey homes sit close together on many of the estates, so we bring the right access gear and let your neighbours know before we start. Camira is the older end of the area, with plenty of 1970s and 80s brick homes whose tile roofs are now due for restoration. Spring Mountain and the newer estates around it are mostly Colorbond, where we repair storm damage and replace screws that have worked loose. If the problem is small, we fix it and keep the quote small too.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
-    },
-    {
       "key": "site_area_5_name",
       "name": "Site Area 5 Name",
       "status": "new",
@@ -726,14 +639,6 @@
       "help": "Nearby suburbs covered from this area, as a sentence list"
     },
     {
-      "key": "site_area_5_body",
-      "name": "Site Area 5 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "North Lakes was built from the late 1990s around its lakes and the Westfield, and most of its roofs are concrete tile or Colorbond on homes 15 to 25 years old. Severe storms hit the area most summers, and hail causes a large share of our call-outs here. A cracked tile, a dented gutter or a lifted ridge cap lets water in during the next downpour, so we tarp quickly and supply the photos and written report your insurer will ask for. Mango Hill and Griffin have similar homes. Petrie and Kallangur have more older brick and timber houses, and their roofs are often ready for a restoration or a full re-roof. Out at Narangba the blocks are bigger, and people often ask us to look at the shed, carport or patio roof while we're up there. We quote those in the same visit, so you only need one inspection.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
-    },
-    {
       "key": "site_area_6_name",
       "name": "Site Area 6 Name",
       "status": "new",
@@ -756,14 +661,6 @@
       "group": "Service areas",
       "example": "Cleveland, Capalaba, Victoria Point, Thornlands and Alexandra Hills",
       "help": "Nearby suburbs covered from this area, as a sentence list"
-    },
-    {
-      "key": "site_area_6_body",
-      "name": "Site Area 6 Body",
-      "status": "new",
-      "group": "Service areas",
-      "example": "Redland City runs along the bay from Capalaba and Cleveland down to Redland Bay, and its roofs deal with salt air and a lot of trees. The big gums through Thornlands and Alexandra Hills, the same ones the local koalas live in, drop leaves and bark into gutters all year. Blocked valleys are behind most of the leaks we fix here. Gutter guard makes a real difference, and in bushfire-prone streets we fit ember-rated mesh. Alexandra Hills and Capalaba have many brick and tile homes from the 1970s and 80s that are due for repointing and a new coat. Closer to the water in Cleveland and Ormiston we use marine-grade sheeting and fixings, because standard ones rust quickly in the bay air. We also quote for homes on the Southern Moreton Bay Islands and plan those jobs around the barge from Redland Bay. A gutter clean and a roof repair can be quoted on the same visit.",
-      "help": "A paragraph or two (100 to 200 words) about working in this area: local housing, weather, typical jobs, landmarks. Write it fresh for each area. Copied or lightly reworded text makes Google treat the pages as duplicates"
     },
     {
       "key": "site_gallery_1_url",
