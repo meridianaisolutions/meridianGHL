@@ -183,6 +183,7 @@
 .mx .ftr a:hover{color:#fff;text-decoration:underline}
 .mx .ftr .cols{display:grid;gap:32px}
 .mx .ftr li{margin-bottom:8px}
+.mx .ftr .fmap{display:block;width:100%;height:260px;border:0;border-radius:10px;margin-top:40px}
 .mx .ftr .legal{border-top:1px solid #2a2f3a;margin-top:40px;padding-top:20px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:.85rem}
 .mx .ftr .legal span a{margin-left:12px}
 .mx .ftr .pb{display:inline-flex;align-items:center;gap:8px}

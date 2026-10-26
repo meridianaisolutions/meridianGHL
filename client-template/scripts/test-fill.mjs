@@ -50,12 +50,14 @@ const blanks = readFileSync(join(preview, 'home.html'), 'utf8')
   .replace(/\{mx:site_service_6_slug\}[^{]*/, '{mx:site_service_6_slug}')
   .replace(/\{mx:site_service_6_name\}[^{]*/, '{mx:site_service_6_name}')
   .replace(/\{mx:site_gallery_2_url\}[^{]*/, '{mx:site_gallery_2_url}')
-  .replace(/\{mx:site_instagram_url\}[^{]*/, '{mx:site_instagram_url}');
+  .replace(/\{mx:site_instagram_url\}[^{]*/, '{mx:site_instagram_url}')
+  .replace(/\{mx:site_map_embed_url\}[^{]*/, '{mx:site_map_embed_url}');
 await page.setContent(blanks);
 assert.equal(await page.$$eval('li[data-mx-opt]', (l) => l.filter((e) => e.style.display === 'none').length), 5, 'blank service still listed');
 assert.equal(await page.locator('#services a.card:visible').count(), 5, 'blank service card still shown');
 assert.equal(await page.locator('.gallery figure:visible').count(), 5, 'blank job photo not hidden');
 assert.equal(await page.locator('a[aria-label="Instagram"]').evaluate((a) => a.style.display), 'none', 'blank social link not hidden');
+assert.equal(await page.locator('.fmap').evaluate((m) => m.style.display), 'none', 'blank footer map not hidden');
 
 // GHL embeds load their helper script once, and only after the iframe gets its URL.
 const embeds = readFileSync(join(preview, 'home.html'), 'utf8').replace('<div class="hero-revs"', '<iframe data-mx-src="{{ custom_values.site_url }}/w" data-mx-js="https://example.com/w.js"></iframe><iframe data-mx-src="{{ custom_values.site_url }}/w2" data-mx-js="https://example.com/w.js"></iframe><div class="hero-revs"');
