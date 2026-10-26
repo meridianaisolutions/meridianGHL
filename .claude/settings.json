@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -qiE 'paste|copy|custom code|ghl' && echo 'Rule from Marcus (corrected twice): when giving GHL paste steps, give the full code of every block ready to copy, page by page, never just file paths or attachments. Chat messages cannot carry HTML with script or img tags, so publish a paste-kit artifact with one Copy button per block and say which element on which page each goes in.' || true"
+          }
+        ]
+      }
+    ]
+  }
+}
