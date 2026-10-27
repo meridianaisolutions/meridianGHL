@@ -314,7 +314,7 @@
       "name": "Site Review Widget URL",
       "status": "new",
       "group": "Reviews",
-      "example": "https://reputationhub.site/reputation/widgets/review_widget/QE1a9gJjBZGR6dcIgfCx",
+      "example": "https://reputationhub.site/reputation/widgets/review_widget/QE1a9gJjBZGR6dcIgfCx?widgetId=6adc91369da3f84f5a80297e",
       "help": "In Reputation > Widgets, build a review widget (5-star only, colours to suit the site), copy its embed code and paste only the iframe src link here. Shown in the hero"
     },
     {
