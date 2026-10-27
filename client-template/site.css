@@ -1,6 +1,6 @@
 /* Meridian client site template. Mobile first, system fonts, no external requests.
    Brand colours come from custom values in sections/00-theme.html. */
-:root{--ink:#14181f;--muted:#4a5363;--line:#e3e6eb;--bg:#fff;--soft:#f5f7fa;--ok:#1a7f37;--star:#f5a623;--r:14px;--max:1160px;--sh:0 10px 30px rgba(16,24,40,.08)}
+:root{--logo-x:0px;--ink:#14181f;--muted:#4a5363;--line:#e3e6eb;--bg:#fff;--soft:#f5f7fa;--ok:#1a7f37;--star:#f5a623;--r:14px;--max:1160px;--sh:0 10px 30px rgba(16,24,40,.08)}
 .mx,.mx *,.mx *::before,.mx *::after{box-sizing:border-box}
 .mx{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .mx h1,.mx h2,.mx h3{line-height:1.15;margin:0 0 .5em;letter-spacing:-.02em;color:var(--brand)}
@@ -48,8 +48,9 @@
 .mx .hdr{position:fixed;top:8px;left:0;right:0;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:0 auto}
 .mx .hdr .wrap{padding-left:16px;padding-right:16px}
 .mx .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
-.mx .logo{display:flex;align-self:stretch;align-items:center}
-.mx .logo img{width:auto;height:56px;max-width:170px;object-fit:contain}
+/* --logo-x nudges the logo so its visible edge lines up with the page text; negative moves it left. */
+.mx .logo{display:flex;align-self:stretch;align-items:center;margin-left:var(--logo-x)}
+.mx .logo img{width:auto;height:53px;max-width:162px;object-fit:contain}
 .mx .nav{display:none}
 .mx .nav a{text-decoration:none;font-weight:600;color:var(--ink);padding:10px 4px}
 .mx .nav a:hover{color:var(--accent)}
@@ -220,7 +221,7 @@
   .mx .nav{display:flex;gap:20px}
   .mx .menu{display:none}
   .mx .hdr-phone{display:inline-flex;align-items:center;gap:6px}
-  .mx .logo img{height:66px;max-width:260px}
+  .mx .logo img{height:63px;max-width:247px}
   .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:stretch;padding-top:160px;padding-bottom:80px}
   .mx .hero>.wrap>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
   .mx .hero-revs{align-self:stretch}
