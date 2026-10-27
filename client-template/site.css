@@ -14,6 +14,8 @@
 .mx svg{flex:none}
 .mx :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .mx .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+/* GHL boxes rows at about 1170px and pads sections and columns; every section holding a block goes edge to edge whatever the builder settings say. */
+.c-section:has(.mx),.c-section:has(.mx)>.inner,.c-row:has(.mx),.c-row:has(.mx)>.inner,.c-column:has(.mx),.c-column:has(.mx)>.inner{max-width:100%!important;width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
 .mx .sec{padding:64px 0}
 .mx .sec.soft{background:var(--soft)}
 .mx .sec.dark{background:var(--brand);color:#fff}
