@@ -101,6 +101,10 @@ moveText(root);
 };
 document.addEventListener('DOMContentLoaded', function () {
 mxFill(document.body);
+var alt = 0;
+[].forEach.call(document.querySelectorAll('.mx .sec:not(.band):not(.dark):not(#main)'), function (s) {
+if (s.offsetParent) s.classList.toggle('soft', !!(alt++ % 2));
+});
 if (!document.getElementById('quote') && data && data.site_booking_url)
 [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(data.site_booking_url)); });
 });

@@ -14,8 +14,8 @@
 .mx svg{flex:none}
 .mx :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .mx .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-/* GHL boxes rows at about 1170px and pads sections and columns; every section holding a block goes edge to edge whatever the builder settings say. */
-.c-section:has(.mx),.c-section:has(.mx)>.inner,.c-row:has(.mx),.c-row:has(.mx)>.inner,.c-column:has(.mx),.c-column:has(.mx)>.inner{max-width:100%!important;width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+/* GHL boxes rows at about 1170px and pads sections, rows and columns; every wrapper holding a block goes edge to edge with no gap, whatever the builder settings say. */
+.c-section:has(.mx),.c-section:has(.mx)>.inner,.c-row:has(.mx),.c-row:has(.mx)>.inner,.c-column:has(.mx),.c-column:has(.mx)>.inner,.c-custom-code:has(.mx){max-width:100%!important;width:100%!important;padding:0!important;margin:0!important;border:0!important;min-height:0!important}
 .mx .sec{padding:64px 0}
 .mx .sec.soft{background:var(--soft)}
 .mx .sec.dark{background:var(--brand);color:#fff}
@@ -78,7 +78,7 @@
 .mx .ticks.two{grid-template-columns:1fr}
 .mx .ticks.two svg{color:var(--ok)}
 .mx .marquee{background:var(--brand);color:#fff;overflow:hidden;padding:14px 0}
-.mx .mq-track{display:flex;width:max-content;animation:mx-mq 40s linear infinite}
+.mx .mq-track{display:flex;width:max-content;animation:mx-mq 80s linear infinite}
 .mx .marquee ul{display:flex;list-style:none;margin:0;padding:0}
 .mx .marquee li{font-weight:700;white-space:nowrap;padding:0 28px;position:relative}
 .mx .marquee li::after{content:"\2022";position:absolute;right:-4px;color:var(--accent)}
@@ -130,7 +130,7 @@
 /* Trust strip */
 .mx .trust{border-bottom:1px solid var(--line)}
 .mx .trust ul{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:24px 0}
-.mx .trust li{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;color:var(--brand)}
+.mx .trust li{display:flex;align-items:center;justify-content:center;text-align:center;gap:10px;font-weight:700;font-size:.95rem;color:var(--brand)}
 .mx .trust svg{color:var(--accent)}
 
 /* Cards */
@@ -222,7 +222,11 @@
   .mx .nav{display:flex;gap:20px}
   .mx .menu{display:none}
   .mx .hdr-phone{display:inline-flex;align-items:center;gap:6px}
-  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:start;padding-top:160px;padding-bottom:80px}
+  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:stretch;padding-top:160px;padding-bottom:80px}
+  .mx .hero>.wrap>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
+  .mx .hero-revs{align-self:stretch}
+  .mx .hero-revs{margin-top:auto;padding-top:28px}
+  .mx .hero .quote{align-self:start}
   .mx .owner{grid-template-columns:.8fr 1.2fr}
   .mx .areas{grid-template-columns:1fr 1fr}
   .mx .faq-wrap{grid-template-columns:.8fr 1.2fr}

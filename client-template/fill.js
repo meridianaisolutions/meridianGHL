@@ -120,6 +120,11 @@
   };
   document.addEventListener('DOMContentLoaded', function () {
     mxFill(document.body);
+    // Blocks sit in separate GHL sections, so CSS can't alternate them; plain sections go white, grey, white...
+    var alt = 0;
+    [].forEach.call(document.querySelectorAll('.mx .sec:not(.band):not(.dark):not(#main)'), function (s) {
+      if (s.offsetParent) s.classList.toggle('soft', !!(alt++ % 2));
+    });
     // Shared blocks link to #quote; on pages without the form, send those links to the booking URL.
     if (!document.getElementById('quote') && data && data.site_booking_url)
       [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(data.site_booking_url)); });
