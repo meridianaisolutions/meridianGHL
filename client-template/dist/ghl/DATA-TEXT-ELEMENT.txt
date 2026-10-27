@@ -1,5 +1,5 @@
 {mx:business_name}{{ custom_values.business_name }}{/mx}
-{mx:logo_link}{{ custom_values.logo_link }}{/mx}
+{mx:site_logo}{{ custom_values.site_logo }}{/mx}
 {mx:google_review_link}{{ custom_values.google_review_link }}{/mx}
 {mx:business_owner_name}{{ custom_values.business_owner_name }}{/mx}
 {mx:site_phone_display}{{ custom_values.site_phone_display }}{/mx}

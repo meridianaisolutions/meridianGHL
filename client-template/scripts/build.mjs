@@ -16,7 +16,7 @@ const { pages } = JSON.parse(read('pages.json'));
 const texts = JSON.parse(read('texts.json'));
 const examples = Object.fromEntries(all.map((v) => [v.key, v.example]));
 // The preview uses local images so it can be tested offline.
-Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
+Object.assign(examples, { site_logo: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
 for (let i = 1; i <= 6; i++) examples[`site_gallery_${i}_url`] = examples[`site_service_${i}_image_url`] = `assets/job-${i}.webp`;
 const known = new Set(all.map((v) => v.key));
 const SERVICES = 6;
@@ -92,7 +92,7 @@ function schemaFor(page, n) {
     '@id': '{{cv.site_url}}/#business',
     name: '{{cv.business_name}}',
     url: '{{cv.site_url}}',
-    logo: '{{cv.logo_link}}',
+    logo: '{{cv.site_logo}}',
     image: '{{cv.site_hero_image_url}}',
     telephone: '{{cv.site_phone_link}}',
     email: '{{cv.site_email}}',

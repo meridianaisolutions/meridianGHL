@@ -3,7 +3,7 @@
   "keep": [
     "business_name",
     "business_owner_name",
-    "logo_link",
+    "site_logo",
     "google_review_link",
     "site_phone_display",
     "site_email",
@@ -26,8 +26,8 @@
       "example": "Summit Roofing Co"
     },
     {
-      "key": "logo_link",
-      "name": "02. Logo Link (400w x 160h)",
+      "key": "site_logo",
+      "name": "Site Logo",
       "status": "existing",
       "group": "Business",
       "example": "https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing"

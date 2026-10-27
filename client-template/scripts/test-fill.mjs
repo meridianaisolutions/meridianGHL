@@ -35,7 +35,7 @@ const home = readFileSync(join(preview, 'home.html'), 'utf8')
   .replace('{mx:business_owner_name}Dave', '{mx:business_owner_name}&lt;img src=x onerror=alert(1)&gt;')
   .replace(/\{mx:google_review_link\}[^{]*/, '{mx:google_review_link}javascript:alert(1)')
   .replace('{mx:business_name}', '{mx:business_name}"quoted" ')
-  .replace(/\{mx:logo_link\}[^{]*/, '{mx:logo_link}');
+  .replace(/\{mx:site_logo\}[^{]*/, '{mx:site_logo}');
 let dialogs = 0;
 page.on('dialog', (d) => { dialogs++; d.dismiss(); });
 await page.setContent(home);

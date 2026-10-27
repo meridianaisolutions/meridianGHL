@@ -2,7 +2,7 @@
 
 A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites, which we captured and compared page by page on 24 Oct 2026: a floating header with Services, Service areas and About dropdowns, reviews up front, a quote form above the fold, a service ticker, tap-to-call everywhere, an eight-point why-trust list with the owner's story, a guarantee banner, three differentiators, Google reviews, a three-step process, a job gallery, a coverage map, a two-column FAQ, a dark final call to action and a sticky mobile call bar.
 
-Only eight details are GHL custom values: business name, owner first name, logo, Google review link, phone, email, address and ABN. The first four already exist in the review-automation snapshot. Everything else (trade, city, services, areas, copy, colours, images, links, form and widget IDs) is typed into the paste files at build time from the `example` in `custom-values.json`. The phone link and the address parts are worked out from the phone and address by `fill.js`.
+Only eight details are GHL custom values: business name, owner first name, logo, Google review link, phone, email, address and ABN. Business name, owner name and Google review link already exist in the review-automation snapshot; the rest are Site values (Site Logo, Site Phone Display, Site Email, Site Address, Site ABN). Everything else (trade, city, services, areas, copy, colours, images, links, form and widget IDs) is typed into the paste files at build time from the `example` in `custom-values.json`. The phone link and the address parts are worked out from the phone and address by `fill.js`.
 
 ## How custom values reach the page
 

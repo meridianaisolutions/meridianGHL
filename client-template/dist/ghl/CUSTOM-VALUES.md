@@ -7,7 +7,7 @@ All of these live in the sub-account under Settings > Custom Values. "Existing" 
 | Name in GHL | Merge tag | What to enter |
 | --- | --- | --- |
 | 05. Business Name For Texts & Emails (senderID) (existing) | `{{ custom_values.business_name }}` | e.g. Summit Roofing Co |
-| 02. Logo Link (400w x 160h) (existing) | `{{ custom_values.logo_link }}` | e.g. https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing |
+| Site Logo (existing) | `{{ custom_values.site_logo }}` | e.g. https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing |
 | 04. Business Owner First Name For Texts & Emails (existing) | `{{ custom_values.business_owner_name }}` | e.g. Dave |
 | Site ABN | `{{ custom_values.site_abn }}` | e.g. 12 345 678 901 |
 
