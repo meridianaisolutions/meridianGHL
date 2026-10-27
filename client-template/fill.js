@@ -126,7 +126,9 @@
       if (s.offsetParent) s.classList.toggle('soft', !!(alt++ % 2));
     });
     // Shared blocks link to #quote; on pages without the form, send those links to the booking URL.
-    if (!document.getElementById('quote') && data && data.site_booking_url)
-      [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(data.site_booking_url)); });
+    // The build types the URL in here unless it stays a custom value.
+    var book = (data && data.site_booking_url) || '{{cv.site_booking_url}}';
+    if (!document.getElementById('quote'))
+      [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(book)); });
   });
 })();
