@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Rule (added after repeated corrections): never hand over a URL, snippet or setting as working unless you ran it and saw it work. If you cannot test it, say so up front and give the smallest step-by-step test (one change per link) so the user can find the failing part.'"
+          }
+        ]
+      }
+    ]
+  }
+}
