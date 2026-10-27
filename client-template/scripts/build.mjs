@@ -136,6 +136,7 @@ function renderSection(name, page, n, mode) {
   if (name === '01-header') html = `<style>${css}</style>\n` + read('sections/00-theme.html').replace(/^<!--[\s\S]*?-->\n?/, '') + html;
   html = html
     .replaceAll('{{hero_reviews}}', mode === 'ghl' ? ghlReviews : reviewCard(1) + reviewCard(2))
+    .replaceAll('{{reviews_widget}}', mode === 'ghl' ? ghlReviews : '<p class="rev-ph">Your Google review widget shows here</p>')
     .replaceAll('{{quote_card}}', quoteCard(mode === 'ghl' ? ghlForm : previewForm))
     .replaceAll('{{services_cards}}', serviceCards(page.slot === 'area' ? null : n))
     .replaceAll('{{services_links_plain}}', plainServices)
