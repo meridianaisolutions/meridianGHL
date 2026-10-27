@@ -17,6 +17,16 @@
     while (el.parentNode && el.parentNode !== document.body && !el.parentNode.textContent.replace(PAIRS, '').trim()) el = el.parentNode;
     data = {};
     el.textContent.replace(PAIRS, function (_, k, v) { data[k] = v.trim(); });
+    // Worked out here so the client fills fewer values: 0400 123 456 -> +61400123456, and
+    // '12 Example Street, Newstead QLD 4006' -> street, suburb, state and postcode.
+    if (data.site_phone_display && !data.site_phone_link) data.site_phone_link = data.site_phone_display.replace(/[^\d+]/g, '').replace(/^0/, '+61');
+    var ad = /^(.+),\s*(.+?)\s+([A-Za-z]{2,3})\s+(\d{4})$/.exec(data.site_address || '');
+    if (data.site_address && !data.site_street_address) {
+      data.site_street_address = ad ? ad[1] : data.site_address;
+      data.site_suburb = ad ? ad[2] : '';
+      data.site_state = ad ? ad[3].toUpperCase() : '';
+      data.site_postcode = ad ? ad[4] : '';
+    }
     el.style.display = 'none';
     el.setAttribute('aria-hidden', 'true');
     return data;

@@ -8,14 +8,17 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(root, p), 'utf8');
-const { values } = JSON.parse(read('custom-values.json'));
+const { values: all, keep, derived } = JSON.parse(read('custom-values.json'));
+// Only kept values stay merge tags; the rest are typed into the paste files from their example.
+const values = all.filter((v) => keep.includes(v.key));
+const tagged = new Set([...keep, ...derived]);
 const { pages } = JSON.parse(read('pages.json'));
 const texts = JSON.parse(read('texts.json'));
-const examples = Object.fromEntries(values.map((v) => [v.key, v.example]));
+const examples = Object.fromEntries(all.map((v) => [v.key, v.example]));
 // The preview uses local images so it can be tested offline.
 Object.assign(examples, { logo_link: 'assets/logo.png', site_hero_image_url: 'assets/hero.webp', site_owner_photo_url: 'assets/owner.webp' });
 for (let i = 1; i <= 6; i++) examples[`site_gallery_${i}_url`] = examples[`site_service_${i}_image_url`] = `assets/job-${i}.webp`;
-const known = new Set(values.map((v) => v.key));
+const known = new Set(all.map((v) => v.key));
 const SERVICES = 6;
 const AREAS = 6;
 
@@ -156,12 +159,16 @@ const esc = (v) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, 
 function fill(html, mode) {
   const sub = (key, inJson) => {
     if (!known.has(key)) throw new Error(`Unknown custom value: ${key}`);
-    if (mode === 'ghl') return `{{ custom_values.${key} }}`;
-    const v = examples[key] ?? '';
+    // 'local' is the GHL code with the preview's local images, for the standalone preview.
+    if (mode !== 'preview' && tagged.has(key)) return `{{ custom_values.${key} }}`;
+    // Typed-in values use the real example, not the preview's local stand-in images.
+    const v = (mode === 'ghl' ? all.find((x) => x.key === key).example : examples[key]) ?? '';
     return inJson ? JSON.stringify(v).slice(1, -1) : esc(v);
   };
   return html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)|\{\{cv\.(\w+)\}\}/g, (m, open, body, close, key) =>
-    open ? open + body.replace(/\{\{cv\.(\w+)\}\}/g, (_, k) => sub(k, true)) + close : sub(key, false));
+    open ? open + body.replace(/\{\{cv\.(\w+)\}\}/g, (_, k) => sub(k, true)) + close : sub(key, false))
+    // Images whose URL is now typed in can load straight away.
+    .replace(/<img([^>]*?) data-mx-src="([^"{]*)"/g, '<img$1 src="$2"');
 }
 
 const out = join(root, 'dist');
@@ -187,7 +194,7 @@ for (const page of pages) {
     mkdirSync(dir, { recursive: true });
     const ghlBlocks = blocks('ghl');
     if (schema) ghlBlocks.push({ name: '99-schema', html: `${schema}\n${refill}` });
-    const wrap = (html) => `<div class="mx">\n${fill(html, 'ghl')}\n</div>`;
+    const wrap = (html, mode = 'ghl') => `<div class="mx">\n${fill(html, mode)}\n</div>`;
     // Each data-mx-text slot gets its copy from a native Text element pasted just before its block.
     const textOf = (slot) => {
       const t = typeof texts[slot] === 'string' ? texts[slot] : texts[slot]?.[id];
@@ -204,7 +211,7 @@ for (const page of pages) {
     // then the same blocks with raw merge tags, filled in the browser by fill.js.
     const previewBlocks = blocks('preview');
     if (schema) previewBlocks.push({ name: 'schema', html: `${schema}\n${refill}` });
-    const previewBody = `<div class="c-text"><p>${dataLines.map((l) => fill(l.replace(/\{\{ custom_values\.(\w+) \}\}/, '{{cv.$1}}'), 'preview')).join('</p><p>')}</p></div>\n${previewBlocks.map((b) => slotsIn(b.html).map((slot) => `<div class="c-text"><p>{text:${slot}}</p>${textOf(slot).split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join('')}</div>\n`).join('') + wrap(b.html)).join('\n')}`;
+    const previewBody = `<div class="c-text"><p>${dataLines.map((l) => fill(l.replace(/\{\{ custom_values\.(\w+) \}\}/, '{{cv.$1}}'), 'preview')).join('</p><p>')}</p></div>\n${previewBlocks.map((b) => slotsIn(b.html).map((slot) => `<div class="c-text"><p>{text:${slot}}</p>${textOf(slot).split(/\n\s*\n/).map((p) => `<p>${esc(p)}</p>`).join('')}</div>\n`).join('') + wrap(b.html, 'local')).join('\n')}`;
 
     const title = fill(sub(page.title), 'preview');
     const desc = fill(sub(page.description), 'preview');
