@@ -29,9 +29,10 @@
   function safeCss(c) { return /^#[0-9a-f]{3,8}$|^[a-z]+$/i.test(c) ? c : 'inherit'; }
   function json(v) { return JSON.stringify(v).slice(1, -1); }
   // Long copy lives in native Text elements, which GHL renders and Google sees in the HTML.
-  // Each starts with a {text:name} line; its content moves into the matching slot and the
-  // emptied element (and its section, if nothing else is in it) is hidden.
-  var INLINE = /^(SPAN|STRONG|EM|B|I|U|A|FONT)$/;
+  // Each starts with a {text:name} line. Only the plain text moves into the matching slot, as
+  // fresh <p> elements, so GHL's own text styles don't follow it. The emptied Text element
+  // (and its section, if nothing else is in it) is then hidden.
+  var BLOCK = /^(P|DIV|H[1-6]|LI|BLOCKQUOTE)$/;
   function moveText(root) {
     [].forEach.call(root.querySelectorAll('[data-mx-text]'), function (slot) {
       if (slot.childNodes.length) return;
@@ -40,10 +41,22 @@
       if (!t) return;
       t.nodeValue = t.nodeValue.replace(mark, '');
       var block = t.parentNode;
-      while (INLINE.test(block.nodeName)) block = block.parentNode;
-      var box = block.parentNode;
-      if (!block.textContent.trim()) box.removeChild(block);
-      while (box.firstChild) slot.appendChild(box.firstChild);
+      while (!BLOCK.test(block.nodeName) && block.parentNode) block = block.parentNode;
+      var box = block.parentNode, paras = [];
+      // If the marker shares a container with our own blocks, only its own paragraph is the text.
+      if (box.querySelector('.mx')) box = block;
+      // Leaf blocks are the paragraphs; with none (plain <br> text) split the text on blank lines.
+      [].forEach.call(box.querySelectorAll('p,div,h1,h2,h3,h4,h5,h6,li,blockquote'), function (e) {
+        var txt = e.textContent.trim();
+        if (txt && !e.querySelector('p,div,h1,h2,h3,h4,h5,h6,li,blockquote')) paras.push(txt);
+      });
+      if (!paras.length) paras = box.textContent.split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean);
+      paras.forEach(function (txt) {
+        var p = document.createElement('p');
+        p.textContent = txt;
+        slot.appendChild(p);
+      });
+      while (box.firstChild) box.removeChild(box.firstChild);
       var el = box;
       while (el.parentNode && el.parentNode !== document.body && !el.parentNode.textContent.trim() && !el.parentNode.querySelector('img,iframe,video')) el = el.parentNode;
       el.style.display = 'none';

@@ -24,8 +24,10 @@ for (const file of readdirSync(preview).filter((f) => f.endsWith('.html'))) {
 const area = readFileSync(join(preview, 'area-1.html'), 'utf8');
 const [el, moved] = area.match(/<div class="c-text"><p>\{text:body\}<\/p>(<p>[^]*?<\/p>)<\/div>\n/);
 const after = area.replace(el, '');
-await page.setContent(after.replace('</body>', `<section id="ghl-sec"><div><div class="text-output"><p><strong>{text:body}</strong></p>${moved}</div></div></section></body>`));
+await page.setContent(after.replace('</body>', `<section id="ghl-sec"><div><div class="text-output" style="font-family:Georgia;color:red"><p><strong>{text:body}</strong></p>${moved}</div></div></section></body>`));
 assert.ok((await page.textContent('[data-mx-text="body"]')).includes('Logan homes'), 'text placed after its block not moved');
+assert.equal(await page.locator('[data-mx-text="body"] > p').count() > 0, true, 'moved text is not plain paragraphs');
+assert.equal(await page.locator('[data-mx-text="body"] strong, [data-mx-text="body"] div').count(), 0, 'GHL markup followed the text');
 assert.equal(await page.locator('#ghl-sec').evaluate((e) => e.style.display), 'none', 'emptied Text section not hidden');
 
 // Bad values: markup, a javascript: link, CSS that breaks out of the colour, a quote in JSON-LD.
