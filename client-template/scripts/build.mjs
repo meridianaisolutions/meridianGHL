@@ -50,7 +50,8 @@ const quoteCard = (form) => `<div class="quote" id="quote">
     <p>Takes 30 seconds. We reply within 24 hours and there's no obligation.</p>
     ${form}
   </div>`;
-const ghlForm = `<iframe data-mx-src="https://webapi.meridianaisolutions.com.au/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;height:560px;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-height="560" data-mx-js="https://link.msgsndr.com/js/form_embed.js"></iframe>`;
+// The form has 40px padding built in, so .form-crop trims most of it off the top and bottom.
+const ghlForm = `<div class="form-crop"><iframe data-mx-src="https://webapi.meridianaisolutions.com.au/widget/form/{{cv.site_quote_form_id}}" id="inline-{{cv.site_quote_form_id}}" title="Free quote form" loading="lazy" style="width:100%;border:none;border-radius:8px" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate" data-form-id="{{cv.site_quote_form_id}}" data-mx-js="https://link.msgsndr.com/js/form_embed.js"></iframe></div>`;
 // Hero reviews. GHL shows the client's Reputation review widget (5-star filter and colours are
 // set in the widget); the preview shows two static cards so it can be scored offline.
 const ghlReviews = `<iframe class="lc_reviews_widget" data-mx-src="{{cv.site_review_widget_url}}" data-mx-js="https://reputationhub.site/reputation/assets/review-widget.js" title="Google reviews" loading="lazy" scrolling="no" style="width:100%;min-width:100%;border:0"></iframe>`;

@@ -73,6 +73,16 @@
     });
   }
   var loaded = {};
+  function embed(js, e, src) {
+    var go = function () { e.setAttribute('src', src); };
+    if (loaded[js] === true) return go();
+    if (loaded[js]) return loaded[js].push(go);
+    loaded[js] = [go];
+    var s = document.createElement('script');
+    s.src = js;
+    s.onload = s.onerror = function () { var q = loaded[js]; loaded[js] = true; q.forEach(function (f) { f(); }); };
+    document.body.appendChild(s);
+  }
   window.mxFill = function (root) {
     if (!load() || !root) return;
     var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), t, list = [];
@@ -99,16 +109,11 @@
         e.removeAttribute('data-mx-src');
         // An empty value would load the page itself as an image, so hide the element instead.
         if (!src || /\/$/.test(src)) { (e.parentNode.nodeName === 'FIGURE' ? e.parentNode : e).style.display = 'none'; continue; }
-        e.setAttribute('src', src);
-        // GHL embeds (form, review widget) need their helper script once the iframe is live.
+        // GHL embeds (form, review widget) need their helper script listening before the iframe
+        // loads, or the form stays hidden and keeps its fixed height. So the src waits for it.
         var js = e.getAttribute('data-mx-js');
-        if (js && !loaded[js]) {
-          loaded[js] = true;
-          var s = document.createElement('script');
-          s.src = js;
-          s.defer = true;
-          document.body.appendChild(s);
-        }
+        if (!js) e.setAttribute('src', src);
+        else embed(js, e, src);
       }
     }
     // A service or area with a blank slug drops out of every menu, list and card grid.

@@ -58,6 +58,16 @@ el.style.display = 'none';
 });
 }
 var loaded = {};
+function embed(js, e, src) {
+var go = function () { e.setAttribute('src', src); };
+if (loaded[js] === true) return go();
+if (loaded[js]) return loaded[js].push(go);
+loaded[js] = [go];
+var s = document.createElement('script');
+s.src = js;
+s.onload = s.onerror = function () { var q = loaded[js]; loaded[js] = true; q.forEach(function (f) { f(); }); };
+document.body.appendChild(s);
+}
 window.mxFill = function (root) {
 if (!load() || !root) return;
 var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), t, list = [];
@@ -82,15 +92,9 @@ var src = e.getAttribute('data-mx-src');
 if (src != null) {
 e.removeAttribute('data-mx-src');
 if (!src || /\/$/.test(src)) { (e.parentNode.nodeName === 'FIGURE' ? e.parentNode : e).style.display = 'none'; continue; }
-e.setAttribute('src', src);
 var js = e.getAttribute('data-mx-js');
-if (js && !loaded[js]) {
-loaded[js] = true;
-var s = document.createElement('script');
-s.src = js;
-s.defer = true;
-document.body.appendChild(s);
-}
+if (!js) e.setAttribute('src', src);
+else embed(js, e, src);
 }
 }
 [].forEach.call(root.querySelectorAll('[data-mx-opt]'), function (e) {
