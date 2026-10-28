@@ -1,5 +1,22 @@
 {
-  "_comment": "Every custom value the client website template uses. 'existing' values are already in the review-automation snapshot; 'new' values were created in the Meridian AI Solutions sub-account on 24 Oct 2026 with these examples. GHL derives the key from the name (lowercase, spaces to underscores), so names must not change once pages reference them. 'example' is only used for the local preview build and as the starting value in the template sub-account. Avoid double quotes and < > in values: GHL inserts them as-is, and the JSON-LD block would break on a stray quote.",
+  "_comment": "Every custom value the client website template uses. 'existing' values are already in the review-automation snapshot; 'new' values were created in the Meridian AI Solutions sub-account on 24 Oct 2026 with these examples. GHL derives the key from the name (lowercase, spaces to underscores), so names must not change once pages reference them. 'example' is only used for the local preview build and as the starting value in the template sub-account. Avoid double quotes and < > in values: GHL inserts them as-is, and the JSON-LD block would break on a stray quote. Only the keys in 'keep' stay as GHL custom values; every other value is typed into the paste files at build time from its 'example', so for a new client you edit it in the block. 'derived' keys are worked out by fill.js from kept ones (phone link from the phone, address parts from Site Address).",
+  "keep": [
+    "business_name",
+    "business_owner_name",
+    "site_logo",
+    "google_review_link",
+    "site_phone_display",
+    "site_email",
+    "site_address",
+    "site_abn"
+  ],
+  "derived": [
+    "site_phone_link",
+    "site_street_address",
+    "site_suburb",
+    "site_state",
+    "site_postcode"
+  ],
   "values": [
     {
       "key": "business_name",
@@ -9,8 +26,8 @@
       "example": "Summit Roofing Co"
     },
     {
-      "key": "logo_link",
-      "name": "02. Logo Link (400w x 160h)",
+      "key": "site_logo",
+      "name": "Site Logo",
       "status": "existing",
       "group": "Business",
       "example": "https://placehold.co/400x160/0b2545/ffffff/png?text=Summit+Roofing"
@@ -99,6 +116,14 @@
       "status": "new",
       "group": "Contact",
       "example": "hello@summitroofing.com.au"
+    },
+    {
+      "key": "site_address",
+      "name": "Site Address",
+      "status": "new",
+      "group": "Contact",
+      "example": "12 Example Street, Newstead QLD 4006",
+      "help": "Street, suburb, state and postcode in this format, e.g. 12 Example Street, Newstead QLD 4006"
     },
     {
       "key": "site_street_address",
@@ -289,7 +314,7 @@
       "name": "Site Review Widget URL",
       "status": "new",
       "group": "Reviews",
-      "example": "https://reputationhub.site/reputation/widgets/review_widget/QE1a9gJjBZGR6dcIgfCx",
+      "example": "https://reputationhub.site/reputation/widgets/review_widget/QE1a9gJjBZGR6dcIgfCx?widgetId=6adc91369da3f84f5a80297e",
       "help": "In Reputation > Widgets, build a review widget (5-star only, colours to suit the site), copy its embed code and paste only the iframe src link here. Shown in the hero"
     },
     {

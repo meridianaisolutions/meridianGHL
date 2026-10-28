@@ -2,7 +2,7 @@
 
 A reusable website for Meridian's local-service clients, built for GoHighLevel. It follows the layout of the ReviewHarvest client sites, which we captured and compared page by page on 24 Oct 2026: a floating header with Services, Service areas and About dropdowns, reviews up front, a quote form above the fold, a service ticker, tap-to-call everywhere, an eight-point why-trust list with the owner's story, a guarantee banner, three differentiators, Google reviews, a three-step process, a job gallery, a coverage map, a two-column FAQ, a dark final call to action and a sticky mobile call bar.
 
-Every piece of client-specific text, colour, image and link comes from a GHL custom value, so a new client is set up by loading the snapshot and filling in the custom values. No page editing is needed.
+Only eight details are GHL custom values: business name, owner first name, logo, Google review link, phone, email, address and ABN. Business name, owner name and Google review link already exist in the review-automation snapshot; the rest are Site values (Site Logo, Site Phone Display, Site Email, Site Address, Site ABN). Everything else (trade, city, services, areas, copy, colours, images, links, form and widget IDs) is typed into the paste files at build time from the `example` in `custom-values.json`. The phone link and the address parts are worked out from the phone and address by `fill.js`.
 
 ## How custom values reach the page
 
@@ -48,9 +48,9 @@ Do this in the Meridian AI Solutions sub-account. The 71 "Site ..." custom value
 
 ## Onboarding a client
 
-1. Load the snapshot into the client's sub-account.
-2. Fill in every value in `dist/ghl/CUSTOM-VALUES.md`. Copy the Google rating and review count straight from their Google Business Profile, and use three real reviews.
-3. Upload their logo (400 x 160 PNG or SVG), hero photo (1600 x 1000 WebP under 150 KB), owner photo (640 x 640 WebP), one photo per service for the service cards and six job photos (all 800 x 600 WebP) to Media and paste the links into the image custom values. A blank job photo is hidden, as are blank social links and a blank map.
+1. Load the snapshot into the client's sub-account and fill in the eight values in `dist/ghl/CUSTOM-VALUES.md`. Site Address must read like `12 Example Street, Newstead QLD 4006`.
+2. Upload their hero photo (1600 x 1000 WebP under 150 KB), owner photo (640 x 640 WebP), one photo per service and six job photos (all 800 x 600 WebP) to Media.
+3. In `custom-values.json`, change the `example` of every other value to the client's details: trade, city, services and slugs, areas, hours, colours, the image links from step 2, the Google rating and review count (straight from their Google Business Profile), the form ID and widget URL. Run the build and paste the new blocks. A blank image, social link, service or area is hidden.
 4. Rewrite the long copy in the Text elements for each client: the owner's story (one global section on the home and about pages), two to four sentences on each service page, and 100 to 200 words on each area page about local housing, weather and typical jobs. Area pages share their layout, so the area text is what stops Google treating them as duplicates. Keep the `{text:...}` first line in each.
 5. Set up the hero review widget. In Reputation > Widgets, create a review widget showing 5-star Google reviews only, set its colours to match the site (white cards on the dark hero work well), and paste the iframe src from its embed code into Site Review Widget URL. If the embed code's script link differs from `https://reputationhub.site/reputation/assets/review-widget.js` (white-label domains can change it), update `ghlReviews` in `scripts/build.mjs` and rebuild. The preview shows two static review cards in its place.
 6. Update the Site Quote Form ID. The snapshot copies the form but gives it a new ID, and until you change the value the form on their site sends leads to the template account.

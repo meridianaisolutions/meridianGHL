@@ -30,37 +30,31 @@ assert.equal(await page.locator('[data-mx-text="body"] > p').count() > 0, true, 
 assert.equal(await page.locator('[data-mx-text="body"] strong, [data-mx-text="body"] div').count(), 0, 'GHL markup followed the text');
 assert.equal(await page.locator('#ghl-sec').evaluate((e) => e.style.display), 'none', 'emptied Text section not hidden');
 
-// Bad values: markup, a javascript: link, CSS that breaks out of the colour, a quote in JSON-LD.
+// Bad values: markup, a javascript: link, a quote in JSON-LD, an empty image URL.
 const home = readFileSync(join(preview, 'home.html'), 'utf8')
-  .replace('{mx:site_city}Brisbane', '{mx:site_city}&lt;img src=x onerror=alert(1)&gt;')
-  .replace(/\{mx:site_google_maps_url\}[^{]*/, '{mx:site_google_maps_url}javascript:alert(1)')
-  .replace('{mx:site_brand_color}#0b2545', '{mx:site_brand_color}red;}body{display:none')
-  .replace('{mx:site_faq_1_a}', '{mx:site_faq_1_a}"quoted"')
-  .replace(/\{mx:site_owner_photo_url\}[^{]*/, '{mx:site_owner_photo_url}');
+  .replace('{mx:business_owner_name}Dave', '{mx:business_owner_name}&lt;img src=x onerror=alert(1)&gt;')
+  .replace(/\{mx:google_review_link\}[^{]*/, '{mx:google_review_link}javascript:alert(1)')
+  .replace('{mx:business_name}', '{mx:business_name}"quoted" ')
+  .replace(/\{mx:site_logo\}[^{]*/, '{mx:site_logo}');
 let dialogs = 0;
 page.on('dialog', (d) => { dialogs++; d.dismiss(); });
 await page.setContent(home);
 assert.equal(dialogs, 0, 'a value ran script');
 assert.equal(await page.locator('img[src="x"]').count(), 0, 'markup in a value became an element');
-assert.equal(await page.locator('.rating').getAttribute('href'), '#', 'javascript: link survived');
-assert.equal(await page.evaluate(() => getComputedStyle(document.body).display), 'block', 'CSS injection applied');
-assert.equal(await page.locator('.owner img').evaluate((i) => i.style.display), 'none', 'empty image URL not hidden');
+assert.equal(await page.locator('a', { hasText: 'Leave us a review' }).getAttribute('href'), '#', 'javascript: link survived');
+assert.equal(await page.locator('.logo img').evaluate((i) => i.style.display), 'none', 'empty image URL not hidden');
 for (const ld of await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => x.textContent))) JSON.parse(ld);
 
-// Blank optional values: a sixth service, a job photo and a social link drop out.
-const blanks = readFileSync(join(preview, 'home.html'), 'utf8')
-  .replace(/\{mx:site_service_6_slug\}[^{]*/, '{mx:site_service_6_slug}')
-  .replace(/\{mx:site_service_6_name\}[^{]*/, '{mx:site_service_6_name}')
-  .replace(/\{mx:site_gallery_2_url\}[^{]*/, '{mx:site_gallery_2_url}')
-  .replace(/\{mx:site_instagram_url\}[^{]*/, '{mx:site_instagram_url}');
-await page.setContent(blanks);
-assert.equal(await page.$$eval('li[data-mx-opt]', (l) => l.filter((e) => e.style.display === 'none').length), 5, 'blank service still listed');
-assert.equal(await page.locator('#services a.card:visible').count(), 5, 'blank service card still shown');
-assert.equal(await page.locator('.gallery figure:visible').count(), 5, 'blank job photo not hidden');
-assert.equal(await page.locator('a[aria-label="Instagram"]').evaluate((a) => a.style.display), 'none', 'blank social link not hidden');
+// Derived values: the phone link and address parts come from Site Phone Display and Site Address.
+await page.goto(`file://${join(preview, 'contact.html')}`);
+assert.equal(await page.locator('.mbar a[href^="tel:"]').getAttribute('href'), 'tel:+61400123456', 'phone link not derived');
+assert.ok((await page.innerText('body')).includes('12 Example Street Newstead QLD 4006'), 'address parts not derived');
+const odd = readFileSync(join(preview, 'contact.html'), 'utf8').replace(/\{mx:site_address\}[^{]*/, '{mx:site_address}PO Box 9');
+await page.setContent(odd);
+assert.ok((await page.innerText('body')).includes('PO Box 9'), 'unparsed address not shown as the street line');
 
 // GHL embeds load their helper script once, and only after the iframe gets its URL.
-const embeds = readFileSync(join(preview, 'home.html'), 'utf8').replace('<div class="hero-revs"', '<iframe data-mx-src="{{ custom_values.site_url }}/w" data-mx-js="https://example.com/w.js"></iframe><iframe data-mx-src="{{ custom_values.site_url }}/w2" data-mx-js="https://example.com/w.js"></iframe><div class="hero-revs"');
+const embeds = readFileSync(join(preview, 'home.html'), 'utf8').replace('<div class="hero-revs"', '<iframe data-mx-src="{{ custom_values.google_review_link }}/w" data-mx-js="https://example.com/w.js"></iframe><iframe data-mx-src="{{ custom_values.google_review_link }}/w2" data-mx-js="https://example.com/w.js"></iframe><div class="hero-revs"');
 await page.route('https://example.com/**', (r) => r.abort());
 await page.setContent(embeds);
 assert.equal(await page.locator('script[src="https://example.com/w.js"]').count(), 1, 'embed script not loaded exactly once');

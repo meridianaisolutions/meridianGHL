@@ -17,6 +17,16 @@
     while (el.parentNode && el.parentNode !== document.body && !el.parentNode.textContent.replace(PAIRS, '').trim()) el = el.parentNode;
     data = {};
     el.textContent.replace(PAIRS, function (_, k, v) { data[k] = v.trim(); });
+    // Worked out here so the client fills fewer values: 0400 123 456 -> +61400123456, and
+    // '12 Example Street, Newstead QLD 4006' -> street, suburb, state and postcode.
+    if (data.site_phone_display && !data.site_phone_link) data.site_phone_link = data.site_phone_display.replace(/[^\d+]/g, '').replace(/^0/, '+61');
+    var ad = /^(.+),\s*(.+?)\s+([A-Za-z]{2,3})\s+(\d{4})$/.exec(data.site_address || '');
+    if (data.site_address && !data.site_street_address) {
+      data.site_street_address = ad ? ad[1] : data.site_address;
+      data.site_suburb = ad ? ad[2] : '';
+      data.site_state = ad ? ad[3].toUpperCase() : '';
+      data.site_postcode = ad ? ad[4] : '';
+    }
     el.style.display = 'none';
     el.setAttribute('aria-hidden', 'true');
     return data;
@@ -63,6 +73,16 @@
     });
   }
   var loaded = {};
+  function embed(js, e, src) {
+    var go = function () { e.setAttribute('src', src); };
+    if (loaded[js] === true) return go();
+    if (loaded[js]) return loaded[js].push(go);
+    loaded[js] = [go];
+    var s = document.createElement('script');
+    s.src = js;
+    s.onload = s.onerror = function () { var q = loaded[js]; loaded[js] = true; q.forEach(function (f) { f(); }); };
+    document.body.appendChild(s);
+  }
   window.mxFill = function (root) {
     if (!load() || !root) return;
     var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), t, list = [];
@@ -89,16 +109,11 @@
         e.removeAttribute('data-mx-src');
         // An empty value would load the page itself as an image, so hide the element instead.
         if (!src || /\/$/.test(src)) { (e.parentNode.nodeName === 'FIGURE' ? e.parentNode : e).style.display = 'none'; continue; }
-        e.setAttribute('src', src);
-        // GHL embeds (form, review widget) need their helper script once the iframe is live.
+        // GHL embeds (form, review widget) need their helper script listening before the iframe
+        // loads, or the form stays hidden and keeps its fixed height. So the src waits for it.
         var js = e.getAttribute('data-mx-js');
-        if (js && !loaded[js]) {
-          loaded[js] = true;
-          var s = document.createElement('script');
-          s.src = js;
-          s.defer = true;
-          document.body.appendChild(s);
-        }
+        if (!js) e.setAttribute('src', src);
+        else embed(js, e, src);
       }
     }
     // A service or area with a blank slug drops out of every menu, list and card grid.
@@ -110,8 +125,15 @@
   };
   document.addEventListener('DOMContentLoaded', function () {
     mxFill(document.body);
+    // Blocks sit in separate GHL sections, so CSS can't alternate them; plain sections go white, grey, white...
+    var alt = 0;
+    [].forEach.call(document.querySelectorAll('.mx .sec:not(.band):not(.dark):not(#main)'), function (s) {
+      if (s.offsetParent) s.classList.toggle('soft', !!(alt++ % 2));
+    });
     // Shared blocks link to #quote; on pages without the form, send those links to the booking URL.
-    if (!document.getElementById('quote') && data && data.site_booking_url)
-      [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(data.site_booking_url)); });
+    // The build types the URL in here unless it stays a custom value.
+    var book = (data && data.site_booking_url) || '{{cv.site_booking_url}}';
+    if (!document.getElementById('quote'))
+      [].forEach.call(document.querySelectorAll('a[href="#quote"]'), function (a) { a.setAttribute('href', safeUrl(book)); });
   });
 })();

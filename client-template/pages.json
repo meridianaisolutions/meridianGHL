@@ -5,7 +5,7 @@
       "id": "home",
       "path": "/",
       "title": "{{cv.site_trade}} {{cv.site_city}} | {{cv.business_name}}",
-      "description": "{{cv.site_google_rating}}-star rated {{cv.site_trade_person}} in {{cv.site_city}}. {{cv.site_usp_1}}. Call {{cv.site_phone_display}} or get a free quote online.",
+      "description": "Local {{cv.site_trade_person}} in {{cv.site_city}}. {{cv.site_usp_1}}. Call {{cv.site_phone_display}} or get a free quote online.",
       "sections": [
         "01-header",
         "02-hero",
@@ -33,7 +33,7 @@
       "path": "/{{cv.site_service_N_slug}}",
       "repeat": 6,
       "title": "{{cv.site_service_N_name}} {{cv.site_city}} | {{cv.business_name}}",
-      "description": "{{cv.site_service_N_name}} in {{cv.site_city}} from a {{cv.site_google_rating}}-star local {{cv.site_trade_person}}. Fixed written quotes. Call {{cv.site_phone_display}}.",
+      "description": "{{cv.site_service_N_name}} in {{cv.site_city}} from a local {{cv.site_trade_person}}. Fixed written quotes. Call {{cv.site_phone_display}}.",
       "sections": [
         "01-header",
         "20-service-head",
@@ -60,7 +60,7 @@
       "path": "/{{cv.site_area_N_slug}}",
       "repeat": 6,
       "title": "{{cv.site_trade}} {{cv.site_area_N_name}} | {{cv.business_name}}",
-      "description": "Local {{cv.site_trade_person}} in {{cv.site_area_N_name}}, rated {{cv.site_google_rating}} stars. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
+      "description": "Local {{cv.site_trade_person}} in {{cv.site_area_N_name}}. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
       "sections": [
         "01-header",
         "23-area-head",
@@ -85,7 +85,7 @@
       "id": "services",
       "path": "/services",
       "title": "{{cv.site_trade}} Services {{cv.site_city}} | {{cv.business_name}}",
-      "description": "Every {{cv.site_trade_person}} service we offer across {{cv.site_city}}, rated {{cv.site_google_rating}} stars. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
+      "description": "Every {{cv.site_trade_person}} service we offer across {{cv.site_city}}. Free quotes within 24 hours. Call {{cv.site_phone_display}}.",
       "sections": [
         "01-header",
         "26-hub-services",
@@ -133,9 +133,9 @@
         "28-about-head",
         "07-owner",
         "14-different",
+        "06-reviews",
         "08-band",
         "15-gallery",
-        "06-reviews",
         "11-final-cta",
         "12-footer"
       ],
