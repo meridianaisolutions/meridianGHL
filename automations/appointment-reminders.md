@@ -22,44 +22,19 @@ How to spot the built-in ones: subject has the full date in it
 ("Appointment Confirmation on Saturday, ...", "Reminder: Upcoming
 Appointment on ...") and Gmail shows a calendar icon (.ics attached).
 
-## Reminder cadence (4 touches)
+## Reminder cadence
 
-| When | Channel | Message |
-|---|---|---|
-| On booking | Email | Confirmation: date, time, join link, add-to-calendar, reschedule/cancel |
-| 24 h before | Email | Reminder + join link |
-| 1 h before | SMS | Short reminder |
-| 5 min before | SMS | Join link |
-
-Removed: the 1 h email and the 5 min email. They repeat the SMS sent at the
-same moment.
+| When | Channel |
+|---|---|
+| On booking | Confirmation email (date, time, join link, add-to-calendar, cancel/reschedule) |
+| 24 h before | Email |
+| 1 h before | Email + SMS |
+| 5 min before | Email + SMS (they're at the laptop, so the email link gets clicked) |
 
 The 24 h step is skipped automatically when someone books less than 24 h
 out. That's expected.
 
 ## Copy
 
-Full email copy for demo and onboarding calls: [reminder-copy.md](reminder-copy.md).
-
-1 h SMS:
-
-> Hi {{contact.first_name}}, quick reminder our call is in an hour. Join here: {{appointment.meeting_location}} - {{location.name}}
-
-5 min SMS:
-
-> Hi {{contact.first_name}}, we're starting now. Jump in here: {{appointment.meeting_location}} - {{location.name}}
-
-24 h email (body):
-
-> Hi {{contact.first_name}},
->
-> Just a reminder that we're meeting tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
->
-> Join here: {{appointment.meeting_location}}
->
-> Need a different time? Reschedule here: {{appointment.reschedule_link}}
->
-> {{location.name}}
-
-Don't say "Zoom Meeting ID" anywhere: the meeting location is a link,
-and it isn't always Zoom.
+All reminder copy, demo and onboarding: [reminder-copy.md](reminder-copy.md).
+Don't say "Zoom Meeting ID" anywhere. The meeting location is a Google Meet link.

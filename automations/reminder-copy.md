@@ -1,27 +1,33 @@
 # Reminder copy: demo and onboarding calls
 
-Copy for the 24 h, 1 h and 5 min reminders, one set for demo calls and one
-for onboarding calls. Meeting link is Google Meet via
+Sequence after the confirmation email: 24 h email, 1 h email + SMS,
+5 min email + SMS. Meeting link is Google Meet via
 `{{appointment.meeting_location}}`.
 
-## What makes these work
+## How the wording keeps people booked
 
-There's no reliable public A/B data on exact subject lines, so these follow
-the habits that reduce no-shows:
+- **Sell the call, not the appointment.** Each email says what they get out
+  of it. "Just a friendly reminder of your appointment" gives nobody a
+  reason to turn up.
+- **Get a small commitment.** Demo: they reply with the one thing they want
+  sorted. Onboarding: they prep a short list. People who've put something
+  in tend to show up.
+- **Reschedule in reminders, cancel only in the confirmation.** A cancel
+  link next to the join link makes leaving one click away. Reschedule keeps
+  them in the calendar.
+- **Sound certain.** "See you at 3", not "if you can still make it".
+- **Get shorter as the call gets closer.** 24 h has the detail. 1 h and
+  5 min are the link and little else.
+- **Only say what's true.** Nothing like "I'm on the call" before anyone is.
 
-- Put the time in the subject. People decide from the inbox preview.
-- Keep it short and plain, like a person typed it. No images or banners.
-- One link per email, the Meet link. Reschedule is the only other option.
-- Only say what's true. No "I'm on the call" when nobody is yet.
-- Make rescheduling easy. A moved call beats a no-show.
-- Demo emails give a reason to turn up. Onboarding emails help them prepare.
+## SMS rules
 
-## Is 5 minutes too much?
-
-No, as long as it's short and carries the join link. People click it to
-join instead of digging through their inbox. Send it as **SMS** though:
-most people won't open an email five minutes before a call. If you send
-both, keep the email to two lines.
+- One segment is 160 characters. Checked with a long first name
+  (Christopher), a Google Meet link (36 chars) and "Meridian AI
+  Solutions". Each SMS below comes in at 145 or less.
+- Use a straight apostrophe (') and no emoji. A curly apostrophe or an
+  emoji switches the SMS to unicode, which drops the limit to 70
+  characters and splits the message.
 
 ---
 
@@ -33,13 +39,15 @@ both, keep the email to two lines.
 
 > Hi {{contact.first_name}},
 >
-> Just a reminder we're meeting tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
+> Looking forward to our chat tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
 >
-> We'll walk you through what we'd set up for your business, and you can ask us anything. No pressure to decide on the call.
+> We'll go through how things work for you now and show you what we'd set up for your business.
+>
+> One quick thing: what's the one thing you'd most like sorted? Hit reply and tell us, and we'll make sure we cover it.
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> If that time doesn't work anymore, pick another one here: {{appointment.reschedule_link}}
+> If the time doesn't suit anymore, pick another one here: {{appointment.reschedule_link}}
 >
 > {{location.name}}
 
@@ -49,22 +57,31 @@ both, keep the email to two lines.
 
 > Hi {{contact.first_name}},
 >
-> We're on in an hour. Here's the link so you don't have to dig for it:
+> See you in an hour. Here's the link so it's handy:
+>
 > {{appointment.meeting_location}}
 >
-> Something come up? Just reply and we'll find another time.
+> Something come up? Grab another time here: {{appointment.reschedule_link}}
 >
 > {{location.name}}
+
+### 1 h SMS (107 chars)
+
+> Hi {{contact.first_name}}, see you in an hour! Join here: {{appointment.meeting_location}} - {{location.name}}
 
 ### 5 min email
 
 **Subject:** Starting in 5 minutes
 
-> Hi {{contact.first_name}}, we're starting in 5 minutes. Join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}},
+>
+> We're starting in 5 minutes. Join here:
+>
+> {{appointment.meeting_location}}
 >
 > {{location.name}}
 
-### 5 min SMS (use this one)
+### 5 min SMS (112 chars)
 
 > Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
 
@@ -74,48 +91,53 @@ both, keep the email to two lines.
 
 ### 24 h email
 
-**Subject:** Your onboarding call is tomorrow at {{appointment.only_start_time}}
+**Subject:** Tomorrow at {{appointment.only_start_time}}: getting you set up
 
 > Hi {{contact.first_name}},
 >
 > Looking forward to getting you set up tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
 >
-> It'll go quicker if you have these handy:
+> To get the most out of the call, please:
 >
-> - your logo and a few photos of your work
-> - the services you offer and the areas you cover
-> - logins for your domain and Google Business Profile, if you have them
->
-> Don't worry if you can't find everything. We'll sort out the rest on the call.
+> - Be logged into your Google Business Profile and your job tool (ServiceM8, Jobber, Fergus etc.)
+> - Bring your client list so we can contact them to leave a review
+> - Bring your ACN company extract for registering a mobile number
+> - Come armed with any other questions you may have!
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> Need to move it? {{appointment.reschedule_link}}
+> Need a different time? {{appointment.reschedule_link}}
 >
 > {{location.name}}
 
 ### 1 h email
 
-**Subject:** Onboarding in an hour
+**Subject:** See you at {{appointment.only_start_time}}
 
 > Hi {{contact.first_name}},
 >
-> We start at {{appointment.only_start_time}}. Here's the link: {{appointment.meeting_location}}
+> See you in an hour. Quick check before we start: are you logged into your Google Business Profile and job tool, and do you have your client list and ACN extract handy?
+>
+> Join here: {{appointment.meeting_location}}
 >
 > {{location.name}}
+
+### 1 h SMS (143 chars, no sign-off to stay in 1 segment)
+
+> Hi {{contact.first_name}}, see you in an hour! Please be logged into Google Business Profile and your job tool. Join: {{appointment.meeting_location}}
 
 ### 5 min email
 
 **Subject:** Starting in 5 minutes
 
-> Hi {{contact.first_name}}, we're starting in 5 minutes. Join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}},
+>
+> We're starting in 5 minutes. Join here:
+>
+> {{appointment.meeting_location}}
 >
 > {{location.name}}
 
-### 5 min SMS (use this one)
+### 5 min SMS (112 chars)
 
 > Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
-
----
-
-Edit the onboarding checklist to match what you actually collect.
