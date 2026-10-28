@@ -107,7 +107,7 @@
 .mx .hero{position:relative;color:#fff;background:var(--brand);overflow:hidden}
 .mx .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
 .mx .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--brand) 0%,rgba(0,0,0,.15) 100%);opacity:.85}
-.mx .hero .wrap{position:relative;z-index:1;display:grid;gap:32px;padding-top:136px;padding-bottom:56px}
+.mx .hero .wrap{position:relative;z-index:1;display:grid;gap:32px;padding-top:112px;padding-bottom:56px}
 .mx .hero h1{color:#fff}
 .mx .hero h1 small{display:block;font-size:.5em;font-weight:700;letter-spacing:0;opacity:.9;margin-bottom:.4em}
 .mx .hero .lead{color:rgba(255,255,255,.9)}
@@ -197,14 +197,14 @@
 .mx .mbar .btn-ghost{color:var(--brand)}
 
 /* Simple page header (service, contact, legal pages) */
-.mx .phead{background:var(--brand);color:#fff;padding:136px 0 48px}
+.mx .phead{background:var(--brand);color:#fff;padding:120px 0 48px}
+.mx .ph-img{display:none}
 .mx .sec#main{padding-top:160px}
-.mx .sec#services{padding-top:48px}
+.mx .sec#services,.mx .sec.tight{padding-top:48px}
 .mx [id]{scroll-margin-top:100px}
 .mx .phead h1{color:#fff;font-size:clamp(1.9rem,4.5vw,3rem)}
 .mx .phead .lead{color:rgba(255,255,255,.88)}
-.mx .crumbs{font-size:.85rem;margin-bottom:12px;opacity:.85}
-.mx .crumbs a{text-decoration:none}.mx .crumbs a:hover{text-decoration:underline}
+
 .mx .split{display:grid;gap:32px;align-items:start}
 .mx .prose{max-width:72ch}
 .mx .prose h2{font-size:1.6rem;margin-top:1.4em}
@@ -225,7 +225,9 @@
   .mx .menu{display:none}
   .mx .hdr-phone{display:inline-flex;align-items:center;gap:6px}
   .mx .logo img{height:63px;max-width:247px}
-  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:stretch;padding-top:160px;padding-bottom:80px}
+  .mx .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:stretch;padding-top:124px;padding-bottom:80px}
+  .mx .ph-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .mx .ph-img{display:block;width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:var(--r);box-shadow:0 20px 50px rgba(0,0,0,.25)}
   .mx .hero>.wrap>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
   .mx .hero-revs{align-self:stretch}
   .mx .hero-revs{margin-top:auto;padding-top:28px}
