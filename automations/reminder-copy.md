@@ -20,6 +20,12 @@ Sequence: confirmation email on booking, then 24 h email, 1 h email + SMS,
   5 min are the link and little else.
 - **Only say what's true.** Nothing like "I'm on the call" before anyone is.
 
+## Email formatting
+
+Arial (fallback Helvetica, sans-serif), 14px, line height about 1.5, dark
+grey text (#222), left aligned, no background colour. That looks like a
+normal email from a person in Gmail. Verdana is wide and reads oversized.
+
 ## SMS rules
 
 - One segment is 160 characters. Checked with a long first name
