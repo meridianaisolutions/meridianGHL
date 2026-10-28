@@ -1,0 +1,5 @@
+FIND THIS:
+<div class="mr-founder-ph" aria-hidden="true"><span style="font-size:4rem;color:var(--mr-ink);font-weight:800">M</span></div>
+
+REPLACE WITH:
+<div class="mr-founder-ph"><img src="https://assets.cdn.filesafe.space/QE1a9gJjBZGR6dcIgfCx/media/6add86cf736386d0dcb6a04f.jpeg" alt="Marcus Burst, founder of Meridian" width="200" height="200" loading="lazy"></div>
