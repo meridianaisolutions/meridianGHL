@@ -1,6 +1,6 @@
 /* Meridian client site template. Mobile first, system fonts, no external requests.
    Brand colours come from custom values in sections/00-theme.html. */
-:root{--logo-x:0px;--ink:#14181f;--muted:#4a5363;--line:#e3e6eb;--bg:#fff;--soft:#f5f7fa;--ok:#1a7f37;--star:#f5a623;--r:14px;--max:1160px;--sh:0 10px 30px rgba(16,24,40,.08)}
+:root{--logo-x:-7px;--ink:#14181f;--muted:#4a5363;--line:#e3e6eb;--bg:#fff;--soft:#f5f7fa;--ok:#1a7f37;--star:#f5a623;--r:14px;--max:1160px;--sh:0 10px 30px rgba(16,24,40,.08)}
 .mx,.mx *,.mx *::before,.mx *::after{box-sizing:border-box}
 .mx{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .mx h1,.mx h2,.mx h3{line-height:1.15;margin:0 0 .5em;letter-spacing:-.02em;color:var(--brand)}
@@ -47,6 +47,8 @@
 /* Top bar and header */
 .mx .hdr{position:fixed;top:8px;left:0;right:0;z-index:50;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);width:calc(100% - 16px);max-width:calc(var(--max) + 64px);margin:0 auto}
 .mx .hdr .wrap{padding-left:16px;padding-right:16px}
+/* Below this width the bar is 9px in from the page edge, so the logo starts 9px further in than the page text. */
+@media (max-width:1177px){.mx .hdr .wrap{padding-left:7px}}
 .mx .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
 /* --logo-x nudges the logo so its visible edge lines up with the page text; negative moves it left. */
 .mx .logo{display:flex;align-self:stretch;align-items:center;margin-left:var(--logo-x)}
@@ -120,7 +122,8 @@
 .mx .quote h2{font-size:1.5rem;margin-bottom:.25em}
 .mx .quote p{color:var(--muted);font-size:.95rem}
 .mx .form-crop{overflow:hidden;margin-top:-8px}
-.mx .form-crop iframe{display:block;height:560px;margin:-28px 0 -32px}
+.mx .form-crop iframe{display:block;height:560px;margin:-34px 0 -100px}
+.mx .quote:has(.form-crop){padding-bottom:8px}
 .mx .quote .fine{font-size:.8rem;margin:12px 0 0;display:flex;gap:6px;align-items:center}
 .mx .f{display:grid;gap:12px}
 .mx .f label{display:grid;gap:4px;font-weight:600;font-size:.9rem}
