@@ -67,6 +67,7 @@ link, or in an HTML/code block use:
 >
 > [Reschedule]({{appointment.reschedule_link}}) | [Cancel]({{appointment.cancellation_link}})
 >
+> Marcus
 > {{location.name}}
 
 ### 24 h email
@@ -85,6 +86,7 @@ link, or in an HTML/code block use:
 >
 > If the time doesn't suit anymore, pick another one here: {{appointment.reschedule_link}}
 >
+> Marcus
 > {{location.name}}
 
 ### 1 h email
@@ -99,11 +101,12 @@ link, or in an HTML/code block use:
 >
 > Something come up? Grab another time here: {{appointment.reschedule_link}}
 >
+> Marcus
 > {{location.name}}
 
-### 1 h SMS (107 chars)
+### 1 h SMS (95 chars)
 
-> Hi {{contact.first_name}}, see you in an hour! Join here: {{appointment.meeting_location}} - {{location.name}}
+> Hi {{contact.first_name}}, see you in an hour! Join here: {{appointment.meeting_location}} - Marcus
 
 ### 5 min email
 
@@ -115,11 +118,12 @@ link, or in an HTML/code block use:
 >
 > {{appointment.meeting_location}}
 >
+> Marcus
 > {{location.name}}
 
-### 5 min SMS (112 chars)
+### 5 min SMS (100 chars)
 
-> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
+> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - Marcus
 
 ---
 
@@ -147,6 +151,7 @@ link, or in an HTML/code block use:
 >
 > [Reschedule]({{appointment.reschedule_link}}) | [Cancel]({{appointment.cancellation_link}})
 >
+> Marcus
 > {{location.name}}
 
 ### 24 h email
@@ -168,6 +173,7 @@ link, or in an HTML/code block use:
 >
 > Need a different time? {{appointment.reschedule_link}}
 >
+> Marcus
 > {{location.name}}
 
 ### 1 h email
@@ -180,11 +186,12 @@ link, or in an HTML/code block use:
 >
 > Join here: {{appointment.meeting_location}}
 >
+> Marcus
 > {{location.name}}
 
-### 1 h SMS (143 chars, no sign-off to stay in 1 segment)
+### 1 h SMS (152 chars)
 
-> Hi {{contact.first_name}}, see you in an hour! Please be logged into Google Business Profile and your job tool. Join: {{appointment.meeting_location}}
+> Hi {{contact.first_name}}, see you in an hour! Please be logged into Google Business Profile and your job tool. Join: {{appointment.meeting_location}} - Marcus
 
 ### 5 min email
 
@@ -196,8 +203,9 @@ link, or in an HTML/code block use:
 >
 > {{appointment.meeting_location}}
 >
+> Marcus
 > {{location.name}}
 
-### 5 min SMS (112 chars)
+### 5 min SMS (100 chars)
 
-> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
+> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - Marcus
