@@ -1,6 +1,6 @@
 # Reminder copy: demo and onboarding calls
 
-Sequence after the confirmation email: 24 h email, 1 h email + SMS,
+Sequence: confirmation email on booking, then 24 h email, 1 h email + SMS,
 5 min email + SMS. Meeting link is Google Meet via
 `{{appointment.meeting_location}}`.
 
@@ -32,6 +32,27 @@ Sequence after the confirmation email: 24 h email, 1 h email + SMS,
 ---
 
 ## Demo calls
+
+### Confirmation email (on booking)
+
+**Subject:** You're booked: {{appointment.only_start_date}} at {{appointment.only_start_time}}
+
+> Hi {{contact.first_name}},
+>
+> You're all booked in for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
+>
+> We'll go through how things work for you now and show you what we'd set up for your business.
+>
+> Pop it in your calendar now so it doesn't get lost:
+> Add to Google Calendar ({{appointment.add_to_google_calendar}}) | Add to Outlook ({{appointment.add_to_ical_outlook}})
+>
+> When it's time, join here: {{appointment.meeting_location}}
+>
+> Any questions before then, just reply to this email.
+>
+> Reschedule ({{appointment.reschedule_link}}) | Cancel ({{appointment.cancellation_link}})
+>
+> {{location.name}}
 
 ### 24 h email
 
@@ -88,6 +109,30 @@ Sequence after the confirmation email: 24 h email, 1 h email + SMS,
 ---
 
 ## Onboarding calls
+
+### Confirmation email (on booking)
+
+**Subject:** You're booked: {{appointment.only_start_date}} at {{appointment.only_start_time}}
+
+> Hi {{contact.first_name}},
+>
+> Your onboarding call is booked for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}). This is where we get everything set up for you.
+>
+> Pop it in your calendar now so it doesn't get lost:
+> Add to Google Calendar ({{appointment.add_to_google_calendar}}) | Add to Outlook ({{appointment.add_to_ical_outlook}})
+>
+> Worth getting these ready now so you're not scrambling on the day:
+>
+> - Be logged into your Google Business Profile and your job tool (ServiceM8, Jobber, Fergus etc.)
+> - Bring your client list so we can contact them to leave a review
+> - Bring your ACN company extract for registering a mobile number
+> - Come armed with any other questions you may have!
+>
+> When it's time, join here: {{appointment.meeting_location}}
+>
+> Reschedule ({{appointment.reschedule_link}}) | Cancel ({{appointment.cancellation_link}})
+>
+> {{location.name}}
 
 ### 24 h email
 
