@@ -39,6 +39,8 @@ out. That's expected.
 
 ## Copy
 
+Full email copy for demo and onboarding calls: [reminder-copy.md](reminder-copy.md).
+
 1 h SMS:
 
 > Hi {{contact.first_name}}, quick reminder our call is in an hour. Join here: {{appointment.meeting_location}} - {{location.name}}
