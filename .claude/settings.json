@@ -6,6 +6,10 @@
           {
             "type": "command",
             "command": "grep -qiE 'paste|copy|custom code|ghl' && echo 'Rule from Marcus (corrected twice): when giving GHL paste steps, give the full code of every block ready to copy, page by page, never just file paths or attachments. Chat messages cannot carry HTML with script or img tags, so publish a paste-kit artifact with one Copy button per block and say which element on which page each goes in.' || true"
+          },
+          {
+            "type": "command",
+            "command": "grep -qiE 'ghl|highlevel|calendar|workflow|setting|menu|where' && echo 'Rule from Marcus (corrected twice): never state a GHL menu path, tab, field or button as fact from memory. Only describe UI you have seen in a screenshot Marcus sent or a GHL help page you actually opened this session. If you cannot verify, say so plainly and ask for a screenshot of the screen instead of guessing.' || true"
           }
         ]
       }

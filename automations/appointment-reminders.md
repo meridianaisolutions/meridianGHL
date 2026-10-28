@@ -5,19 +5,18 @@ One system sends appointment emails: the **"Appointment booked" workflow**
 The calendar's own notifications stay off for the contact, otherwise every
 booking sends two confirmations and extra reminders.
 
-## Turn off the calendar's built-in contact emails
+## Turn off the calendar's built-in contact messages
 
-Settings > Calendars > Calendars tab > edit the calendar > **Notifications**
-(older UI: "Notifications & Additional Options"):
+In the calendar's settings, open **Notifications & policies** (left menu).
+Each row shows which channels are on (green = enabled). Use the pencil on
+the right of a row to change it.
 
-- Booking confirmation to contact: **off**
-- Reminder to contact: **off** (delete any reminder rows)
-- Rescheduled / cancelled to contact: off if the workflow handles them, else keep
-- Notifications to the assigned user: keep (that's you, not the client)
+- **Appointment booked (Status: Confirmed)**: Email and SMS off
+- **Reminder**: Email and SMS off
+- In-app: fine to leave on (that's for you, not the client)
 
-If the calendar is linked to Google Calendar, also check the Google
-"send invitation emails to attendees" option in the same calendar's
-settings. Turn it off if contacts get a Google invite as well.
+Left on, the contact gets a second confirmation email plus extra SMS on top
+of the workflow's.
 
 How to spot the built-in ones: subject has the full date in it
 ("Appointment Confirmation on Saturday, ...", "Reminder: Upcoming
