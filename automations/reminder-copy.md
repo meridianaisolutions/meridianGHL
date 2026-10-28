@@ -41,7 +41,7 @@ normal email from a person in Gmail. Verdana is wide and reads oversized.
 
 ### Confirmation email (on booking)
 
-**Subject:** You're booked: {{appointment.only_start_date}} at {{appointment.only_start_time}}
+**Subject:** Booked with {{location.name}}: {{appointment.only_start_date}} at {{appointment.only_start_time}}
 
 > Hi {{contact.first_name}},
 >
@@ -118,7 +118,7 @@ normal email from a person in Gmail. Verdana is wide and reads oversized.
 
 ### Confirmation email (on booking)
 
-**Subject:** You're booked: {{appointment.only_start_date}} at {{appointment.only_start_time}}
+**Subject:** Booked with {{location.name}}: {{appointment.only_start_date}} at {{appointment.only_start_time}}
 
 > Hi {{contact.first_name}},
 >
