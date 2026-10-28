@@ -1,0 +1,2 @@
+{mx:site_trade}{{ custom_values.site_trade }}{/mx}
+{mx:site_city}{{ custom_values.site_city }}{/mx}

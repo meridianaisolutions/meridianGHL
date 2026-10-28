@@ -1,0 +1,8 @@
+{mx:business_name}{{ custom_values.business_name }}{/mx}
+{mx:site_logo}{{ custom_values.site_logo }}{/mx}
+{mx:google_review_link}{{ custom_values.google_review_link }}{/mx}
+{mx:business_owner_name}{{ custom_values.business_owner_name }}{/mx}
+{mx:site_phone_display}{{ custom_values.site_phone_display }}{/mx}
+{mx:site_email}{{ custom_values.site_email }}{/mx}
+{mx:site_address}{{ custom_values.site_address }}{/mx}
+{mx:site_abn}{{ custom_values.site_abn }}{/mx}
