@@ -26,6 +26,15 @@ Arial (fallback Helvetica, sans-serif), 14px, line height about 1.5, dark
 grey text (#222), left aligned, no background colour. That looks like a
 normal email from a person in Gmail. Verdana is wide and reads oversized.
 
+Links in emails are text links: the word is clickable and the URL never
+shows. Highlight the word in the editor and add the merge field as the
+link, or in an HTML/code block use:
+
+```html
+<a href="{{appointment.reschedule_link}}">Reschedule</a> | <a href="{{appointment.cancellation_link}}">Cancel</a>
+<a href="{{appointment.add_to_google_calendar}}">Add to Google Calendar</a> | <a href="{{appointment.add_to_ical_outlook}}">Add to Outlook</a>
+```
+
 ## SMS rules
 
 - One segment is 160 characters. Checked with a long first name
@@ -50,13 +59,13 @@ normal email from a person in Gmail. Verdana is wide and reads oversized.
 > We'll go through how things work for you now and show you what we'd set up for your business.
 >
 > Pop it in your calendar now so it doesn't get lost:
-> Add to Google Calendar ({{appointment.add_to_google_calendar}}) | Add to Outlook ({{appointment.add_to_ical_outlook}})
+> [Add to Google Calendar]({{appointment.add_to_google_calendar}}) | [Add to Outlook]({{appointment.add_to_ical_outlook}})
 >
 > When it's time, join here: {{appointment.meeting_location}}
 >
 > Any questions before then, just reply to this email.
 >
-> Reschedule ({{appointment.reschedule_link}}) | Cancel ({{appointment.cancellation_link}})
+> [Reschedule]({{appointment.reschedule_link}}) | [Cancel]({{appointment.cancellation_link}})
 >
 > {{location.name}}
 
@@ -125,7 +134,7 @@ normal email from a person in Gmail. Verdana is wide and reads oversized.
 > Your onboarding call is booked for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}). This is where we get everything set up for you.
 >
 > Pop it in your calendar now so it doesn't get lost:
-> Add to Google Calendar ({{appointment.add_to_google_calendar}}) | Add to Outlook ({{appointment.add_to_ical_outlook}})
+> [Add to Google Calendar]({{appointment.add_to_google_calendar}}) | [Add to Outlook]({{appointment.add_to_ical_outlook}})
 >
 > Worth getting these ready now so you're not scrambling on the day:
 >
@@ -136,7 +145,7 @@ normal email from a person in Gmail. Verdana is wide and reads oversized.
 >
 > When it's time, join here: {{appointment.meeting_location}}
 >
-> Reschedule ({{appointment.reschedule_link}}) | Cancel ({{appointment.cancellation_link}})
+> [Reschedule]({{appointment.reschedule_link}}) | [Cancel]({{appointment.cancellation_link}})
 >
 > {{location.name}}
 
