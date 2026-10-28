@@ -39,7 +39,7 @@ link, or in an HTML/code block use:
 
 - One segment is 160 characters. Checked with a long first name
   (Christopher), a Google Meet link (36 chars) and "Meridian AI
-  Solutions". Each SMS below comes in at 145 or less.
+  Solutions". Each SMS below fits; `build-emails.py` checks it.
 - Use a straight apostrophe (') and no emoji. A curly apostrophe or an
   emoji switches the SMS to unicode, which drops the limit to 70
   characters and splits the message.
