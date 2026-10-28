@@ -1,0 +1,67 @@
+<!-- Paste into: Funnel > Settings > Head tracking code. Loads Inter and the Meridian styles for every step. -->
+<meta name="theme-color" content="#12312a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap">
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--mr-brand:#17603c;--mr-accent:#2e9b63;--mr-cta:#ffd84a;--mr-cta-hover:#ffcb1f;--mr-mint:#cfebd6;--mr-ink:#12312a;--mr-ink-2:#35504a;--mr-muted:#4a5d55;--mr-line:#e6e0d4;--mr-bg:#fffbf4;--mr-bg-soft:#f6f1e6;--mr-radius:14px;--mr-font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+body{background:var(--mr-bg)!important}
+/* strips GHL's section padding around every Meridian block */
+[id^="section-"]:has(.mr),[id^="section-"]:has(.mr)>.inner,[id^="section-"]:has(.mr)>.inner>.c-row,[id^="section-"]:has(.mr)>.inner>.c-row>.inner,[id^="section-"]:has(.mr)>.inner>.c-row>.inner>.c-column,[id^="section-"]:has(.mr)>.inner>.c-row>.inner>.c-column>.vertical.inner,[id^="section-"]:has(.mr)>.inner>.c-row>.inner>.c-column>.vertical.inner>.c-custom-code{margin:0!important;padding:0!important;width:100%!important;max-width:none!important}
+.mr,.mr *,.mr *::before,.mr *::after{box-sizing:border-box}
+.mr{font-family:var(--mr-font);color:var(--mr-ink);background:var(--mr-bg);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-align:left}
+.mr h1,.mr h2,.mr h3,.mr p,.mr ul,.mr ol{margin:0;padding:0}
+.mr h1,.mr h2,.mr h3{font-family:var(--mr-font);color:inherit;line-height:1.15;letter-spacing:-.02em;font-weight:800}
+.mr h1{font-size:clamp(1.9rem,4.2vw,2.8rem)}.mr h2{font-size:1.35rem;letter-spacing:-.01em}.mr h3{font-size:1.1rem;font-weight:700}
+.mr p+p{margin-top:.9em}
+.mr a{color:var(--mr-brand);text-underline-offset:3px}
+.mr img{display:block;max-width:100%;height:auto}
+.mr a:focus-visible,.mr button:focus-visible{outline:3px solid var(--mr-accent);outline-offset:3px;border-radius:6px}
+.mr .mr-wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.mr .mr-hdr{background:var(--mr-bg);border-bottom:1px solid var(--mr-line)}
+.mr .mr-hdr .mr-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}.mr .mr-stepno{font-size:.9rem;font-weight:700;color:var(--mr-muted)}
+.mr .mr-logo img{height:36px;width:auto}
+.mr .mr-hero{background:radial-gradient(900px 400px at 90% -10%,rgba(46,155,99,.38),transparent 60%),linear-gradient(180deg,#12312a,#0f2a24);color:#fff;padding:clamp(40px,6vw,72px) 0}
+.mr .mr-hero h1 em{font-style:normal;color:var(--mr-cta)}
+.mr .mr-eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mr-cta);margin-bottom:.8rem}
+.mr .mr-lede{font-size:1.12rem;color:#d7e3da;margin-top:1rem}
+.mr .mr-body{padding:clamp(32px,5vw,56px) 0}
+.mr .mr-card{background:#fff;border:1px solid var(--mr-line);border-radius:var(--mr-radius);padding:26px;margin-bottom:18px}
+.mr .mr-card h2{margin-bottom:.6rem}.mr .mr-card p{color:var(--mr-ink-2)}
+.mr ol.mr-how{list-style:none;counter-reset:s;display:grid;gap:14px;margin-top:14px}
+.mr ol.mr-how li{counter-increment:s;position:relative;padding-left:44px;color:var(--mr-ink-2)}
+.mr ol.mr-how li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--mr-cta);color:var(--mr-ink);font-weight:800;display:grid;place-items:center;font-size:.95rem}
+.mr ul.mr-list{list-style:none;display:grid;gap:.6rem;margin-top:12px}
+.mr ul.mr-list li{position:relative;padding-left:1.9rem;color:var(--mr-ink-2)}
+.mr ul.mr-list li::before{content:"";position:absolute;left:0;top:.28em;width:1.15rem;height:1.15rem;border-radius:50%;background:var(--mr-brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.6' d='M5 10.5l3.2 3L15 7'/%3E%3C/svg%3E") center/80% no-repeat}
+.mr .mr-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.mr .mr-chips a{color:inherit;text-decoration:none}.mr .mr-chips a:hover{color:var(--mr-brand)}.mr .mr-chips li{background:var(--mr-bg-soft);border:1px solid var(--mr-line);border-radius:999px;padding:8px 16px;font-weight:600;font-size:.95rem;color:var(--mr-ink-2)}
+.mr .mr-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:.8rem 1.5rem;border-radius:999px;font-weight:700;font-size:1.02rem;text-decoration:none;background:var(--mr-cta);color:var(--mr-ink)!important;border:2px solid var(--mr-cta);transition:background .15s,transform .15s;cursor:pointer}
+.mr .mr-btn:hover{background:var(--mr-cta-hover);border-color:var(--mr-cta-hover);transform:translateY(-1px)}
+.mr .mr-btn--ghost{background:transparent;border-color:var(--mr-line)}
+.mr .mr-btn--ghost:hover{background:var(--mr-bg-soft);border-color:var(--mr-ink-2)}
+.mr .mr-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.mr .mr-nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.mr .mr-micro{font-size:.88rem;color:var(--mr-muted);margin-top:14px}
+.mr .mr-plans{display:grid;gap:16px;margin-top:16px}
+@media(min-width:700px){.mr .mr-plans{grid-template-columns:repeat(3,1fr)}}
+.mr .mr-plan{border:1px solid var(--mr-line);border-radius:var(--mr-radius);padding:22px;display:flex;flex-direction:column;gap:6px;background:#fff}
+.mr .mr-plan--pop{border:2px solid var(--mr-ink)}
+.mr .mr-plan b{font-size:1.8rem;letter-spacing:-.02em}.mr .mr-plan small{color:var(--mr-muted)}.mr .mr-plan p{font-weight:700;font-size:.95rem;margin:4px 0 10px}
+.mr .mr-plan .mr-btn{margin-top:auto;min-height:46px;width:100%}.mr .mr-plan>small:last-of-type{margin-bottom:14px}
+.mr .mr-shot{background:#fff;border:1px solid var(--mr-line);border-radius:16px;padding:10px;margin:0 0 18px}
+.mr .mr-shot img{width:100%;border-radius:10px}
+.mr .mr-incl{margin-top:18px}.mr .mr-incl ul.mr-list{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.mr .mr-gift{background:var(--mr-ink);color:#f3efe4;border:0}
+.mr .mr-gift h2{color:var(--mr-cta)}.mr .mr-gift p{color:#c9d8cd}
+.mr .mr-ftr{background:#0c231e;color:#b9cbbf;padding:22px 0;font-size:.88rem;text-align:center}
+.mr .mr-ftr a{color:#e9efe9}
+@media(prefers-reduced-motion:reduce){.mr *{transition:none!important}}
+</style>
+<script>
+/* GHL fills {{location.id}} with the account this funnel lives in, so put the funnel in the client snapshot and every account gets its own links. ?loc= on the address overrides it. */
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".mr a");if(!a)return;var h=a.getAttribute("href"),q=location.search;
+if(h.indexOf("LOCATION_ID")>-1){var loc=new URLSearchParams(q).get("loc")||"{{location.id}}";e.preventDefault();
+if(!/^[A-Za-z0-9]+$/.test(loc)){alert("This funnel can't tell which account it's in. Open it from inside the client's account, or add ?loc=<location ID> to the address.");return}
+window.open(h.replace("LOCATION_ID",loc),"_blank","noopener")}
+else if(h.indexOf("/onboarding-")===0){var t=document.getElementById(h.slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth"})}else if(q){a.href=h+q}}});
+</script>

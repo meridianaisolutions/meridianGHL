@@ -10,6 +10,21 @@
           {
             "type": "command",
             "command": "grep -qiE 'ghl|highlevel|calendar|workflow|setting|menu|where' && echo 'Rule from Marcus (corrected twice): never state a GHL menu path, tab, field or button as fact from memory. Only describe UI you have seen in a screenshot Marcus sent or a GHL help page you actually opened this session. If you cannot verify, say so plainly and ask for a screenshot of the screen instead of guessing.' || true"
+          },
+          {
+            "type": "command",
+            "command": "echo 'Before replying: list every change the user asked for in this message and earlier ones, add each as a check in the deliverable folder checks/requests.py, apply them all, then attach or sync every changed file (post_message takes 6 attachments max, so send the rest too).'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__hearthbot__post_message",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/check-requests.sh"
           }
         ]
       }
