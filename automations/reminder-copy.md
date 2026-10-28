@@ -121,7 +121,7 @@ Sequence: confirmation email on booking, then 24 h email, 1 h email + SMS,
 > Pop it in your calendar now so it doesn't get lost:
 > Add to Google Calendar ({{appointment.add_to_google_calendar}}) | Add to Outlook ({{appointment.add_to_ical_outlook}})
 >
-> A few things to get ready before the call. The ACN extract can take a little while to get, so it's worth starting on now:
+> Worth getting these ready now so you're not scrambling on the day:
 >
 > - Be logged into your Google Business Profile and your job tool (ServiceM8, Jobber, Fergus etc.)
 > - Bring your client list so we can contact them to leave a review
