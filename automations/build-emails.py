@@ -3,7 +3,9 @@ import re, html, pathlib, json
 here = pathlib.Path(__file__).parent
 md = (here / "reminder-copy.md").read_text()
 WRAP = '<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;">\n{}\n</div>\n'
-P = '<p style="margin:0 0 14px 0;">{}</p>'
+# Gmail-style markup: one <div> per line, blank <div><br></div> between. No margins to get stripped on save.
+P = '<div>{}</div>'
+GAP = '<div><br></div>'
 
 def inline(s):
     s = html.escape(s, quote=False)
@@ -15,7 +17,7 @@ def body(lines):
     def flush():
         if para: out.append(P.format("<br>\n".join(inline(l) for l in para))); para.clear()
         if items:
-            out.append('<ul style="margin:0 0 14px 0;padding-left:20px;">\n' + "\n".join(f"<li>{inline(i)}</li>" for i in items) + "\n</ul>"); items.clear()
+            out.append('<ul style="margin:0;padding-left:20px;">\n' + "\n".join(f"<li>{inline(i)}</li>" for i in items) + "\n</ul>"); items.clear()
     for l in lines:
         if not l: flush()
         elif l.startswith("- "):
@@ -25,7 +27,7 @@ def body(lines):
             if items: flush()
             para.append(l)
     flush()
-    return WRAP.format("\n".join(out))
+    return WRAP.format(f"\n{GAP}\n".join(out))
 
 emails, call = [], None
 for sec in re.split(r"^(?=## |### )", md, flags=re.M):

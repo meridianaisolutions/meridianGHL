@@ -1,11 +1,18 @@
 <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;">
-<p style="margin:0 0 14px 0;">Hi {{contact.first_name}},</p>
-<p style="margin:0 0 14px 0;">You're all booked in for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).</p>
-<p style="margin:0 0 14px 0;">We'll go through how things work for you now and show you what we'd set up for your business.</p>
-<p style="margin:0 0 14px 0;">Pop it in your calendar now so it doesn't get lost:<br>
-<a href="{{appointment.add_to_google_calendar}}" style="color:#1a56db;">Add to Google Calendar</a> | <a href="{{appointment.add_to_ical_outlook}}" style="color:#1a56db;">Add to Outlook</a></p>
-<p style="margin:0 0 14px 0;">When it's time, join here: <a href="{{appointment.meeting_location}}" style="color:#1a56db;">{{appointment.meeting_location}}</a></p>
-<p style="margin:0 0 14px 0;">Any questions before then, just reply to this email.</p>
-<p style="margin:0 0 14px 0;"><a href="{{appointment.reschedule_link}}" style="color:#1a56db;">Reschedule</a> | <a href="{{appointment.cancellation_link}}" style="color:#1a56db;">Cancel</a></p>
-<p style="margin:0 0 14px 0;">{{location.name}}</p>
+<div>Hi {{contact.first_name}},</div>
+<div><br></div>
+<div>You're all booked in for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).</div>
+<div><br></div>
+<div>We'll go through how things work for you now and show you what we'd set up for your business.</div>
+<div><br></div>
+<div>Pop it in your calendar now so it doesn't get lost:<br>
+<a href="{{appointment.add_to_google_calendar}}" style="color:#1a56db;">Add to Google Calendar</a> | <a href="{{appointment.add_to_ical_outlook}}" style="color:#1a56db;">Add to Outlook</a></div>
+<div><br></div>
+<div>When it's time, join here: <a href="{{appointment.meeting_location}}" style="color:#1a56db;">{{appointment.meeting_location}}</a></div>
+<div><br></div>
+<div>Any questions before then, just reply to this email.</div>
+<div><br></div>
+<div><a href="{{appointment.reschedule_link}}" style="color:#1a56db;">Reschedule</a> | <a href="{{appointment.cancellation_link}}" style="color:#1a56db;">Cancel</a></div>
+<div><br></div>
+<div>{{location.name}}</div>
 </div>
