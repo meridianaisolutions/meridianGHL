@@ -1,0 +1,69 @@
+<title>Meridian Reminder Emails</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono&display=swap">
+<style>
+/* Layout: one narrow column, a tab per call type, one card per email in send order */
+:root{--bg:#f6f7f9;--card:#ffffff;--fg:#1d2330;--muted:#5d6676;--line:#dde1e8;--accent:#2450c8;--code:#eef1f6;
+--sans:"IBM Plex Sans",Arial,Helvetica,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13161c;--card:#1b1f27;--fg:#e6e9ef;--muted:#9aa3b2;--line:#2c323d;--accent:#7d9cff;--code:#232833;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#13161c;--card:#1b1f27;--fg:#e6e9ef;--muted:#9aa3b2;--line:#2c323d;--accent:#7d9cff;--code:#232833;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans)}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-size:22px;margin:0 0 4px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tabs button{font:600 14px var(--sans);padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.list{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:10px;min-width:0}
+.card h2{font-size:16px;margin:0}
+.when{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.label{font-size:13px;font-weight:600;color:var(--muted)}
+.subject{font-family:var(--mono);font-size:13px;background:var(--code);padding:8px 10px;border-radius:6px;overflow-wrap:anywhere;min-width:0;flex:1}
+pre{margin:0;font:12.5px/1.5 var(--mono);background:var(--code);padding:10px;border-radius:6px;overflow-x:auto;max-height:220px}
+.copy{font:600 13px var(--sans);padding:6px 12px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;white-space:nowrap}
+.copy.done{background:var(--accent);color:var(--bg)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details summary{cursor:pointer;color:var(--muted);font-size:13px}
+.preview{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px;margin-top:8px;overflow-wrap:anywhere}
+</style>
+<div class="wrap">
+<h1>Reminder emails</h1>
+<p class="lede">Paste the subject into the subject line and the HTML into the source code view of the email. Merge fields fill in when it sends.</p>
+<div class="tabs" role="tablist"><button role="tab" id="t-demo" aria-selected="true" data-call="demo">Demo calls</button><button role="tab" id="t-onboarding" aria-selected="false" data-call="onboarding">Onboarding calls</button></div>
+<div class="list" id="list"></div>
+</div>
+<script>
+const EMAILS = [{"call": "demo", "name": "Confirmation email", "subject": "Booked with {{location.name}}: {{appointment.only_start_date}} at {{appointment.only_start_time}}", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">You're all booked in for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).<\/p>\n<p style=\"margin:0 0 14px 0;\">We'll go through how things work for you now and show you what we'd set up for your business.<\/p>\n<p style=\"margin:0 0 14px 0;\">Pop it in your calendar now so it doesn't get lost:<br>\n<a href=\"{{appointment.add_to_google_calendar}}\" style=\"color:#1a56db;\">Add to Google Calendar<\/a> | <a href=\"{{appointment.add_to_ical_outlook}}\" style=\"color:#1a56db;\">Add to Outlook<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">When it's time, join here: <a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">Any questions before then, just reply to this email.<\/p>\n<p style=\"margin:0 0 14px 0;\"><a href=\"{{appointment.reschedule_link}}\" style=\"color:#1a56db;\">Reschedule<\/a> | <a href=\"{{appointment.cancellation_link}}\" style=\"color:#1a56db;\">Cancel<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "demo-confirmation-email"}, {"call": "demo", "name": "24 h email", "subject": "Tomorrow at {{appointment.only_start_time}}: your call with {{location.name}}", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">Looking forward to our chat tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).<\/p>\n<p style=\"margin:0 0 14px 0;\">We'll go through how things work for you now and show you what we'd set up for your business.<\/p>\n<p style=\"margin:0 0 14px 0;\">One quick thing: what's the one thing you'd most like sorted? Hit reply and tell us, and we'll make sure we cover it.<\/p>\n<p style=\"margin:0 0 14px 0;\">Join on Google Meet: <a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">If the time doesn't suit anymore, pick another one here: {{appointment.reschedule_link}}<\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "demo-24-h-email"}, {"call": "demo", "name": "1 h email", "subject": "See you at {{appointment.only_start_time}}", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">See you in an hour. Here's the link so it's handy:<\/p>\n<p style=\"margin:0 0 14px 0;\"><a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">Something come up? Grab another time here: {{appointment.reschedule_link}}<\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "demo-1-h-email"}, {"call": "demo", "name": "5 min email", "subject": "Starting in 5 minutes", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">We're starting in 5 minutes. Join here:<\/p>\n<p style=\"margin:0 0 14px 0;\"><a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "demo-5-min-email"}, {"call": "onboarding", "name": "Confirmation email", "subject": "Booked with {{location.name}}: {{appointment.only_start_date}} at {{appointment.only_start_time}}", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">Your onboarding call is booked for {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}). This is where we get everything set up for you.<\/p>\n<p style=\"margin:0 0 14px 0;\">Pop it in your calendar now so it doesn't get lost:<br>\n<a href=\"{{appointment.add_to_google_calendar}}\" style=\"color:#1a56db;\">Add to Google Calendar<\/a> | <a href=\"{{appointment.add_to_ical_outlook}}\" style=\"color:#1a56db;\">Add to Outlook<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">Worth getting these ready now so you're not scrambling on the day:<\/p>\n<ul style=\"margin:0 0 14px 0;padding-left:20px;\">\n<li>Be logged into your Google Business Profile and your job tool (ServiceM8, Jobber, Fergus etc.)<\/li>\n<li>Bring your client list so we can contact them to leave a review<\/li>\n<li>Bring your ACN company extract for registering a mobile number<\/li>\n<li>Come armed with any other questions you may have!<\/li>\n<\/ul>\n<p style=\"margin:0 0 14px 0;\">When it's time, join here: <a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\"><a href=\"{{appointment.reschedule_link}}\" style=\"color:#1a56db;\">Reschedule<\/a> | <a href=\"{{appointment.cancellation_link}}\" style=\"color:#1a56db;\">Cancel<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "onboarding-confirmation-email"}, {"call": "onboarding", "name": "24 h email", "subject": "Tomorrow at {{appointment.only_start_time}}: getting you set up", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">Looking forward to getting you set up tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).<\/p>\n<p style=\"margin:0 0 14px 0;\">To get the most out of the call, please:<\/p>\n<ul style=\"margin:0 0 14px 0;padding-left:20px;\">\n<li>Be logged into your Google Business Profile and your job tool (ServiceM8, Jobber, Fergus etc.)<\/li>\n<li>Bring your client list so we can contact them to leave a review<\/li>\n<li>Bring your ACN company extract for registering a mobile number<\/li>\n<li>Come armed with any other questions you may have!<\/li>\n<\/ul>\n<p style=\"margin:0 0 14px 0;\">Join on Google Meet: <a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">Need a different time? {{appointment.reschedule_link}}<\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "onboarding-24-h-email"}, {"call": "onboarding", "name": "1 h email", "subject": "See you at {{appointment.only_start_time}}", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">See you in an hour. Quick check before we start: are you logged into your Google Business Profile and job tool, and do you have your client list and ACN extract handy?<\/p>\n<p style=\"margin:0 0 14px 0;\">Join here: <a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "onboarding-1-h-email"}, {"call": "onboarding", "name": "5 min email", "subject": "Starting in 5 minutes", "html": "<div style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;\">\n<p style=\"margin:0 0 14px 0;\">Hi {{contact.first_name}},<\/p>\n<p style=\"margin:0 0 14px 0;\">We're starting in 5 minutes. Join here:<\/p>\n<p style=\"margin:0 0 14px 0;\"><a href=\"{{appointment.meeting_location}}\" style=\"color:#1a56db;\">{{appointment.meeting_location}}<\/a><\/p>\n<p style=\"margin:0 0 14px 0;\">{{location.name}}<\/p>\n<\/div>\n", "file": "onboarding-5-min-email"}];
+const WHEN = {"Confirmation email":"On booking","24 h email":"24 hours before","1 h email":"1 hour before","5 min email":"5 minutes before"};
+const list = document.getElementById("list");
+function copy(btn, text){
+  const ok = () => { btn.textContent = "Copied"; btn.classList.add("done"); setTimeout(()=>{btn.textContent = btn.dataset.l; btn.classList.remove("done")}, 1500) };
+  const fallback = () => { const t = btn.closest(".card").querySelector(btn.dataset.sel); const r = document.createRange(); r.selectNodeContents(t); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Press Ctrl+C"; };
+  try { navigator.clipboard.writeText(text).then(ok, fallback) } catch(e){ fallback() }
+}
+function render(call){
+  list.innerHTML = "";
+  EMAILS.filter(e => e.call === call).forEach(e => {
+    const c = document.createElement("section"); c.className = "card";
+    c.innerHTML = `<div><div class="when"></div><h2></h2></div>
+      <div class="label">Subject</div><div class="row"><div class="subject"></div><button class="copy" data-l="Copy subject" data-sel=".subject">Copy subject</button></div>
+      <div class="row"><span class="label">HTML</span><button class="copy" data-l="Copy HTML" data-sel="pre">Copy HTML</button></div>
+      <pre></pre><details><summary>Preview</summary><div class="preview"></div></details>`;
+    c.querySelector(".when").textContent = WHEN[e.name] || "";
+    c.querySelector("h2").textContent = e.name.replace(" email","");
+    c.querySelector(".subject").textContent = e.subject;
+    c.querySelector("pre").textContent = e.html;
+    c.querySelector(".preview").innerHTML = e.html;
+    const [bs, bh] = c.querySelectorAll(".copy");
+    bs.onclick = () => copy(bs, e.subject); bh.onclick = () => copy(bh, e.html);
+    list.appendChild(c);
+  });
+}
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", x === b));
+  render(b.dataset.call);
+});
+render("demo");
+</script>

@@ -36,5 +36,5 @@ out. That's expected.
 
 ## Copy
 
-All reminder copy, demo and onboarding: [reminder-copy.md](reminder-copy.md).
+All reminder copy, demo and onboarding: [reminder-copy.md](reminder-copy.md). Paste-ready HTML: `emails/` (rebuild with `python3 automations/build-emails.py` after editing the copy).
 Don't say "Zoom Meeting ID" anywhere. The meeting location is a Google Meet link.
