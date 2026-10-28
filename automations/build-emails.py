@@ -35,12 +35,21 @@ for sec in re.split(r"^(?=## |### )", md, flags=re.M):
     if not sec.startswith("### ") or not call: continue
     head, rest = sec[4:].split("\n", 1)
     m = re.search(r"\*\*Subject:\*\* (.+)", rest)
-    if "email" not in head.lower() or not m: continue
     quote = [re.sub(r"^> ?", "", l) for l in rest.split("\n") if l.startswith(">")]
+    if "SMS" in head:
+        emails.append({"call": call, "name": head.split("(")[0].strip(), "sms": quote[0]})
+        continue
+    if "email" not in head.lower() or not m: continue
     slug = f"{call}-" + re.sub(r"[^a-z0-9]+", "-", head.lower().split("(")[0]).strip("-")
     h = body(quote)
     (here / "emails" / f"{slug}.html").write_text(h)
     emails.append({"call": call, "name": head.split("(")[0].strip(), "subject": m.group(1), "html": h, "file": slug})
 (here / "emails" / "emails.json").write_text(json.dumps(emails, indent=1))
-assert len(emails) == 8, len(emails)
-print("\n".join(e["file"] for e in emails))
+assert len(emails) == 12, len(emails)
+SAMPLE = {"{{contact.first_name}}": "Christopher", "{{appointment.meeting_location}}": "https://meet.google.com/abc-defg-hij", "{{location.name}}": "Meridian AI Solutions"}
+for e in emails:
+    if "sms" in e:
+        s = e["sms"]
+        for k, v in SAMPLE.items(): s = s.replace(k, v)
+        assert len(s) <= 160 and s.isascii(), (e["name"], len(s))  # 1 GSM segment
+print("\n".join(e.get("file") or e["name"] for e in emails))
