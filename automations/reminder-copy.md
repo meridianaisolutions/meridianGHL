@@ -4,9 +4,6 @@ Copy for the 24 h, 1 h and 5 min reminders, one set for demo calls and one
 for onboarding calls. Meeting link is Google Meet via
 `{{appointment.meeting_location}}`.
 
-`[reschedule link]` means: paste the same reschedule merge field your
-confirmation email already uses.
-
 ## What makes these work
 
 There's no reliable public A/B data on exact subject lines, so these follow
@@ -15,9 +12,9 @@ the habits that reduce no-shows:
 - Put the time in the subject. People decide from the inbox preview.
 - Keep it short and plain, like a person typed it. No images or banners.
 - One link per email, the Meet link. Reschedule is the only other option.
+- Only say what's true. No "I'm on the call" when nobody is yet.
 - Make rescheduling easy. A moved call beats a no-show.
 - Demo emails give a reason to turn up. Onboarding emails help them prepare.
-- Sign off with a real name. It gets read more than a company name.
 
 ## Is 5 minutes too much?
 
@@ -38,13 +35,12 @@ both, keep the email to two lines.
 >
 > Just a reminder we're meeting tomorrow, {{appointment.only_start_date}} at {{appointment.only_start_time}} ({{appointment.timezone}}).
 >
-> I'll walk you through what we'd set up for your business, and you can ask me anything. No pressure to decide on the call.
+> We'll walk you through what we'd set up for your business, and you can ask us anything. No pressure to decide on the call.
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> If that time doesn't work anymore, pick another one here: [reschedule link]
+> If that time doesn't work anymore, pick another one here: {{appointment.reschedule_link}}
 >
-> Marcus
 > {{location.name}}
 
 ### 1 h email
@@ -58,19 +54,19 @@ both, keep the email to two lines.
 >
 > Something come up? Just reply and we'll find another time.
 >
-> Marcus
+> {{location.name}}
 
 ### 5 min email
 
-**Subject:** I'm on the call now
+**Subject:** Starting in 5 minutes
 
-> Hi {{contact.first_name}}, I've opened the call. Join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}}, we're starting in 5 minutes. Join here: {{appointment.meeting_location}}
 >
-> Marcus
+> {{location.name}}
 
 ### 5 min SMS (use this one)
 
-> Hi {{contact.first_name}}, it's Marcus. I'm on the call now, join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
 
 ---
 
@@ -94,9 +90,8 @@ both, keep the email to two lines.
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> Need to move it? [reschedule link]
+> Need to move it? {{appointment.reschedule_link}}
 >
-> Marcus
 > {{location.name}}
 
 ### 1 h email
@@ -107,21 +102,20 @@ both, keep the email to two lines.
 >
 > We start at {{appointment.only_start_time}}. Here's the link: {{appointment.meeting_location}}
 >
-> Marcus
+> {{location.name}}
 
 ### 5 min email
 
-**Subject:** I'm on the call now
+**Subject:** Starting in 5 minutes
 
-> Hi {{contact.first_name}}, I've opened the call. Join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}}, we're starting in 5 minutes. Join here: {{appointment.meeting_location}}
 >
-> Marcus
+> {{location.name}}
 
 ### 5 min SMS (use this one)
 
-> Hi {{contact.first_name}}, it's Marcus. I'm on the call now, join here: {{appointment.meeting_location}}
+> Hi {{contact.first_name}}, we're starting in 5 min. Join here: {{appointment.meeting_location}} - {{location.name}}
 
 ---
 
-Edit the onboarding checklist to match what you actually collect. Swap
-"Marcus" for whoever runs the call if it isn't you.
+Edit the onboarding checklist to match what you actually collect.
