@@ -84,7 +84,7 @@ link, or in an HTML/code block use:
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> If the time doesn't suit anymore, pick another one here: {{appointment.reschedule_link}}
+> If the time doesn't suit anymore, [pick another time here]({{appointment.reschedule_link}}).
 >
 > Marcus
 > {{location.name}}
@@ -99,7 +99,7 @@ link, or in an HTML/code block use:
 >
 > {{appointment.meeting_location}}
 >
-> Something come up? Grab another time here: {{appointment.reschedule_link}}
+> Something come up? [Grab another time here]({{appointment.reschedule_link}}).
 >
 > Marcus
 > {{location.name}}
@@ -171,7 +171,7 @@ link, or in an HTML/code block use:
 >
 > Join on Google Meet: {{appointment.meeting_location}}
 >
-> Need a different time? {{appointment.reschedule_link}}
+> Need a different time? [Reschedule here]({{appointment.reschedule_link}}).
 >
 > Marcus
 > {{location.name}}
