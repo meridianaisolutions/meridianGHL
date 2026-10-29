@@ -13,6 +13,10 @@
           },
           {
             "type": "command",
+            "command": "grep -qiE 'rank|treg|serp|prospect|keyword|maps|position' && echo 'Rule from Marcus (corrected twice): never report a Google ranking position from a keyword database (Serpstat, SpyFu, DataForSEO Labs) as fact. Verify every position you report with a live Google search set to a Sydney location (crawl4ai.google.serp.organic, country=au), and say the search location. Map Pack and organic positions are separate lists; label which one each number is. Only report buying-intent terms (no cost, price, how-to, ideas or DIY searches).' || true"
+          },
+          {
+            "type": "command",
             "command": "echo 'Before replying: list every change the user asked for in this message and earlier ones, add each as a check in the deliverable folder checks/requests.py, apply them all, then attach or sync every changed file (post_message takes 6 attachments max, so send the rest too).'"
           }
         ]
