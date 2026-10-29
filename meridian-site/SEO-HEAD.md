@@ -7,6 +7,7 @@ site-wide header, or every page would point its canonical at the home page.
 ```html
 <link rel="canonical" href="https://meridianaisolutions.com.au/PATH">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="IMAGE_URL">
 ```
 
 | Page | `href` |
@@ -21,6 +22,6 @@ site-wide header, or every page would point its canonical at the home page.
 | Local growth system | `https://meridianaisolutions.com.au/local-growth-system` |
 | Privacy policy | `https://meridianaisolutions.com.au/privacy-policy` |
 
-`og:image`: set **Page > Settings > SEO meta data > Social image** (1200 x 630
-JPG or PNG). GHL writes `og:image` from it, and X falls back to
-`og:image` when there is no `twitter:image`.
+`IMAGE_URL`: a 1200 x 630 JPG or PNG uploaded to GHL Media. GHL page settings
+have no social image field, so the tag goes in the header code above. X falls
+back to `og:image` when there is no `twitter:image`.
