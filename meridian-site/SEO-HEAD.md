@@ -22,4 +22,5 @@ site-wide header, or every page would point its canonical at the home page.
 | Privacy policy | `https://meridianaisolutions.com.au/privacy-policy` |
 
 `og:image`: set **Page > Settings > SEO meta data > Social image** (1200 x 630
-JPG or PNG). GHL writes `og:image` and `twitter:image` from it.
+JPG or PNG). GHL writes `og:image` from it, and X falls back to
+`og:image` when there is no `twitter:image`.
