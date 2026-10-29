@@ -8,7 +8,7 @@ Do **not** add any of these to `webapi.meridianaisolutions.com.au` or `dashboard
 GHL sites and funnels have no setting for response headers. Two options:
 
 1. **Meta tag in Site settings > Tracking code > Head.** Only works for `Content-Security-Policy` (without `frame-ancestors`) and `Referrer-Policy`. Everything else is ignored as a meta tag.
-2. **Cloudflare in front (free plan). This is the real fix.**
+2. **Your own Cloudflare in front (free plan). This is the real fix, but test it first.** GHL already runs custom domains through its own Cloudflare (you'll see `cdn-cgi` and `cloudflareinsights.com` requests). Putting your Cloudflare in front of theirs is "orange-to-orange" proxying, which only works when the SaaS provider allows it. If SSL errors or GHL marks the domain disconnected, switch the record back to DNS only and use the meta-tag option instead.
    - Add the domain to Cloudflare and copy **every** existing DNS record across before switching nameservers. Missing the GHL email records (SPF, DKIM, MX, tracking CNAMEs) breaks email.
    - Proxy (orange cloud) only the root and `www` records. Leave `webapi`, `dashboard`, email and tracking records on DNS only (grey cloud).
    - SSL/TLS mode: **Full**. Then check the site loads and that GHL's domain screen still shows the domain as connected. GHL validates and renews its certificate through the domain, so re-check it in a few days too.
