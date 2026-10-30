@@ -46,7 +46,9 @@ Replied**; the definition couldn't be read through the API) and add the filter *
 
 The `cold call` tag is added to every contact imported from
 `leads/` (see `automations/lead-prep/outscraper-to-ghl.py`), so one filter
-covers all prospects. If a prospect becomes a client, remove the tag.
+covers all prospects. When a prospect signs, the tag has to come off or they
+stay excluded: **03. Onboarding Call Reminders (Generic)** now removes
+`cold call` as its first step (added 30 Oct 2026).
 
 The workflow API isn't enabled for this sub-account, so these changes are
 made in the GHL UI, not through Claude.
