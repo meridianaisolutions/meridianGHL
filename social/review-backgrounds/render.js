@@ -4,7 +4,6 @@ const page = (w, h) => `<body style="margin:0"><div style="width:${w}px;height:$
 background:radial-gradient(${w*1.1}px ${h*0.8}px at 100% 0%,rgba(46,155,99,.9),transparent 65%),
 radial-gradient(${w*0.8}px ${h*0.55}px at 0% 100%,rgba(255,216,74,.28),transparent 60%),
 linear-gradient(135deg,#17603c,#12312a 55%,#0c231e)">
-<div style="position:absolute;inset:${h*0.12}px ${w*0.08}px ${h*0.12}px;border-radius:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)"></div>
 </div></body>`;
 (async () => {
   const b = await chromium.launch();
