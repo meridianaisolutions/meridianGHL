@@ -13,6 +13,10 @@
           },
           {
             "type": "command",
+            "command": "grep -qiE 'ghl|workflow|fired|email|sms|review|custom value|why' && echo 'Rule from Marcus (corrected twice): never name a workflow, setting or custom value as the cause of a GHL event until you have checked it against live GHL data this session (custom values, contacts, message export, workflow list, or a log/screenshot Marcus sent). Label anything unchecked as a guess, and say what would confirm it.' || true"
+          },
+          {
+            "type": "command",
             "command": "grep -qiE 'rank|treg|serp|prospect|keyword|maps|position' && echo 'Rule from Marcus (corrected twice): never report a Google ranking position from a keyword database (Serpstat, SpyFu, DataForSEO Labs) as fact. Verify every position you report with a live Google search set to a Sydney location (crawl4ai.google.serp.organic, country=au), and say the search location. Map Pack and organic positions are separate lists; label which one each number is. Only report buying-intent terms (no cost, price, how-to, ideas or DIY searches).' || true"
           },
           {
